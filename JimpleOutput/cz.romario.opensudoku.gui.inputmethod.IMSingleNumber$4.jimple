@@ -1,0 +1,373 @@
+class cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4 extends java.lang.Object implements java.lang.Runnable
+{
+    final cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0;
+    public static java.util.LinkedList methodCountList;
+
+    void <init>(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4 $r0;
+        cz.romario.opensudoku.gui.inputmethod.IMSingleNumber $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4;
+
+        $r1 := @parameter0: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber;
+
+        $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void run()
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4 $r0;
+        android.graphics.LightingColorFilter $r1;
+        cz.romario.opensudoku.gui.inputmethod.IMSingleNumber $r2;
+        java.util.Map $r3, $r16;
+        java.util.Collection $r4;
+        java.util.Iterator $r5;
+        boolean $z0;
+        cz.romario.opensudoku.game.SudokuGame $r6;
+        cz.romario.opensudoku.game.CellCollection $r7;
+        android.content.Context $r8;
+        android.content.res.Resources $r9;
+        int $i0, $i1, visitedCount, flagInt;
+        java.util.Set $r10;
+        java.lang.Object $r11, invalid, flagObj;
+        android.widget.Button $r12;
+        java.lang.Integer $r13, flagInteger;
+        android.graphics.drawable.Drawable $r14;
+        java.util.Map$Entry $r15;
+        java.lang.StringBuilder $r17;
+        java.lang.String $r18;
+        java.util.LinkedList methodCount;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r3 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: java.util.Map access$4(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        $r4 = interfaceinvoke $r3.<java.util.Map: java.util.Collection values()>();
+
+        $r5 = interfaceinvoke $r4.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label01:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label07;
+
+        $r3 = null;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $z0 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: boolean access$6(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        if $z0 != 0 goto label02;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $z0 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: boolean access$7(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        if $z0 == 0 goto label03;
+
+     label02:
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r6 = $r2.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: cz.romario.opensudoku.game.SudokuGame mGame>;
+
+        $r7 = virtualinvoke $r6.<cz.romario.opensudoku.game.SudokuGame: cz.romario.opensudoku.game.CellCollection getCells()>();
+
+        $r3 = virtualinvoke $r7.<cz.romario.opensudoku.game.CellCollection: java.util.Map getValuesUseCount()>();
+
+     label03:
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $z0 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: boolean access$6(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        if $z0 == 0 goto label05;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r8 = $r2.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: android.content.Context mContext>;
+
+        $r9 = virtualinvoke $r8.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $i0 = virtualinvoke $r9.<android.content.res.Resources: int getColor(int)>(2131165184);
+
+        $r10 = interfaceinvoke $r3.<java.util.Map: java.util.Set entrySet()>();
+
+        $r5 = interfaceinvoke $r10.<java.util.Set: java.util.Iterator iterator()>();
+
+     label04:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label09;
+
+     label05:
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $z0 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: boolean access$7(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        if $z0 == 0 goto label15;
+
+        $r10 = interfaceinvoke $r3.<java.util.Map: java.util.Set entrySet()>();
+
+        $r5 = interfaceinvoke $r10.<java.util.Set: java.util.Iterator iterator()>();
+
+     label06:
+        $z0 = interfaceinvoke $r5.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label13;
+
+        return;
+
+     label07:
+        $r11 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r12 = (android.widget.Button) $r11;
+
+        virtualinvoke $r12.<android.widget.Button: void setBackgroundResource(int)>(2130837508);
+
+        $r11 = virtualinvoke $r12.<android.widget.Button: java.lang.Object getTag()>();
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $i0 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: int access$5(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        $r13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $z0 = virtualinvoke $r11.<java.lang.Object: boolean equals(java.lang.Object)>($r13);
+
+        if $z0 == 0 goto label08;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r8 = $r2.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: android.content.Context mContext>;
+
+        virtualinvoke $r12.<android.widget.Button: void setTextAppearance(android.content.Context,int)>($r8, 16973891);
+
+        $r1 = new android.graphics.LightingColorFilter;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r8 = $r2.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: android.content.Context mContext>;
+
+        $r9 = virtualinvoke $r8.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $i0 = virtualinvoke $r9.<android.content.res.Resources: int getColor(int)>(2131165185);
+
+        specialinvoke $r1.<android.graphics.LightingColorFilter: void <init>(int,int)>($i0, 0);
+
+        $r14 = virtualinvoke $r12.<android.widget.Button: android.graphics.drawable.Drawable getBackground()>();
+
+        virtualinvoke $r14.<android.graphics.drawable.Drawable: void setColorFilter(android.graphics.ColorFilter)>($r1);
+
+        goto label01;
+
+     label08:
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r8 = $r2.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: android.content.Context mContext>;
+
+        virtualinvoke $r12.<android.widget.Button: void setTextAppearance(android.content.Context,int)>($r8, 16973898);
+
+        $r14 = virtualinvoke $r12.<android.widget.Button: android.graphics.drawable.Drawable getBackground()>();
+
+        virtualinvoke $r14.<android.graphics.drawable.Drawable: void setColorFilter(android.graphics.ColorFilter)>(null);
+
+        goto label01;
+
+     label09:
+        $r11 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r15 = (java.util.Map$Entry) $r11;
+
+        $r11 = interfaceinvoke $r15.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r13 = (java.lang.Integer) $r11;
+
+        $i1 = virtualinvoke $r13.<java.lang.Integer: int intValue()>();
+
+        if $i1 < 9 goto label11;
+
+        $z0 = 1;
+
+     label10:
+        if $z0 == 0 goto label04;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r16 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: java.util.Map access$4(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        $r11 = interfaceinvoke $r15.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = interfaceinvoke $r16.<java.util.Map: java.lang.Object get(java.lang.Object)>($r11);
+
+        $r12 = (android.widget.Button) $r11;
+
+        $r11 = virtualinvoke $r12.<android.widget.Button: java.lang.Object getTag()>();
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $i1 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: int access$5(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        $r13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i1);
+
+        $z0 = virtualinvoke $r11.<java.lang.Object: boolean equals(java.lang.Object)>($r13);
+
+        if $z0 == 0 goto label12;
+
+        virtualinvoke $r12.<android.widget.Button: void setTextColor(int)>($i0);
+
+        goto label04;
+
+     label11:
+        $z0 = 0;
+
+        goto label10;
+
+     label12:
+        virtualinvoke $r12.<android.widget.Button: void setBackgroundResource(int)>(2130837504);
+
+        goto label04;
+
+     label13:
+        $r11 = interfaceinvoke $r5.<java.util.Iterator: java.lang.Object next()>();
+
+        $r15 = (java.util.Map$Entry) $r11;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $r3 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: java.util.Map access$4(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        $r11 = interfaceinvoke $r15.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r11 = interfaceinvoke $r3.<java.util.Map: java.lang.Object get(java.lang.Object)>($r11);
+
+        $r12 = (android.widget.Button) $r11;
+
+        $r11 = virtualinvoke $r12.<android.widget.Button: java.lang.Object getTag()>();
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: cz.romario.opensudoku.gui.inputmethod.IMSingleNumber this$0>;
+
+        $i0 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber: int access$5(cz.romario.opensudoku.gui.inputmethod.IMSingleNumber)>($r2);
+
+        $r13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $z0 = virtualinvoke $r11.<java.lang.Object: boolean equals(java.lang.Object)>($r13);
+
+        if $z0 != 0 goto label14;
+
+        $r17 = new java.lang.StringBuilder;
+
+        specialinvoke $r17.<java.lang.StringBuilder: void <init>()>();
+
+        $r11 = interfaceinvoke $r15.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r11);
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" (");
+
+        $r11 = interfaceinvoke $r15.<java.util.Map$Entry: java.lang.Object getValue()>();
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r11);
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(")");
+
+        $r18 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r12.<android.widget.Button: void setText(java.lang.CharSequence)>($r18);
+
+        goto label06;
+
+     label14:
+        $r17 = new java.lang.StringBuilder;
+
+        specialinvoke $r17.<java.lang.StringBuilder: void <init>()>();
+
+        $r11 = interfaceinvoke $r15.<java.util.Map$Entry: java.lang.Object getKey()>();
+
+        $r17 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r11);
+
+        $r18 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r12.<android.widget.Button: void setText(java.lang.CharSequence)>($r18);
+
+        goto label06;
+
+     label15:
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label16;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label16:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.inputmethod.IMSingleNumber$4: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

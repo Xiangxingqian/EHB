@@ -1,0 +1,1001 @@
+public class com.app.test.event.UIEventHandler$UIEventAnalysis extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.app.test.event.UIEventHandler$UIEventAnalysis r0;
+
+        r0 := @this: com.app.test.event.UIEventHandler$UIEventAnalysis;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void doViewAnalysis(java.lang.reflect.Method, android.view.View, java.lang.Object)
+    {
+        java.lang.reflect.Method r0;
+        android.view.View r1, r129, r144;
+        java.lang.Object r2;
+        java.lang.String r3, $r5, $r6, $r8, $r9, $r10, $r11, $r14, $r17, $r18, $r23, $r24, $r25, $r26, $r27, $r28, $r29, $r30, $r31, $r32, $r33, $r34, $r35, $r36, $r37, $r38, $r39, $r40, $r41, $r42, $r43, $r44, $r45, $r46, $r47, $r53;
+        android.widget.Adapter r4;
+        long l0, $l3, $l5, $l6, $l7, $l8, $l9, $l11, $l12, $l13, $l14;
+        int $i1, $i2, $i4, $i10, $i15, $i16, $i17, i18, i19, i20, i21, i22, i23, i24, i25, i26, i27, i28, i29;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6, $z7, $z8, $z9, $z10, $z11, $z12, $z13, $z14, $z15, $z16, $z17, $z18, $z19, $z20, $z21, $z22, $z23, $z24, $z25, $z26, $z27, $z28, $z29, $z30, $z31, $z32, $z33, $z34;
+        java.lang.Boolean $r13, $r15, $r76, $r111, $r114;
+        java.lang.Integer $r19, $r48, $r56, $r61, $r66, $r82, $r88, $r94, $r97, $r99, $r102, $r105, $r106, $r107, $r110, $r115, $r116, $r120, $r123;
+        java.lang.Object[] $r20, $r49, $r52, $r54, $r57, $r60, $r64, $r67, $r69, $r72, $r74, $r78, $r79, $r81, $r83, $r85, $r86, $r90, $r92, $r96, $r101, $r108, $r118, $r122, $r125, $r126, r127, r130;
+        java.lang.Long $r22;
+        android.view.KeyEvent $r50, $r58, r146, r148;
+        float $f0, $f1, $f2, $f3, $f4, $f5, $f6, $f7, $f8, $f9, f10;
+        java.lang.Float $r73, $r98, $r103;
+        java.lang.Exception $r119, r149;
+        android.widget.AdapterView r128;
+        android.widget.SeekBar r131;
+        android.widget.AbsListView r132;
+        android.view.MotionEvent r133, r134, r135, r137, r138;
+        android.widget.RatingBar r136;
+        android.widget.SearchView r139, r141;
+        android.widget.CursorAdapter r140, r142;
+        android.view.ViewStub r143;
+        android.widget.TextView r145, r147;
+
+        r0 := @parameter0: java.lang.reflect.Method;
+
+        r1 := @parameter1: android.view.View;
+
+        r2 := @parameter2: java.lang.Object;
+
+        $i1 = virtualinvoke r1.<android.view.View: int getVisibility()>();
+
+        if $i1 == 0 goto label01;
+
+        return;
+
+     label01:
+        r3 = staticinvoke <com.app.test.Util: java.lang.String getSubsignature(java.lang.reflect.Method)>(r0);
+
+     label02:
+        $r5 = "boolean onLongClick(android.view.View)";
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z0 != 0 goto label03;
+
+        $r6 = "void onClick(android.view.View)";
+
+        $z1 = virtualinvoke $r6.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z1 != 0 goto label03;
+
+        $r8 = "void onNothingSelected(android.widget.AdapterView)";
+
+        $z2 = virtualinvoke $r8.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z2 != 0 goto label03;
+
+        $r9 = "void onStartTrackingTouch(android.widget.SeekBar)";
+
+        $z3 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z3 != 0 goto label03;
+
+        $r10 = "void onStopTrackingTouch(android.widget.SeekBar)";
+
+        $z4 = virtualinvoke $r10.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z4 == 0 goto label04;
+
+     label03:
+        $r126 = newarray (java.lang.Object)[1];
+
+        $r126[0] = r1;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r126);
+
+        goto label41;
+
+     label04:
+        $r11 = "void onFocusChange(android.view.View,boolean)";
+
+        $z5 = virtualinvoke $r11.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z5 != 0 goto label05;
+
+        $r14 = "void onCheckedChanged(android.widget.CompoundButton,boolean)";
+
+        $z6 = virtualinvoke $r14.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z6 == 0 goto label06;
+
+     label05:
+        r127 = newarray (java.lang.Object)[2];
+
+        r127[0] = r1;
+
+        $r13 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        r127[1] = $r13;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, r127);
+
+        $r15 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        r127[1] = $r15;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, r127);
+
+        goto label41;
+
+     label06:
+        $r18 = "void onSystemUiVisibilityChange(int)";
+
+        $z8 = virtualinvoke $r18.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z8 == 0 goto label07;
+
+        $r122 = newarray (java.lang.Object)[1];
+
+        $r120 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r122[0] = $r120;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r122);
+
+        $r125 = newarray (java.lang.Object)[1];
+
+        $r123 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(8);
+
+        $r125[0] = $r123;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r125);
+
+        goto label41;
+
+     label07:
+        $r17 = "void onItemClick(android.widget.AdapterView,android.view.View,int,long)";
+
+        $z7 = virtualinvoke $r17.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z7 != 0 goto label08;
+
+        $r23 = "boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long)";
+
+        $z9 = virtualinvoke $r23.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z9 != 0 goto label08;
+
+        $r26 = "void onItemSelected(android.widget.AdapterView,android.view.View,int,long)";
+
+        $z12 = virtualinvoke $r26.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z12 == 0 goto label13;
+
+     label08:
+        r128 = (android.widget.AdapterView) r1;
+
+        $i16 = virtualinvoke r128.<android.widget.AdapterView: int getChildCount()>();
+
+        if $i16 <= 5 goto label09;
+
+        $i17 = 5;
+
+        goto label10;
+
+     label09:
+        $i17 = virtualinvoke r128.<android.widget.AdapterView: int getChildCount()>();
+
+     label10:
+        i18 = $i17;
+
+        i19 = 0;
+
+        goto label12;
+
+     label11:
+        r129 = virtualinvoke r128.<android.widget.AdapterView: android.view.View getChildAt(int)>(i19);
+
+        r4 = virtualinvoke r128.<android.widget.AdapterView: android.widget.Adapter getAdapter()>();
+
+        l0 = interfaceinvoke r4.<android.widget.Adapter: long getItemId(int)>(i19);
+
+        $r20 = newarray (java.lang.Object)[4];
+
+        $r20[0] = r1;
+
+        $r20[1] = r129;
+
+        $r19 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i19);
+
+        $r20[2] = $r19;
+
+        $r22 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>(l0);
+
+        $r20[3] = $r22;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r20);
+
+        i19 = i19 + 1;
+
+     label12:
+        if i19 < i18 goto label11;
+
+        goto label41;
+
+     label13:
+        $r27 = "void onProgressChanged(android.widget.SeekBar,int,boolean)";
+
+        $z13 = virtualinvoke $r27.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z13 == 0 goto label14;
+
+        r130 = newarray (java.lang.Object)[3];
+
+        r131 = (android.widget.SeekBar) r1;
+
+        r130[0] = r1;
+
+        i20 = virtualinvoke r131.<android.widget.SeekBar: int getMax()>();
+
+        $i15 = i20 / 2;
+
+        $r115 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i15);
+
+        r130[1] = $r115;
+
+        $r114 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        r130[2] = $r114;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, r130);
+
+        $r111 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(0);
+
+        r130[2] = $r111;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, r130);
+
+        goto label41;
+
+     label14:
+        $r24 = "void onScrollStateChanged(android.widget.AbsListView,int)";
+
+        $z10 = virtualinvoke $r24.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z10 == 0 goto label17;
+
+        i21 = 0;
+
+        goto label16;
+
+     label15:
+        $r118 = newarray (java.lang.Object)[2];
+
+        $r118[0] = r1;
+
+        $r116 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i21);
+
+        $r118[1] = $r116;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r118);
+
+        i21 = i21 + 1;
+
+     label16:
+        if i21 < 3 goto label15;
+
+        goto label41;
+
+     label17:
+        $r25 = "void onScroll(android.widget.AbsListView,int,int,int)";
+
+        $z11 = virtualinvoke $r25.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z11 == 0 goto label18;
+
+        r132 = (android.widget.AbsListView) r1;
+
+        i22 = virtualinvoke r132.<android.widget.AbsListView: int getCount()>();
+
+        i23 = virtualinvoke r132.<android.widget.AbsListView: int getFirstVisiblePosition()>();
+
+        i24 = virtualinvoke r132.<android.widget.AbsListView: int getLastVisiblePosition()>();
+
+        $r108 = newarray (java.lang.Object)[4];
+
+        $r108[0] = r1;
+
+        $r107 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i23);
+
+        $r108[1] = $r107;
+
+        $r106 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i24);
+
+        $r108[2] = $r106;
+
+        $r105 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i22);
+
+        $r108[3] = $r105;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r108);
+
+        goto label41;
+
+     label18:
+        $r30 = "void onPageScrollStateChanged(int)";
+
+        $z16 = virtualinvoke $r30.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z16 == 0 goto label21;
+
+        i25 = 0;
+
+        goto label20;
+
+     label19:
+        $r96 = newarray (java.lang.Object)[1];
+
+        $r110 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i25);
+
+        $r96[0] = $r110;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r96);
+
+        i25 = i25 + 1;
+
+     label20:
+        if i25 < 3 goto label19;
+
+        goto label41;
+
+     label21:
+        $r31 = "void onPageScrolled(int,float,int)";
+
+        $z17 = virtualinvoke $r31.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z17 == 0 goto label22;
+
+        $r83 = newarray (java.lang.Object)[3];
+
+        $r102 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r83[0] = $r102;
+
+        $r103 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(0.2F);
+
+        $r83[1] = $r103;
+
+        $r99 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r83[2] = $r99;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r83);
+
+        $r101 = newarray (java.lang.Object)[3];
+
+        $r97 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r101[0] = $r97;
+
+        $r98 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(0.8F);
+
+        $r101[1] = $r98;
+
+        $r94 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r101[2] = $r94;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r101);
+
+        goto label41;
+
+     label22:
+        $r28 = "void onPageSelected(int)";
+
+        $z14 = virtualinvoke $r28.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z14 == 0 goto label23;
+
+        $r86 = newarray (java.lang.Object)[1];
+
+        $r82 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        $r86[0] = $r82;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r86);
+
+        goto label41;
+
+     label23:
+        $r29 = "boolean onClose()";
+
+        $z15 = virtualinvoke $r29.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z15 == 0 goto label24;
+
+        $r85 = newarray (java.lang.Object)[0];
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r85);
+
+        goto label41;
+
+     label24:
+        $r34 = "void onScrollStateChange(android.widget.NumberPicker,int)";
+
+        $z20 = virtualinvoke $r34.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z20 == 0 goto label27;
+
+        i26 = 0;
+
+        goto label26;
+
+     label25:
+        $r92 = newarray (java.lang.Object)[2];
+
+        $r92[0] = r1;
+
+        $r88 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(i26);
+
+        $r92[1] = $r88;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r92);
+
+        i26 = i26 + 1;
+
+     label26:
+        if i26 < 3 goto label25;
+
+        goto label41;
+
+     label27:
+        $r35 = "boolean onQueryTextSubmit(java.lang.String)";
+
+        $z21 = virtualinvoke $r35.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z21 == 0 goto label28;
+
+        $r90 = newarray (java.lang.Object)[1];
+
+        $r90[0] = "android";
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r90);
+
+        goto label41;
+
+     label28:
+        $r32 = "boolean onQueryTextChange(java.lang.String)";
+
+        $z18 = virtualinvoke $r32.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z18 == 0 goto label29;
+
+        $r78 = newarray (java.lang.Object)[1];
+
+        $r78[0] = "java";
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r78);
+
+        goto label41;
+
+     label29:
+        $r33 = "boolean onGenericMotion(android.view.View,android.view.MotionEvent)";
+
+        $z19 = virtualinvoke $r33.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z19 == 0 goto label30;
+
+        $l14 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $l12 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $f6 = virtualinvoke r1.<android.view.View: float getX()>();
+
+        $f7 = virtualinvoke r1.<android.view.View: float getY()>();
+
+        r133 = staticinvoke <android.view.MotionEvent: android.view.MotionEvent obtain(long,long,int,float,float,int)>($l14, $l12, 8, $f6, $f7, 0);
+
+        $r79 = newarray (java.lang.Object)[2];
+
+        $r79[0] = r1;
+
+        $r79[1] = r133;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r79);
+
+        goto label41;
+
+     label30:
+        $r38 = "boolean onTouch(android.view.View,android.view.MotionEvent)";
+
+        $z24 = virtualinvoke $r38.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z24 == 0 goto label31;
+
+        $l11 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $l8 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $f5 = virtualinvoke r1.<android.view.View: float getX()>();
+
+        $f4 = virtualinvoke r1.<android.view.View: float getY()>();
+
+        r134 = staticinvoke <android.view.MotionEvent: android.view.MotionEvent obtain(long,long,int,float,float,int)>($l11, $l8, 0, $f5, $f4, 0);
+
+        $r72 = newarray (java.lang.Object)[2];
+
+        $r72[0] = r1;
+
+        $r72[1] = r134;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r72);
+
+        $l9 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $l13 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $f8 = virtualinvoke r1.<android.view.View: float getX()>();
+
+        $f9 = virtualinvoke r1.<android.view.View: float getY()>();
+
+        r135 = staticinvoke <android.view.MotionEvent: android.view.MotionEvent obtain(long,long,int,float,float,int)>($l9, $l13, 1, $f8, $f9, 0);
+
+        $r81 = newarray (java.lang.Object)[2];
+
+        $r81[0] = r1;
+
+        $r81[1] = r135;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r81);
+
+        goto label41;
+
+     label31:
+        $r39 = "void onRatingChanged(android.widget.RatingBar,float,boolean)";
+
+        $z25 = virtualinvoke $r39.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z25 == 0 goto label32;
+
+        r136 = (android.widget.RatingBar) r1;
+
+        i27 = virtualinvoke r136.<android.widget.RatingBar: int getNumStars()>();
+
+        $i10 = i27 / 2;
+
+        f10 = (float) $i10;
+
+        $r74 = newarray (java.lang.Object)[3];
+
+        $r74[0] = r1;
+
+        $r73 = staticinvoke <java.lang.Float: java.lang.Float valueOf(float)>(f10);
+
+        $r74[1] = $r73;
+
+        $r76 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r74[2] = $r76;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r74);
+
+        goto label41;
+
+     label32:
+        $r36 = "boolean onHover(android.view.View,android.view.MotionEvent)";
+
+        $z22 = virtualinvoke $r36.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z22 == 0 goto label33;
+
+        $l3 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $l6 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $f2 = virtualinvoke r1.<android.view.View: float getX()>();
+
+        $f3 = virtualinvoke r1.<android.view.View: float getY()>();
+
+        r137 = staticinvoke <android.view.MotionEvent: android.view.MotionEvent obtain(long,long,int,float,float,int)>($l3, $l6, 9, $f2, $f3, 0);
+
+        $r69 = newarray (java.lang.Object)[2];
+
+        $r69[0] = r1;
+
+        $r69[1] = r137;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r69);
+
+        $l7 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $l5 = staticinvoke <android.os.SystemClock: long uptimeMillis()>();
+
+        $f0 = virtualinvoke r1.<android.view.View: float getX()>();
+
+        $f1 = virtualinvoke r1.<android.view.View: float getY()>();
+
+        r138 = staticinvoke <android.view.MotionEvent: android.view.MotionEvent obtain(long,long,int,float,float,int)>($l7, $l5, 10, $f0, $f1, 0);
+
+        $r67 = newarray (java.lang.Object)[2];
+
+        $r67[0] = r1;
+
+        $r67[1] = r138;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r67);
+
+        goto label41;
+
+     label33:
+        $r37 = "boolean onSuggestionSelect(int)";
+
+        $z23 = virtualinvoke $r37.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z23 == 0 goto label34;
+
+        r139 = (android.widget.SearchView) r1;
+
+        r140 = virtualinvoke r139.<android.widget.SearchView: android.widget.CursorAdapter getSuggestionsAdapter()>();
+
+        i28 = virtualinvoke r140.<android.widget.CursorAdapter: int getCount()>();
+
+        if i28 == 0 goto label41;
+
+        $r60 = newarray (java.lang.Object)[1];
+
+        $i2 = i28 - 1;
+
+        $r61 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        $r60[0] = $r61;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r60);
+
+        goto label41;
+
+     label34:
+        $r43 = "boolean onSuggestionClick(int)";
+
+        $z29 = virtualinvoke $r43.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z29 == 0 goto label35;
+
+        r141 = (android.widget.SearchView) r1;
+
+        r142 = virtualinvoke r141.<android.widget.SearchView: android.widget.CursorAdapter getSuggestionsAdapter()>();
+
+        i29 = virtualinvoke r142.<android.widget.CursorAdapter: int getCount()>();
+
+        if i29 == 0 goto label41;
+
+        $r64 = newarray (java.lang.Object)[1];
+
+        $i4 = i29 - 1;
+
+        $r66 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i4);
+
+        $r64[0] = $r66;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r64);
+
+        goto label41;
+
+     label35:
+        $r42 = "boolean onDrag(android.view.View,android.view.DragEvent)";
+
+        $z28 = virtualinvoke $r42.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z28 != 0 goto label41;
+
+        $r41 = "boolean onPreferenceTreeClick(android.preference.PreferenceScreen,android.preference.Preference)";
+
+        $z27 = virtualinvoke $r41.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z27 != 0 goto label41;
+
+        $r40 = "void onInflate(android.view.ViewStub,android.view.View)";
+
+        $z26 = virtualinvoke $r40.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z26 == 0 goto label36;
+
+        r143 = (android.view.ViewStub) r1;
+
+        r144 = virtualinvoke r143.<android.view.ViewStub: android.view.View inflate()>();
+
+        $r54 = newarray (java.lang.Object)[2];
+
+        $r54[0] = r143;
+
+        $r54[1] = r144;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r54);
+
+        goto label41;
+
+     label36:
+        $r47 = "boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent)";
+
+        $z33 = virtualinvoke $r47.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z33 == 0 goto label37;
+
+        r145 = (android.widget.TextView) r1;
+
+        $r58 = new android.view.KeyEvent;
+
+        specialinvoke $r58.<android.view.KeyEvent: void <init>(int,int)>(0, 66);
+
+        r146 = $r58;
+
+        $r57 = newarray (java.lang.Object)[3];
+
+        $r57[0] = r145;
+
+        $r56 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        $r57[1] = $r56;
+
+        $r57[2] = r146;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r57);
+
+        goto label41;
+
+     label37:
+        $r46 = "boolean onKey(android.view.View,int,android.view.KeyEvent)";
+
+        $z32 = virtualinvoke $r46.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z32 == 0 goto label38;
+
+        r147 = (android.widget.TextView) r1;
+
+        $r50 = new android.view.KeyEvent;
+
+        specialinvoke $r50.<android.view.KeyEvent: void <init>(int,int)>(0, 66);
+
+        r148 = $r50;
+
+        $r49 = newarray (java.lang.Object)[3];
+
+        $r49[0] = r147;
+
+        $r48 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(66);
+
+        $r49[1] = $r48;
+
+        $r49[2] = r148;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r49);
+
+        goto label41;
+
+     label38:
+        $r45 = "void onChildViewAdded(android.view.View,android.view.View)";
+
+        $z31 = virtualinvoke $r45.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z31 != 0 goto label41;
+
+        $r44 = "void onChildViewRemoved(android.view.View,android.view.View)";
+
+        $z30 = virtualinvoke $r44.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z30 != 0 goto label41;
+
+        $r53 = "void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo)";
+
+        $z34 = virtualinvoke $r53.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z34 != 0 goto label41;
+
+        $r52 = newarray (java.lang.Object)[1];
+
+        $r52[0] = r1;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r52);
+
+     label39:
+        goto label41;
+
+     label40:
+        $r119 := @caughtexception;
+
+        r149 = $r119;
+
+        staticinvoke <com.app.test.Util: void LogException(java.lang.Exception)>(r149);
+
+     label41:
+        return;
+
+        catch java.lang.Exception from label02 to label39 with label40;
+    }
+
+    static void doDialogAnalysis(java.lang.reflect.Method, android.app.Dialog, java.lang.Object)
+    {
+        java.lang.reflect.Method r0;
+        android.app.Dialog r1;
+        java.lang.Object r2;
+        java.lang.String r3, $r4, $r6, $r7, $r8, $r9, $r10;
+        boolean $z0, $z1, $z2, $z3, $z4, $z5, $z6;
+        java.lang.Object[] $r11, $r14, $r20, $r22, $r27, $r30, $r33, $r37;
+        android.view.KeyEvent $r12, r38;
+        java.lang.Integer $r13, $r17, $r18, $r25, $r26, $r29, $r32;
+        java.lang.Boolean $r16, $r23, $r24;
+        java.lang.Exception $r35, r39;
+
+        r0 := @parameter0: java.lang.reflect.Method;
+
+        r1 := @parameter1: android.app.Dialog;
+
+        r2 := @parameter2: java.lang.Object;
+
+        $z0 = virtualinvoke r1.<android.app.Dialog: boolean isShowing()>();
+
+        if $z0 != 0 goto label1;
+
+        virtualinvoke r1.<android.app.Dialog: void show()>();
+
+     label1:
+        r3 = staticinvoke <com.app.test.Util: java.lang.String getSubsignature(java.lang.reflect.Method)>(r0);
+
+     label2:
+        $r4 = "void onDismiss(android.content.DialogInterface)";
+
+        $z1 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z1 != 0 goto label3;
+
+        $r6 = "void onShow(android.content.DialogInterface)";
+
+        $z2 = virtualinvoke $r6.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z2 != 0 goto label3;
+
+        $r7 = "void onCancel(android.content.DialogInterface)";
+
+        $z3 = virtualinvoke $r7.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z3 == 0 goto label4;
+
+     label3:
+        $r37 = newarray (java.lang.Object)[1];
+
+        $r37[0] = r1;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r37);
+
+        goto label9;
+
+     label4:
+        $r8 = "void onClick(android.content.DialogInterface,int)";
+
+        $z4 = virtualinvoke $r8.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z4 == 0 goto label5;
+
+        $r27 = newarray (java.lang.Object)[2];
+
+        $r27[0] = r1;
+
+        $r26 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(-1);
+
+        $r27[1] = $r26;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r27);
+
+        $r30 = newarray (java.lang.Object)[2];
+
+        $r30[0] = r1;
+
+        $r29 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(-2);
+
+        $r30[1] = $r29;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r30);
+
+        $r33 = newarray (java.lang.Object)[2];
+
+        $r33[0] = r1;
+
+        $r32 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(-3);
+
+        $r33[1] = $r32;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r33);
+
+        goto label9;
+
+     label5:
+        $r9 = "void onClick(android.content.DialogInterface,int,boolean)";
+
+        $z5 = virtualinvoke $r9.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z5 == 0 goto label6;
+
+        $r14 = newarray (java.lang.Object)[3];
+
+        $r14[0] = r1;
+
+        $r17 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(-1);
+
+        $r14[1] = $r17;
+
+        $r16 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r14[2] = $r16;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r14);
+
+        $r20 = newarray (java.lang.Object)[3];
+
+        $r20[0] = r1;
+
+        $r18 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(-2);
+
+        $r20[1] = $r18;
+
+        $r23 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r20[2] = $r23;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r20);
+
+        $r22 = newarray (java.lang.Object)[3];
+
+        $r22[0] = r1;
+
+        $r25 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(-3);
+
+        $r22[1] = $r25;
+
+        $r24 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        $r22[2] = $r24;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r22);
+
+        goto label9;
+
+     label6:
+        $r10 = "boolean onKey(android.content.DialogInterface,int,android.view.KeyEvent)";
+
+        $z6 = virtualinvoke $r10.<java.lang.String: boolean equals(java.lang.Object)>(r3);
+
+        if $z6 == 0 goto label9;
+
+        $r12 = new android.view.KeyEvent;
+
+        specialinvoke $r12.<android.view.KeyEvent: void <init>(int,int)>(0, 66);
+
+        r38 = $r12;
+
+        $r11 = newarray (java.lang.Object)[3];
+
+        $r11[0] = r1;
+
+        $r13 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(4);
+
+        $r11[1] = $r13;
+
+        $r11[2] = r38;
+
+        virtualinvoke r0.<java.lang.reflect.Method: java.lang.Object invoke(java.lang.Object,java.lang.Object[])>(r2, $r11);
+
+     label7:
+        goto label9;
+
+     label8:
+        $r35 := @caughtexception;
+
+        r39 = $r35;
+
+        staticinvoke <com.app.test.Util: void LogException(java.lang.Exception)>(r39);
+
+     label9:
+        return;
+
+        catch java.lang.Exception from label2 to label7 with label8;
+    }
+}

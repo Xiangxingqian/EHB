@@ -1,0 +1,1 @@
+Body. SootClass: axp.tool.apkextractor.ApkListAdapter$ViewHolder, SootMethod: <axp.tool.apkextractor.ApkListAdapter$ViewHolder: void <init>(android.view.View,axp.tool.apkextractor.ApkListAdapter)>, Stmt: virtualinvoke $r1.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r0)

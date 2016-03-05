@@ -1,0 +1,162 @@
+public final class cz.romario.opensudoku.R$id extends java.lang.Object
+{
+    public static final int button_1;
+    public static final int button_2;
+    public static final int button_3;
+    public static final int button_4;
+    public static final int button_5;
+    public static final int button_6;
+    public static final int button_7;
+    public static final int button_8;
+    public static final int button_9;
+    public static final int button_clear;
+    public static final int button_close;
+    public static final int created;
+    public static final int detail;
+    public static final int directory;
+    public static final int filename;
+    public static final int filter_status;
+    public static final int get_more_puzzles;
+    public static final int input_methods;
+    public static final int last_played;
+    public static final int name;
+    public static final int note;
+    public static final int progress;
+    public static final int root_layout;
+    public static final int save_button;
+    public static final int seek_bar;
+    public static final int seek_bar_container;
+    public static final int state;
+    public static final int sudoku_board;
+    public static final int switch_input_mode;
+    public static final int switch_num_note;
+    public static final int time;
+    public static final int time_label;
+    public static final int value;
+    public static final int version_label;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>()
+    {
+        cz.romario.opensudoku.R$id $r0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.R$id;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.R$id: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        <cz.romario.opensudoku.R$id: int version_label> = 2131230721;
+
+        <cz.romario.opensudoku.R$id: int value> = 2131230740;
+
+        <cz.romario.opensudoku.R$id: int time_label> = 2131230753;
+
+        <cz.romario.opensudoku.R$id: int time> = 2131230749;
+
+        <cz.romario.opensudoku.R$id: int switch_num_note> = 2131230730;
+
+        <cz.romario.opensudoku.R$id: int switch_input_mode> = 2131230736;
+
+        <cz.romario.opensudoku.R$id: int sudoku_board> = 2131230742;
+
+        <cz.romario.opensudoku.R$id: int state> = 2131230748;
+
+        <cz.romario.opensudoku.R$id: int seek_bar_container> = 2131230739;
+
+        <cz.romario.opensudoku.R$id: int seek_bar> = 2131230720;
+
+        <cz.romario.opensudoku.R$id: int save_button> = 2131230746;
+
+        <cz.romario.opensudoku.R$id: int root_layout> = 2131230741;
+
+        <cz.romario.opensudoku.R$id: int progress> = 2131230738;
+
+        <cz.romario.opensudoku.R$id: int note> = 2131230752;
+
+        <cz.romario.opensudoku.R$id: int name> = 2131230722;
+
+        <cz.romario.opensudoku.R$id: int last_played> = 2131230750;
+
+        <cz.romario.opensudoku.R$id: int input_methods> = 2131230743;
+
+        <cz.romario.opensudoku.R$id: int get_more_puzzles> = 2131230724;
+
+        <cz.romario.opensudoku.R$id: int filter_status> = 2131230747;
+
+        <cz.romario.opensudoku.R$id: int filename> = 2131230744;
+
+        <cz.romario.opensudoku.R$id: int directory> = 2131230745;
+
+        <cz.romario.opensudoku.R$id: int detail> = 2131230723;
+
+        <cz.romario.opensudoku.R$id: int created> = 2131230751;
+
+        <cz.romario.opensudoku.R$id: int button_close> = 2131230737;
+
+        <cz.romario.opensudoku.R$id: int button_clear> = 2131230735;
+
+        <cz.romario.opensudoku.R$id: int button_9> = 2131230734;
+
+        <cz.romario.opensudoku.R$id: int button_8> = 2131230733;
+
+        <cz.romario.opensudoku.R$id: int button_7> = 2131230732;
+
+        <cz.romario.opensudoku.R$id: int button_6> = 2131230731;
+
+        <cz.romario.opensudoku.R$id: int button_5> = 2131230729;
+
+        <cz.romario.opensudoku.R$id: int button_4> = 2131230728;
+
+        <cz.romario.opensudoku.R$id: int button_3> = 2131230727;
+
+        <cz.romario.opensudoku.R$id: int button_2> = 2131230726;
+
+        <cz.romario.opensudoku.R$id: int button_1> = 2131230725;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.R$id: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

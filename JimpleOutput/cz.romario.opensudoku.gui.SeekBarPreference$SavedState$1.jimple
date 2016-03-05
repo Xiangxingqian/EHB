@@ -1,0 +1,236 @@
+class cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1 extends java.lang.Object implements android.os.Parcelable$Creator
+{
+    public static java.util.LinkedList methodCountList;
+
+    void <init>()
+    {
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1 $r0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public cz.romario.opensudoku.gui.SeekBarPreference$SavedState createFromParcel(android.os.Parcel)
+    {
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1 $r0;
+        android.os.Parcel $r1;
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $r2 = new cz.romario.opensudoku.gui.SeekBarPreference$SavedState;
+
+        specialinvoke $r2.<cz.romario.opensudoku.gui.SeekBarPreference$SavedState: void <init>(android.os.Parcel)>($r1);
+
+        methodCount = <cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r2;
+    }
+
+    public volatile java.lang.Object createFromParcel(android.os.Parcel)
+    {
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1 $r0;
+        android.os.Parcel $r1;
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1;
+
+        $r1 := @parameter0: android.os.Parcel;
+
+        $r2 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: cz.romario.opensudoku.gui.SeekBarPreference$SavedState createFromParcel(android.os.Parcel)>($r1);
+
+        methodCount = <cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r2;
+    }
+
+    public cz.romario.opensudoku.gui.SeekBarPreference$SavedState[] newArray(int)
+    {
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1 $r0;
+        int $i0, visitedCount, flagInt;
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState[] $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1;
+
+        $i0 := @parameter0: int;
+
+        $r1 = newarray (cz.romario.opensudoku.gui.SeekBarPreference$SavedState)[$i0];
+
+        methodCount = <cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r1;
+    }
+
+    public volatile java.lang.Object[] newArray(int)
+    {
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1 $r0;
+        int $i0, visitedCount, flagInt;
+        cz.romario.opensudoku.gui.SeekBarPreference$SavedState[] $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1;
+
+        $i0 := @parameter0: int;
+
+        $r1 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: cz.romario.opensudoku.gui.SeekBarPreference$SavedState[] newArray(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(4);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(4, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r1;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.SeekBarPreference$SavedState$1: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

@@ -1,0 +1,34 @@
+public class com.app.test.Constants$EHBMethod extends java.lang.Object
+{
+    public static java.lang.String onCreateOptionsMenu_activity;
+    public static java.lang.String onMenuItemClick_Name;
+    public static java.lang.String onListItemClick_Name;
+    public static java.lang.String onOptionsItemSelected_Name;
+    public static java.lang.String onContextItemSelected_Name;
+
+    static void <clinit>()
+    {
+        <com.app.test.Constants$EHBMethod: java.lang.String onCreateOptionsMenu_activity> = "boolean onCreateOptionsMenu(android.view.Menu)";
+
+        <com.app.test.Constants$EHBMethod: java.lang.String onMenuItemClick_Name> = "boolean onMenuItemClick(android.view.MenuItem)";
+
+        <com.app.test.Constants$EHBMethod: java.lang.String onListItemClick_Name> = "void onListItemClick(android.widget.ListView,android.view.View,int,long)";
+
+        <com.app.test.Constants$EHBMethod: java.lang.String onOptionsItemSelected_Name> = "boolean onOptionsItemSelected(android.view.MenuItem)";
+
+        <com.app.test.Constants$EHBMethod: java.lang.String onContextItemSelected_Name> = "boolean onContextItemSelected(android.view.MenuItem)";
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.app.test.Constants$EHBMethod r0;
+
+        r0 := @this: com.app.test.Constants$EHBMethod;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

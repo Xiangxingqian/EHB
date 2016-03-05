@@ -1,0 +1,558 @@
+class cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder extends java.lang.Object implements android.widget.SimpleCursorAdapter$ViewBinder
+{
+    private android.content.Context mContext;
+    private java.text.DateFormat mDateTimeFormatter;
+    private cz.romario.opensudoku.gui.GameTimeFormat mGameTimeFormatter;
+    private java.text.DateFormat mTimeFormatter;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(android.content.Context)
+    {
+        cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder $r0;
+        android.content.Context $r1;
+        cz.romario.opensudoku.gui.GameTimeFormat $r2;
+        java.text.DateFormat $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = new cz.romario.opensudoku.gui.GameTimeFormat;
+
+        specialinvoke $r2.<cz.romario.opensudoku.gui.GameTimeFormat: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: cz.romario.opensudoku.gui.GameTimeFormat mGameTimeFormatter> = $r2;
+
+        $r3 = staticinvoke <java.text.DateFormat: java.text.DateFormat getDateTimeInstance(int,int)>(3, 3);
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.text.DateFormat mDateTimeFormatter> = $r3;
+
+        $r3 = staticinvoke <java.text.DateFormat: java.text.DateFormat getTimeInstance(int)>(3);
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.text.DateFormat mTimeFormatter> = $r3;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext> = $r1;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private java.lang.String getDateAndTimeForHumans(long)
+    {
+        cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder $r0;
+        long $l0;
+        java.util.Date $r1, $r2, $r3;
+        int $i1, $i2, $i3, visitedCount, flagInt;
+        boolean $z0;
+        android.content.Context $r4;
+        java.lang.Object[] $r5;
+        java.text.DateFormat $r6;
+        java.lang.String $r7;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder;
+
+        $l0 := @parameter0: long;
+
+        $r1 = new java.util.Date;
+
+        specialinvoke $r1.<java.util.Date: void <init>(long)>($l0);
+
+        $r2 = new java.util.Date;
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        specialinvoke $r2.<java.util.Date: void <init>(long)>($l0);
+
+        $r3 = new java.util.Date;
+
+        $i1 = virtualinvoke $r2.<java.util.Date: int getYear()>();
+
+        $i2 = virtualinvoke $r2.<java.util.Date: int getMonth()>();
+
+        $i3 = virtualinvoke $r2.<java.util.Date: int getDate()>();
+
+        specialinvoke $r3.<java.util.Date: void <init>(int,int,int)>($i1, $i2, $i3);
+
+        $r2 = new java.util.Date;
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $l0 = $l0 - 86400000L;
+
+        specialinvoke $r2.<java.util.Date: void <init>(long)>($l0);
+
+        $z0 = virtualinvoke $r1.<java.util.Date: boolean after(java.util.Date)>($r3);
+
+        if $z0 == 0 goto label1;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext>;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r6 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.text.DateFormat mTimeFormatter>;
+
+        $r7 = virtualinvoke $r6.<java.text.DateFormat: java.lang.String format(java.util.Date)>($r1);
+
+        $r5[0] = $r7;
+
+        $r7 = virtualinvoke $r4.<android.content.Context: java.lang.String getString(int,java.lang.Object[])>(2131296293, $r5);
+
+        return $r7;
+
+     label1:
+        $z0 = virtualinvoke $r1.<java.util.Date: boolean after(java.util.Date)>($r2);
+
+        if $z0 == 0 goto label2;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext>;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r6 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.text.DateFormat mTimeFormatter>;
+
+        $r7 = virtualinvoke $r6.<java.text.DateFormat: java.lang.String format(java.util.Date)>($r1);
+
+        $r5[0] = $r7;
+
+        $r7 = virtualinvoke $r4.<android.content.Context: java.lang.String getString(int,java.lang.Object[])>(2131296294, $r5);
+
+        return $r7;
+
+     label2:
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext>;
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r6 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.text.DateFormat mDateTimeFormatter>;
+
+        $r7 = virtualinvoke $r6.<java.text.DateFormat: java.lang.String format(java.util.Date)>($r1);
+
+        $r5[0] = $r7;
+
+        $r7 = virtualinvoke $r4.<android.content.Context: java.lang.String getString(int,java.lang.Object[])>(2131296295, $r5);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r7;
+    }
+
+    public boolean setViewValue(android.view.View, android.database.Cursor, int)
+    {
+        cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder $r0;
+        android.database.Cursor $r1;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        java.lang.Exception $r2;
+        android.view.View $r3;
+        java.lang.String $r4, $r12;
+        cz.romario.opensudoku.game.CellCollection $r5;
+        cz.romario.opensudoku.gui.SudokuBoardView $r6;
+        long $l3;
+        java.lang.Object[] $r7;
+        java.lang.Long $r8;
+        android.widget.TextView $r9, $r13;
+        byte $b4;
+        android.content.Context $r10;
+        cz.romario.opensudoku.gui.GameTimeFormat $r11;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder;
+
+        $r3 := @parameter0: android.view.View;
+
+        $r1 := @parameter1: android.database.Cursor;
+
+        $i0 := @parameter2: int;
+
+        $i1 = interfaceinvoke $r1.<android.database.Cursor: int getColumnIndex(java.lang.String)>("state");
+
+        $i1 = interfaceinvoke $r1.<android.database.Cursor: int getInt(int)>($i1);
+
+        $i2 = virtualinvoke $r3.<android.view.View: int getId()>();
+
+        lookupswitch($i2)
+        {
+            case 2131230742: goto label02;
+            case 2131230743: goto label01;
+            case 2131230744: goto label01;
+            case 2131230745: goto label01;
+            case 2131230746: goto label01;
+            case 2131230747: goto label01;
+            case 2131230748: goto label06;
+            case 2131230749: goto label13;
+            case 2131230750: goto label18;
+            case 2131230751: goto label22;
+            case 2131230752: goto label26;
+            default: goto label01;
+        };
+
+     label01:
+        return 1;
+
+     label02:
+        $r4 = interfaceinvoke $r1.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r5 = null;
+
+     label03:
+        $r5 = staticinvoke <cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellCollection deserialize(java.lang.String)>($r4);
+
+     label04:
+        $r6 = (cz.romario.opensudoku.gui.SudokuBoardView) $r3;
+
+        virtualinvoke $r6.<cz.romario.opensudoku.gui.SudokuBoardView: void setReadOnly(boolean)>(1);
+
+        virtualinvoke $r6.<cz.romario.opensudoku.gui.SudokuBoardView: void setFocusable(boolean)>(0);
+
+        $r6 = (cz.romario.opensudoku.gui.SudokuBoardView) $r3;
+
+        virtualinvoke $r6.<cz.romario.opensudoku.gui.SudokuBoardView: void setCells(cz.romario.opensudoku.game.CellCollection)>($r5);
+
+        goto label01;
+
+     label05:
+        $r2 := @caughtexception;
+
+        $i0 = interfaceinvoke $r1.<android.database.Cursor: int getColumnIndex(java.lang.String)>("_id");
+
+        $l3 = interfaceinvoke $r1.<android.database.Cursor: long getLong(int)>($i0);
+
+        $r7 = newarray (java.lang.Object)[1];
+
+        $r8 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l3);
+
+        $r7[0] = $r8;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>("Exception occurred when deserializing puzzle with id %s.", $r7);
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String,java.lang.Throwable)>("SudokuListActivity", $r4, $r2);
+
+        goto label04;
+
+     label06:
+        $r9 = (android.widget.TextView) $r3;
+
+        $r4 = null;
+
+        lookupswitch($i1)
+        {
+            case 0: goto label10;
+            case 1: goto label07;
+            case 2: goto label09;
+            default: goto label07;
+        };
+
+     label07:
+        if $r4 != null goto label11;
+
+        $b4 = 8;
+
+     label08:
+        virtualinvoke $r9.<android.widget.TextView: void setVisibility(int)>($b4);
+
+        virtualinvoke $r9.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        if $i1 != 2 goto label12;
+
+        $i0 = staticinvoke <android.graphics.Color: int rgb(int,int,int)>(187, 187, 187);
+
+        virtualinvoke $r9.<android.widget.TextView: void setTextColor(int)>($i0);
+
+        goto label01;
+
+     label09:
+        $r10 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext>;
+
+        $r4 = virtualinvoke $r10.<android.content.Context: java.lang.String getString(int)>(2131296288);
+
+        goto label07;
+
+     label10:
+        $r10 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext>;
+
+        $r4 = virtualinvoke $r10.<android.content.Context: java.lang.String getString(int)>(2131296289);
+
+        goto label07;
+
+     label11:
+        $b4 = 0;
+
+        goto label08;
+
+     label12:
+        $i0 = staticinvoke <android.graphics.Color: int rgb(int,int,int)>(255, 255, 255);
+
+        virtualinvoke $r9.<android.widget.TextView: void setTextColor(int)>($i0);
+
+        goto label01;
+
+     label13:
+        $l3 = interfaceinvoke $r1.<android.database.Cursor: long getLong(int)>($i0);
+
+        $r9 = (android.widget.TextView) $r3;
+
+        $r4 = null;
+
+        $b4 = $l3 cmp 0L;
+
+        if $b4 == 0 goto label14;
+
+        $r11 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: cz.romario.opensudoku.gui.GameTimeFormat mGameTimeFormatter>;
+
+        $r4 = virtualinvoke $r11.<cz.romario.opensudoku.gui.GameTimeFormat: java.lang.String format(long)>($l3);
+
+     label14:
+        if $r4 != null goto label16;
+
+        $b4 = 8;
+
+     label15:
+        virtualinvoke $r9.<android.widget.TextView: void setVisibility(int)>($b4);
+
+        virtualinvoke $r9.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        if $i1 != 2 goto label17;
+
+        $i0 = staticinvoke <android.graphics.Color: int rgb(int,int,int)>(187, 187, 187);
+
+        virtualinvoke $r9.<android.widget.TextView: void setTextColor(int)>($i0);
+
+        goto label01;
+
+     label16:
+        $b4 = 0;
+
+        goto label15;
+
+     label17:
+        $i0 = staticinvoke <android.graphics.Color: int rgb(int,int,int)>(255, 255, 255);
+
+        virtualinvoke $r9.<android.widget.TextView: void setTextColor(int)>($i0);
+
+        goto label01;
+
+     label18:
+        $l3 = interfaceinvoke $r1.<android.database.Cursor: long getLong(int)>($i0);
+
+        $r9 = (android.widget.TextView) $r3;
+
+        $r4 = null;
+
+        $b4 = $l3 cmp 0L;
+
+        if $b4 == 0 goto label19;
+
+        $r10 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext>;
+
+        $r7 = newarray (java.lang.Object)[1];
+
+        $r4 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.lang.String getDateAndTimeForHumans(long)>($l3);
+
+        $r7[0] = $r4;
+
+        $r4 = virtualinvoke $r10.<android.content.Context: java.lang.String getString(int,java.lang.Object[])>(2131296291, $r7);
+
+     label19:
+        if $r4 != null goto label21;
+
+        $b4 = 8;
+
+     label20:
+        virtualinvoke $r9.<android.widget.TextView: void setVisibility(int)>($b4);
+
+        virtualinvoke $r9.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        goto label01;
+
+     label21:
+        $b4 = 0;
+
+        goto label20;
+
+     label22:
+        $l3 = interfaceinvoke $r1.<android.database.Cursor: long getLong(int)>($i0);
+
+        $r9 = (android.widget.TextView) $r3;
+
+        $r4 = null;
+
+        $b4 = $l3 cmp 0L;
+
+        if $b4 == 0 goto label23;
+
+        $r10 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: android.content.Context mContext>;
+
+        $r7 = newarray (java.lang.Object)[1];
+
+        $r4 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.lang.String getDateAndTimeForHumans(long)>($l3);
+
+        $r7[0] = $r4;
+
+        $r4 = virtualinvoke $r10.<android.content.Context: java.lang.String getString(int,java.lang.Object[])>(2131296292, $r7);
+
+     label23:
+        if $r4 != null goto label25;
+
+        $b4 = 4;
+
+     label24:
+        virtualinvoke $r9.<android.widget.TextView: void setVisibility(int)>($b4);
+
+        virtualinvoke $r9.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        goto label01;
+
+     label25:
+        $b4 = 0;
+
+        goto label24;
+
+     label26:
+        $r4 = interfaceinvoke $r1.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        $r9 = (android.widget.TextView) $r3;
+
+        if $r4 == null goto label27;
+
+        $r12 = virtualinvoke $r4.<java.lang.String: java.lang.String trim()>();
+
+        if $r12 != "" goto label31;
+
+     label27:
+        $r13 = (android.widget.TextView) $r3;
+
+        virtualinvoke $r13.<android.widget.TextView: void setVisibility(int)>(8);
+
+     label28:
+        if $r4 == null goto label29;
+
+        $r12 = virtualinvoke $r4.<java.lang.String: java.lang.String trim()>();
+
+        $z0 = virtualinvoke $r12.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 == 0 goto label32;
+
+     label29:
+        $b4 = 8;
+
+     label30:
+        virtualinvoke $r9.<android.widget.TextView: void setVisibility(int)>($b4);
+
+        virtualinvoke $r9.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        goto label01;
+
+     label31:
+        $r13 = (android.widget.TextView) $r3;
+
+        virtualinvoke $r13.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        goto label28;
+
+     label32:
+        $b4 = 0;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label33;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label33:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label30;
+
+        catch java.lang.Exception from label03 to label04 with label05;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.SudokuListActivity$SudokuListViewBinder: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

@@ -1,0 +1,146 @@
+class cz.romario.opensudoku.gui.SudokuListActivity$2 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final cz.romario.opensudoku.gui.SudokuListActivity this$0;
+    public static java.util.LinkedList methodCountList;
+
+    void <init>(cz.romario.opensudoku.gui.SudokuListActivity)
+    {
+        cz.romario.opensudoku.gui.SudokuListActivity$2 $r0;
+        cz.romario.opensudoku.gui.SudokuListActivity $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuListActivity$2;
+
+        $r1 := @parameter0: cz.romario.opensudoku.gui.SudokuListActivity;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListActivity$2: cz.romario.opensudoku.gui.SudokuListActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuListActivity$2: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        cz.romario.opensudoku.gui.SudokuListActivity$2 $r0;
+        android.content.DialogInterface $r1;
+        int $i0, visitedCount, flagInt;
+        cz.romario.opensudoku.gui.SudokuListActivity $r2;
+        cz.romario.opensudoku.db.SudokuDatabase $r3;
+        long $l1;
+        cz.romario.opensudoku.game.SudokuGame $r4;
+        android.widget.TextView $r5;
+        java.lang.CharSequence $r6;
+        java.lang.String $r7;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuListActivity$2;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$2: cz.romario.opensudoku.gui.SudokuListActivity this$0>;
+
+        $r3 = staticinvoke <cz.romario.opensudoku.gui.SudokuListActivity: cz.romario.opensudoku.db.SudokuDatabase access$0(cz.romario.opensudoku.gui.SudokuListActivity)>($r2);
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$2: cz.romario.opensudoku.gui.SudokuListActivity this$0>;
+
+        $l1 = staticinvoke <cz.romario.opensudoku.gui.SudokuListActivity: long access$3(cz.romario.opensudoku.gui.SudokuListActivity)>($r2);
+
+        $r4 = virtualinvoke $r3.<cz.romario.opensudoku.db.SudokuDatabase: cz.romario.opensudoku.game.SudokuGame getSudoku(long)>($l1);
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$2: cz.romario.opensudoku.gui.SudokuListActivity this$0>;
+
+        $r5 = staticinvoke <cz.romario.opensudoku.gui.SudokuListActivity: android.widget.TextView access$4(cz.romario.opensudoku.gui.SudokuListActivity)>($r2);
+
+        $r6 = virtualinvoke $r5.<android.widget.TextView: java.lang.CharSequence getText()>();
+
+        $r7 = interfaceinvoke $r6.<java.lang.CharSequence: java.lang.String toString()>();
+
+        virtualinvoke $r4.<cz.romario.opensudoku.game.SudokuGame: void setNote(java.lang.String)>($r7);
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$2: cz.romario.opensudoku.gui.SudokuListActivity this$0>;
+
+        $r3 = staticinvoke <cz.romario.opensudoku.gui.SudokuListActivity: cz.romario.opensudoku.db.SudokuDatabase access$0(cz.romario.opensudoku.gui.SudokuListActivity)>($r2);
+
+        virtualinvoke $r3.<cz.romario.opensudoku.db.SudokuDatabase: void updateSudoku(cz.romario.opensudoku.game.SudokuGame)>($r4);
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListActivity$2: cz.romario.opensudoku.gui.SudokuListActivity this$0>;
+
+        staticinvoke <cz.romario.opensudoku.gui.SudokuListActivity: void access$2(cz.romario.opensudoku.gui.SudokuListActivity)>($r2);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuListActivity$2: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.SudokuListActivity$2: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

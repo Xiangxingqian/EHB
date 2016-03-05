@@ -1,0 +1,216 @@
+public class cz.romario.opensudoku.gui.importing.SdmImportTask extends cz.romario.opensudoku.gui.importing.AbstractImportTask
+{
+    private android.net.Uri mUri;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(android.net.Uri)
+    {
+        cz.romario.opensudoku.gui.importing.SdmImportTask $r0;
+        android.net.Uri $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.importing.SdmImportTask;
+
+        $r1 := @parameter0: android.net.Uri;
+
+        specialinvoke $r0.<cz.romario.opensudoku.gui.importing.AbstractImportTask: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.importing.SdmImportTask: android.net.Uri mUri> = $r1;
+
+        methodCount = <cz.romario.opensudoku.gui.importing.SdmImportTask: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void processImport() throws cz.romario.opensudoku.db.SudokuInvalidFormatException
+    {
+        cz.romario.opensudoku.gui.importing.SdmImportTask $r0;
+        java.io.BufferedReader $r1, $r7;
+        java.io.InputStreamReader $r2;
+        java.net.URL $r3;
+        android.net.Uri $r4;
+        java.lang.String $r5;
+        java.io.InputStream $r6;
+        boolean $z0;
+        java.lang.Throwable $r8;
+        java.net.MalformedURLException $r9;
+        java.lang.RuntimeException $r10;
+        java.io.IOException $r11;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.importing.SdmImportTask;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.importing.SdmImportTask: android.net.Uri mUri>;
+
+        $r5 = virtualinvoke $r4.<android.net.Uri: java.lang.String getLastPathSegment()>();
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.importing.SdmImportTask: void importFolder(java.lang.String)>($r5);
+
+        $r3 = new java.net.URL;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.importing.SdmImportTask: android.net.Uri mUri>;
+
+     label01:
+        $r5 = virtualinvoke $r4.<android.net.Uri: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.net.URL: void <init>(java.lang.String)>($r5);
+
+        $r2 = new java.io.InputStreamReader;
+
+        $r6 = virtualinvoke $r3.<java.net.URL: java.io.InputStream openStream()>();
+
+        specialinvoke $r2.<java.io.InputStreamReader: void <init>(java.io.InputStream)>($r6);
+
+     label02:
+        $r7 = null;
+
+     label03:
+        $r1 = new java.io.BufferedReader;
+
+        specialinvoke $r1.<java.io.BufferedReader: void <init>(java.io.Reader)>($r2);
+
+     label04:
+        $r5 = virtualinvoke $r1.<java.io.BufferedReader: java.lang.String readLine()>();
+
+     label05:
+        if $r5 != null goto label08;
+
+        if $r1 == null goto label17;
+
+     label06:
+        virtualinvoke $r1.<java.io.BufferedReader: void close()>();
+
+     label07:
+        return;
+
+     label08:
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean equals(java.lang.Object)>("");
+
+        if $z0 != 0 goto label04;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.importing.SdmImportTask: void importGame(java.lang.String)>($r5);
+
+     label09:
+        goto label04;
+
+     label10:
+        $r8 := @caughtexception;
+
+        $r7 = $r1;
+
+     label11:
+        if $r7 == null goto label13;
+
+     label12:
+        virtualinvoke $r7.<java.io.BufferedReader: void close()>();
+
+     label13:
+        throw $r8;
+
+     label14:
+        $r9 := @caughtexception;
+
+        $r10 = new java.lang.RuntimeException;
+
+        specialinvoke $r10.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r9);
+
+        throw $r10;
+
+     label15:
+        $r11 := @caughtexception;
+
+        $r10 = new java.lang.RuntimeException;
+
+        specialinvoke $r10.<java.lang.RuntimeException: void <init>(java.lang.Throwable)>($r11);
+
+        throw $r10;
+
+     label16:
+        $r8 := @caughtexception;
+
+        goto label11;
+
+     label17:
+        methodCount = <cz.romario.opensudoku.gui.importing.SdmImportTask: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label18;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label18:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+
+        catch java.net.MalformedURLException from label01 to label02 with label14;
+        catch java.io.IOException from label01 to label02 with label15;
+        catch java.lang.Throwable from label03 to label04 with label16;
+        catch java.lang.Throwable from label04 to label05 with label10;
+        catch java.net.MalformedURLException from label06 to label07 with label14;
+        catch java.io.IOException from label06 to label07 with label15;
+        catch java.lang.Throwable from label08 to label09 with label10;
+        catch java.net.MalformedURLException from label12 to label14 with label14;
+        catch java.io.IOException from label12 to label14 with label15;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.importing.SdmImportTask: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

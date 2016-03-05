@@ -1,0 +1,1 @@
+Body. SootClass: com.brosmike.airpushdetector.DetectorFragment, SootMethod: <com.brosmike.airpushdetector.DetectorFragment: android.view.View onCreateView(android.view.LayoutInflater,android.view.ViewGroup,android.os.Bundle)>, Stmt: virtualinvoke $r6.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r0)

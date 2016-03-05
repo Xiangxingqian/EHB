@@ -1,0 +1,5 @@
+public interface  com.app.test.event.IEventHandler extends java.lang.Object
+{
+
+    public abstract void addEvent();
+}

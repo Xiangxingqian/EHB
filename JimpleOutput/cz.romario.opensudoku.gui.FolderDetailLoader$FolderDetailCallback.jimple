@@ -1,0 +1,5 @@
+public interface  cz.romario.opensudoku.gui.FolderDetailLoader$FolderDetailCallback extends java.lang.Object
+{
+
+    public abstract void onLoaded(cz.romario.opensudoku.game.FolderInfo);
+}

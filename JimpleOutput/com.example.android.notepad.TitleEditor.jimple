@@ -1,0 +1,420 @@
+public class com.example.android.notepad.TitleEditor extends android.app.Activity implements android.view.View$OnClickListener
+{
+    private static final int COLUMN_INDEX_TITLE;
+    public static final java.lang.String EDIT_TITLE_ACTION;
+    private static final java.lang.String[] PROJECTION;
+    private android.database.Cursor mCursor;
+    private android.widget.EditText mText;
+    private android.net.Uri mUri;
+    public static java.util.LinkedList systemeventlinkedlist;
+    public static java.util.LinkedList interappeventlinkedlist;
+    public static java.util.LinkedList uieventlinkedlist;
+    public static boolean isVisited;
+    public static android.view.Menu activityMenu;
+    public static java.util.LinkedList methodCountList;
+
+    static void <clinit>()
+    {
+        java.lang.String[] $r0;
+        java.util.LinkedList linkedList, methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        <com.example.android.notepad.TitleEditor: java.lang.String EDIT_TITLE_ACTION> = "com.android.notepad.action.EDIT_TITLE";
+
+        <com.example.android.notepad.TitleEditor: int COLUMN_INDEX_TITLE> = 1;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <com.example.android.notepad.TitleEditor: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        $r0 = newarray (java.lang.String)[2];
+
+        $r0[0] = "_id";
+
+        $r0[1] = "title";
+
+        <com.example.android.notepad.TitleEditor: java.lang.String[] PROJECTION> = $r0;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.TitleEditor: java.util.LinkedList systemeventlinkedlist> = linkedList;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.TitleEditor: java.util.LinkedList interappeventlinkedlist> = linkedList;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.TitleEditor: java.util.LinkedList uieventlinkedlist> = linkedList;
+
+        <com.example.android.notepad.TitleEditor: boolean isVisited> = 0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.example.android.notepad.TitleEditor $r0;
+
+        $r0 := @this: com.example.android.notepad.TitleEditor;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.view.View)
+    {
+        com.example.android.notepad.TitleEditor $r0;
+        android.view.View $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.TitleEditor;
+
+        $r1 := @parameter0: android.view.View;
+
+        virtualinvoke $r0.<com.example.android.notepad.TitleEditor: void finish()>();
+
+        methodCount = <com.example.android.notepad.TitleEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onCreate(android.os.Bundle)
+    {
+        com.example.android.notepad.TitleEditor $r0;
+        android.os.Bundle $r1;
+        android.net.Uri $r2;
+        java.lang.String[] $r3;
+        android.content.Intent $r4;
+        android.database.Cursor $r5;
+        android.view.View $r6;
+        android.widget.EditText $r7;
+        android.widget.Button $r8;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.TitleEditor;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        virtualinvoke $r0.<com.example.android.notepad.TitleEditor: void setContentView(int)>(2130903042);
+
+        $r4 = virtualinvoke $r0.<com.example.android.notepad.TitleEditor: android.content.Intent getIntent()>();
+
+        $r2 = virtualinvoke $r4.<android.content.Intent: android.net.Uri getData()>();
+
+        $r0.<com.example.android.notepad.TitleEditor: android.net.Uri mUri> = $r2;
+
+        $r2 = $r0.<com.example.android.notepad.TitleEditor: android.net.Uri mUri>;
+
+        $r3 = <com.example.android.notepad.TitleEditor: java.lang.String[] PROJECTION>;
+
+        $r5 = virtualinvoke $r0.<com.example.android.notepad.TitleEditor: android.database.Cursor managedQuery(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>($r2, $r3, null, null, null);
+
+        $r0.<com.example.android.notepad.TitleEditor: android.database.Cursor mCursor> = $r5;
+
+        $r6 = virtualinvoke $r0.<com.example.android.notepad.TitleEditor: android.view.View findViewById(int)>(2131099649);
+
+        $r7 = (android.widget.EditText) $r6;
+
+        $r0.<com.example.android.notepad.TitleEditor: android.widget.EditText mText> = $r7;
+
+        $r7 = $r0.<com.example.android.notepad.TitleEditor: android.widget.EditText mText>;
+
+        staticinvoke <com.example.android.notepad.TitleEditor: void doReflect(android.view.View,java.lang.Object,java.lang.String,boolean)>($r7, $r0, "void onClick(android.view.View)", 0);
+
+        virtualinvoke $r7.<android.widget.EditText: void setOnClickListener(android.view.View$OnClickListener)>($r0);
+
+        $r6 = virtualinvoke $r0.<com.example.android.notepad.TitleEditor: android.view.View findViewById(int)>(2131099650);
+
+        $r8 = (android.widget.Button) $r6;
+
+        staticinvoke <com.example.android.notepad.TitleEditor: void doReflect(android.view.View,java.lang.Object,java.lang.String,boolean)>($r8, $r0, "void onClick(android.view.View)", 0);
+
+        virtualinvoke $r8.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r0);
+
+        methodCount = <com.example.android.notepad.TitleEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void onPause()
+    {
+        com.example.android.notepad.TitleEditor $r0;
+        android.content.ContentValues $r1;
+        android.database.Cursor $r2;
+        android.widget.EditText $r3;
+        android.text.Editable $r4;
+        java.lang.String $r5;
+        android.content.ContentResolver $r6;
+        android.net.Uri $r7;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.TitleEditor;
+
+        specialinvoke $r0.<android.app.Activity: void onPause()>();
+
+        $r2 = $r0.<com.example.android.notepad.TitleEditor: android.database.Cursor mCursor>;
+
+        if $r2 == null goto label1;
+
+        $r1 = new android.content.ContentValues;
+
+        specialinvoke $r1.<android.content.ContentValues: void <init>()>();
+
+        $r3 = $r0.<com.example.android.notepad.TitleEditor: android.widget.EditText mText>;
+
+        $r4 = virtualinvoke $r3.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r5 = interfaceinvoke $r4.<android.text.Editable: java.lang.String toString()>();
+
+        virtualinvoke $r1.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("title", $r5);
+
+        $r6 = virtualinvoke $r0.<com.example.android.notepad.TitleEditor: android.content.ContentResolver getContentResolver()>();
+
+        $r7 = $r0.<com.example.android.notepad.TitleEditor: android.net.Uri mUri>;
+
+        virtualinvoke $r6.<android.content.ContentResolver: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])>($r7, $r1, null, null);
+
+        return;
+
+     label1:
+        methodCount = <com.example.android.notepad.TitleEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void onResume()
+    {
+        com.example.android.notepad.TitleEditor $r0;
+        java.lang.String $r1;
+        android.database.Cursor $r2;
+        android.widget.EditText $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.TitleEditor;
+
+        specialinvoke $r0.<android.app.Activity: void onResume()>();
+
+        $r2 = $r0.<com.example.android.notepad.TitleEditor: android.database.Cursor mCursor>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.example.android.notepad.TitleEditor: android.database.Cursor mCursor>;
+
+        interfaceinvoke $r2.<android.database.Cursor: boolean moveToFirst()>();
+
+        $r3 = $r0.<com.example.android.notepad.TitleEditor: android.widget.EditText mText>;
+
+        $r2 = $r0.<com.example.android.notepad.TitleEditor: android.database.Cursor mCursor>;
+
+        $r1 = interfaceinvoke $r2.<android.database.Cursor: java.lang.String getString(int)>(1);
+
+        virtualinvoke $r3.<android.widget.EditText: void setText(java.lang.CharSequence)>($r1);
+
+        return;
+
+     label1:
+        methodCount = <com.example.android.notepad.TitleEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        com.example.android.notepad.TitleEditor activity;
+        android.view.Menu menu;
+
+        activity := @this: com.example.android.notepad.TitleEditor;
+
+        menu := @parameter0: android.view.Menu;
+
+        specialinvoke activity.<android.app.Activity: boolean onCreateOptionsMenu(android.view.Menu)>(menu);
+
+        staticinvoke <com.app.test.event.SystemEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>(activity, menu);
+
+        staticinvoke <com.app.test.event.UIEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>(activity, menu);
+
+        staticinvoke <com.app.test.event.InterAppEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>(activity, menu);
+
+        return 1;
+    }
+
+    public static void doReflect(android.view.View, java.lang.Object, java.lang.String, boolean)
+    {
+        android.view.View param1;
+        java.lang.Object param2, object2, obj;
+        java.lang.String param3;
+        boolean param4, flag, isJump;
+        java.util.LinkedList uilinkedlist;
+        java.lang.Exception exception;
+        java.lang.reflect.Field uieventfield, isvisited;
+        java.lang.Boolean booleanLocal;
+        android.content.Context context;
+        java.lang.Class contextclass;
+        com.app.test.event.UIEvent uiEventLocal;
+
+        param1 := @parameter0: android.view.View;
+
+        param2 := @parameter1: java.lang.Object;
+
+        param3 := @parameter2: java.lang.String;
+
+        param4 := @parameter3: boolean;
+
+     label1:
+        context = virtualinvoke param1.<android.view.View: android.content.Context getContext()>();
+
+        contextclass = virtualinvoke context.<java.lang.Object: java.lang.Class getClass()>();
+
+        uieventfield = virtualinvoke contextclass.<java.lang.Class: java.lang.reflect.Field getField(java.lang.String)>("uieventlinkedlist");
+
+        obj = virtualinvoke uieventfield.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>(null);
+
+        uilinkedlist = (java.util.LinkedList) obj;
+
+        isvisited = virtualinvoke contextclass.<java.lang.Class: java.lang.reflect.Field getField(java.lang.String)>("isVisited");
+
+        object2 = virtualinvoke isvisited.<java.lang.reflect.Field: java.lang.Object get(java.lang.Object)>(null);
+
+        booleanLocal = (java.lang.Boolean) object2;
+
+        flag = virtualinvoke booleanLocal.<java.lang.Boolean: boolean booleanValue()>();
+
+        if flag != 0 goto label2;
+
+        uiEventLocal = new com.app.test.event.UIEvent;
+
+        specialinvoke uiEventLocal.<com.app.test.event.UIEvent: void <init>(java.lang.Object,java.lang.Object,java.lang.String,boolean)>(param1, param2, param3, param4);
+
+        virtualinvoke uilinkedlist.<java.util.LinkedList: boolean offer(java.lang.Object)>(uiEventLocal);
+
+     label2:
+        return;
+
+     label3:
+        exception := @caughtexception;
+
+        staticinvoke <com.app.test.Util: void LogException(java.lang.Exception)>(exception);
+
+        goto label2;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+}

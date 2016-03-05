@@ -1,0 +1,134 @@
+class cz.romario.opensudoku.gui.FileListActivity$3 extends java.lang.Object implements android.content.DialogInterface$OnClickListener
+{
+    final cz.romario.opensudoku.gui.FileListActivity this$0;
+    public static java.util.LinkedList methodCountList;
+
+    void <init>(cz.romario.opensudoku.gui.FileListActivity)
+    {
+        cz.romario.opensudoku.gui.FileListActivity$3 $r0;
+        cz.romario.opensudoku.gui.FileListActivity $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FileListActivity$3;
+
+        $r1 := @parameter0: cz.romario.opensudoku.gui.FileListActivity;
+
+        $r0.<cz.romario.opensudoku.gui.FileListActivity$3: cz.romario.opensudoku.gui.FileListActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.gui.FileListActivity$3: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void onClick(android.content.DialogInterface, int)
+    {
+        cz.romario.opensudoku.gui.FileListActivity$3 $r0;
+        android.content.DialogInterface $r1;
+        int $i0, visitedCount, flagInt;
+        android.content.Intent $r2;
+        cz.romario.opensudoku.gui.FileListActivity $r3;
+        java.io.File $r4;
+        android.content.Context $r5;
+        android.net.Uri $r6;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FileListActivity$3;
+
+        $r1 := @parameter0: android.content.DialogInterface;
+
+        $i0 := @parameter1: int;
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.FileListActivity$3: cz.romario.opensudoku.gui.FileListActivity this$0>;
+
+        $r4 = staticinvoke <cz.romario.opensudoku.gui.FileListActivity: java.io.File access$0(cz.romario.opensudoku.gui.FileListActivity)>($r3);
+
+        $r2 = new android.content.Intent;
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.FileListActivity$3: cz.romario.opensudoku.gui.FileListActivity this$0>;
+
+        $r5 = staticinvoke <cz.romario.opensudoku.gui.FileListActivity: android.content.Context access$1(cz.romario.opensudoku.gui.FileListActivity)>($r3);
+
+        specialinvoke $r2.<android.content.Intent: void <init>(android.content.Context,java.lang.Class)>($r5, class "cz/romario/opensudoku/gui/ImportSudokuActivity");
+
+        $r6 = staticinvoke <android.net.Uri: android.net.Uri fromFile(java.io.File)>($r4);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r6);
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.FileListActivity$3: cz.romario.opensudoku.gui.FileListActivity this$0>;
+
+        virtualinvoke $r3.<cz.romario.opensudoku.gui.FileListActivity: void startActivity(android.content.Intent)>($r2);
+
+        methodCount = <cz.romario.opensudoku.gui.FileListActivity$3: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.FileListActivity$3: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

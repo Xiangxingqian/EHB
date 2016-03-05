@@ -1,0 +1,779 @@
+public class cz.romario.opensudoku.game.command.CommandStack extends java.lang.Object
+{
+    private cz.romario.opensudoku.game.CellCollection mCells;
+    private java.util.Stack mCommandStack;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(cz.romario.opensudoku.game.CellCollection)
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        cz.romario.opensudoku.game.CellCollection $r1;
+        java.util.Stack $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.CellCollection;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = new java.util.Stack;
+
+        specialinvoke $r2.<java.util.Stack: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack> = $r2;
+
+        $r0.<cz.romario.opensudoku.game.command.CommandStack: cz.romario.opensudoku.game.CellCollection mCells> = $r1;
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private cz.romario.opensudoku.game.command.AbstractCommand pop()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        java.lang.Object $r1, invalid, flagObj;
+        java.util.Stack $r2;
+        cz.romario.opensudoku.game.command.AbstractCommand $r3;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r2 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $r1 = virtualinvoke $r2.<java.util.Stack: java.lang.Object pop()>();
+
+        $r3 = (cz.romario.opensudoku.game.command.AbstractCommand) $r1;
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r3;
+    }
+
+    private void push(cz.romario.opensudoku.game.command.AbstractCommand)
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        cz.romario.opensudoku.game.command.AbstractCommand $r1;
+        cz.romario.opensudoku.game.CellCollection $r2;
+        boolean $z0;
+        cz.romario.opensudoku.game.command.AbstractCellCommand $r3;
+        java.util.Stack $r4;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.command.AbstractCommand;
+
+        $z0 = $r1 instanceof cz.romario.opensudoku.game.command.AbstractCellCommand;
+
+        if $z0 == 0 goto label1;
+
+        $r3 = (cz.romario.opensudoku.game.command.AbstractCellCommand) $r1;
+
+        $r2 = $r0.<cz.romario.opensudoku.game.command.CommandStack: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        virtualinvoke $r3.<cz.romario.opensudoku.game.command.AbstractCellCommand: void setCells(cz.romario.opensudoku.game.CellCollection)>($r2);
+
+     label1:
+        $r4 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        virtualinvoke $r4.<java.util.Stack: java.lang.Object push(java.lang.Object)>($r1);
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void validateCells()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        cz.romario.opensudoku.game.CellCollection $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.CellCollection: boolean validate()>();
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean empty()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        boolean $z0;
+        java.util.Stack $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $z0 = virtualinvoke $r1.<java.util.Stack: boolean empty()>();
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(4);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(4, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $z0;
+    }
+
+    public void execute(cz.romario.opensudoku.game.command.AbstractCommand)
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        cz.romario.opensudoku.game.command.AbstractCommand $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.command.AbstractCommand;
+
+        specialinvoke $r0.<cz.romario.opensudoku.game.command.CommandStack: void push(cz.romario.opensudoku.game.command.AbstractCommand)>($r1);
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.command.AbstractCommand: void execute()>();
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(5);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(5, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean hasCheckpoint()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        java.util.Stack $r1;
+        java.util.Iterator $r2;
+        boolean $z0;
+        java.lang.Object $r3, invalid, flagObj;
+        cz.romario.opensudoku.game.command.AbstractCommand $r4;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $r2 = virtualinvoke $r1.<java.util.Stack: java.util.Iterator iterator()>();
+
+     label1:
+        $z0 = interfaceinvoke $r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label2;
+
+        return 0;
+
+     label2:
+        $r3 = interfaceinvoke $r2.<java.util.Iterator: java.lang.Object next()>();
+
+        $r4 = (cz.romario.opensudoku.game.command.AbstractCommand) $r3;
+
+        $z0 = virtualinvoke $r4.<cz.romario.opensudoku.game.command.AbstractCommand: boolean isCheckpoint()>();
+
+        if $z0 == 0 goto label1;
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(6);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(6, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return 1;
+    }
+
+    public boolean hasSomethingToUndo()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        int $i0, visitedCount, flagInt;
+        java.util.Stack $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $i0 = virtualinvoke $r1.<java.util.Stack: int size()>();
+
+        if $i0 == 0 goto label1;
+
+        return 1;
+
+     label1:
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(7);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(7, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return 0;
+    }
+
+    public void restoreState(android.os.Bundle)
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        android.os.Bundle $r1, $r4;
+        int $i0, $i1, visitedCount, flagInt;
+        java.lang.StringBuilder $r2;
+        java.lang.String $r3;
+        cz.romario.opensudoku.game.command.AbstractCommand $r5;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        $i0 = virtualinvoke $r1.<android.os.Bundle: int getInt(java.lang.String)>("cmdStack.size");
+
+        $i1 = 0;
+
+     label1:
+        if $i1 < $i0 goto label2;
+
+        return;
+
+     label2:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("cmdStack.");
+
+        $r2 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i1);
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r4 = virtualinvoke $r1.<android.os.Bundle: android.os.Bundle getBundle(java.lang.String)>($r3);
+
+        $r3 = virtualinvoke $r4.<android.os.Bundle: java.lang.String getString(java.lang.String)>("commandClass");
+
+        $r5 = staticinvoke <cz.romario.opensudoku.game.command.AbstractCommand: cz.romario.opensudoku.game.command.AbstractCommand newInstance(java.lang.String)>($r3);
+
+        virtualinvoke $r5.<cz.romario.opensudoku.game.command.AbstractCommand: void restoreState(android.os.Bundle)>($r4);
+
+        specialinvoke $r0.<cz.romario.opensudoku.game.command.CommandStack: void push(cz.romario.opensudoku.game.command.AbstractCommand)>($r5);
+
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(8);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(8, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    public void saveState(android.os.Bundle)
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        android.os.Bundle $r1, $r2;
+        java.util.Stack $r3;
+        int $i0, $i1, visitedCount, flagInt;
+        java.lang.Object $r4, invalid, flagObj;
+        cz.romario.opensudoku.game.command.AbstractCommand $r5;
+        java.lang.String $r6;
+        java.lang.StringBuilder $r7;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        $r3 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $i0 = virtualinvoke $r3.<java.util.Stack: int size()>();
+
+        virtualinvoke $r1.<android.os.Bundle: void putInt(java.lang.String,int)>("cmdStack.size", $i0);
+
+        $i0 = 0;
+
+     label1:
+        $r3 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $i1 = virtualinvoke $r3.<java.util.Stack: int size()>();
+
+        if $i0 < $i1 goto label2;
+
+        return;
+
+     label2:
+        $r3 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $r4 = virtualinvoke $r3.<java.util.Stack: java.lang.Object get(int)>($i0);
+
+        $r5 = (cz.romario.opensudoku.game.command.AbstractCommand) $r4;
+
+        $r2 = new android.os.Bundle;
+
+        specialinvoke $r2.<android.os.Bundle: void <init>()>();
+
+        $r6 = virtualinvoke $r5.<cz.romario.opensudoku.game.command.AbstractCommand: java.lang.String getCommandClass()>();
+
+        virtualinvoke $r2.<android.os.Bundle: void putString(java.lang.String,java.lang.String)>("commandClass", $r6);
+
+        virtualinvoke $r5.<cz.romario.opensudoku.game.command.AbstractCommand: void saveState(android.os.Bundle)>($r2);
+
+        $r7 = new java.lang.StringBuilder;
+
+        specialinvoke $r7.<java.lang.StringBuilder: void <init>(java.lang.String)>("cmdStack.");
+
+        $r7 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r6 = virtualinvoke $r7.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        virtualinvoke $r1.<android.os.Bundle: void putBundle(java.lang.String,android.os.Bundle)>($r6, $r2);
+
+        $i0 = $i0 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(9);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(9, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    public void setCheckpoint()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        java.util.Stack $r1;
+        boolean $z0;
+        java.lang.Object $r2, invalid, flagObj;
+        cz.romario.opensudoku.game.command.AbstractCommand $r3;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $z0 = virtualinvoke $r1.<java.util.Stack: boolean empty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $r2 = virtualinvoke $r1.<java.util.Stack: java.lang.Object peek()>();
+
+        $r3 = (cz.romario.opensudoku.game.command.AbstractCommand) $r2;
+
+        virtualinvoke $r3.<cz.romario.opensudoku.game.command.AbstractCommand: void setCheckpoint(boolean)>(1);
+
+        return;
+
+     label1:
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(10);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(10, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void undo()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        java.util.Stack $r1;
+        boolean $z0;
+        cz.romario.opensudoku.game.command.AbstractCommand $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $z0 = virtualinvoke $r1.<java.util.Stack: boolean empty()>();
+
+        if $z0 != 0 goto label1;
+
+        $r2 = specialinvoke $r0.<cz.romario.opensudoku.game.command.CommandStack: cz.romario.opensudoku.game.command.AbstractCommand pop()>();
+
+        virtualinvoke $r2.<cz.romario.opensudoku.game.command.AbstractCommand: void undo()>();
+
+        specialinvoke $r0.<cz.romario.opensudoku.game.command.CommandStack: void validateCells()>();
+
+        return;
+
+     label1:
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(11);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(11, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void undoToCheckpoint()
+    {
+        cz.romario.opensudoku.game.command.CommandStack $r0;
+        java.util.Stack $r1;
+        boolean $z0;
+        java.lang.Object $r2, invalid, flagObj;
+        cz.romario.opensudoku.game.command.AbstractCommand $r3;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.command.CommandStack;
+
+     label1:
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $z0 = virtualinvoke $r1.<java.util.Stack: boolean empty()>();
+
+        if $z0 == 0 goto label3;
+
+     label2:
+        specialinvoke $r0.<cz.romario.opensudoku.game.command.CommandStack: void validateCells()>();
+
+        return;
+
+     label3:
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $r2 = virtualinvoke $r1.<java.util.Stack: java.lang.Object pop()>();
+
+        $r3 = (cz.romario.opensudoku.game.command.AbstractCommand) $r2;
+
+        virtualinvoke $r3.<cz.romario.opensudoku.game.command.AbstractCommand: void undo()>();
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $z0 = virtualinvoke $r1.<java.util.Stack: boolean empty()>();
+
+        if $z0 != 0 goto label2;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.command.CommandStack: java.util.Stack mCommandStack>;
+
+        $r2 = virtualinvoke $r1.<java.util.Stack: java.lang.Object peek()>();
+
+        $r3 = (cz.romario.opensudoku.game.command.AbstractCommand) $r2;
+
+        $z0 = virtualinvoke $r3.<cz.romario.opensudoku.game.command.AbstractCommand: boolean isCheckpoint()>();
+
+        if $z0 == 0 goto label1;
+
+        methodCount = <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(12);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label4;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(12, flagInteger);
+
+     label4:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label2;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.game.command.CommandStack: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

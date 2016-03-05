@@ -1,0 +1,156 @@
+public class cz.romario.opensudoku.gui.SudokuListFilter extends java.lang.Object
+{
+    private android.content.Context mContext;
+    public boolean showStateCompleted;
+    public boolean showStateNotStarted;
+    public boolean showStatePlaying;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(android.content.Context)
+    {
+        cz.romario.opensudoku.gui.SudokuListFilter $r0;
+        android.content.Context $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuListFilter;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListFilter: boolean showStateNotStarted> = 1;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListFilter: boolean showStatePlaying> = 1;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListFilter: boolean showStateCompleted> = 1;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuListFilter: android.content.Context mContext> = $r1;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuListFilter: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.String toString()
+    {
+        cz.romario.opensudoku.gui.SudokuListFilter $r0;
+        java.util.ArrayList $r1;
+        boolean $z0;
+        android.content.Context $r2;
+        java.lang.String $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuListFilter;
+
+        $r1 = new java.util.ArrayList;
+
+        specialinvoke $r1.<java.util.ArrayList: void <init>()>();
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuListFilter: boolean showStateNotStarted>;
+
+        if $z0 == 0 goto label1;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListFilter: android.content.Context mContext>;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131296290);
+
+        interfaceinvoke $r1.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+     label1:
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuListFilter: boolean showStatePlaying>;
+
+        if $z0 == 0 goto label2;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListFilter: android.content.Context mContext>;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131296289);
+
+        interfaceinvoke $r1.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+     label2:
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuListFilter: boolean showStateCompleted>;
+
+        if $z0 == 0 goto label3;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuListFilter: android.content.Context mContext>;
+
+        $r3 = virtualinvoke $r2.<android.content.Context: java.lang.String getString(int)>(2131296288);
+
+        interfaceinvoke $r1.<java.util.List: boolean add(java.lang.Object)>($r3);
+
+     label3:
+        $r3 = staticinvoke <cz.romario.opensudoku.utils.StringUtils: java.lang.String join(java.util.Collection,java.lang.String)>($r1, ",");
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuListFilter: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label4;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label4:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r3;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.SudokuListFilter: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

@@ -1,0 +1,168 @@
+public final class cz.romario.opensudoku.R$styleable extends java.lang.Object
+{
+    public static final int[] SeekBarPreference;
+    public static final int SeekBarPreference_max;
+    public static final int SeekBarPreference_min;
+    public static final int SeekBarPreference_value;
+    public static final int SeekBarPreference_valueFormat;
+    public static final int[] SudokuBoardView;
+    public static final int SudokuBoardView_backgroundColor;
+    public static final int SudokuBoardView_backgroundColorReadOnly;
+    public static final int SudokuBoardView_backgroundColorSecondary;
+    public static final int SudokuBoardView_backgroundColorSelected;
+    public static final int SudokuBoardView_backgroundColorTouched;
+    public static final int SudokuBoardView_lineColor;
+    public static final int SudokuBoardView_sectorLineColor;
+    public static final int SudokuBoardView_textColor;
+    public static final int SudokuBoardView_textColorNote;
+    public static final int SudokuBoardView_textColorReadOnly;
+    public static java.util.LinkedList methodCountList;
+
+    static void <clinit>()
+    {
+        int[] $r0;
+        java.util.LinkedList methodCountListLocal, methodCount;
+        java.lang.Object linkedListobject, invalid, flagObj;
+        int visitedCount, flagInt;
+        java.lang.Integer flagInteger;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_textColorReadOnly> = 3;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_textColorNote> = 4;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_textColor> = 2;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_sectorLineColor> = 1;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_lineColor> = 0;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_backgroundColorTouched> = 8;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_backgroundColorSelected> = 9;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_backgroundColorSecondary> = 6;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_backgroundColorReadOnly> = 7;
+
+        <cz.romario.opensudoku.R$styleable: int SudokuBoardView_backgroundColor> = 5;
+
+        <cz.romario.opensudoku.R$styleable: int SeekBarPreference_valueFormat> = 3;
+
+        <cz.romario.opensudoku.R$styleable: int SeekBarPreference_value> = 2;
+
+        <cz.romario.opensudoku.R$styleable: int SeekBarPreference_min> = 0;
+
+        <cz.romario.opensudoku.R$styleable: int SeekBarPreference_max> = 1;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.R$styleable: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        $r0 = newarray (int)[4];
+
+        $r0[0] = 2130771968;
+
+        $r0[1] = 2130771969;
+
+        $r0[2] = 2130771970;
+
+        $r0[3] = 2130771971;
+
+        <cz.romario.opensudoku.R$styleable: int[] SeekBarPreference> = $r0;
+
+        $r0 = newarray (int)[10];
+
+        $r0[0] = 2130771972;
+
+        $r0[1] = 2130771973;
+
+        $r0[2] = 2130771974;
+
+        $r0[3] = 2130771975;
+
+        $r0[4] = 2130771976;
+
+        $r0[5] = 2130771977;
+
+        $r0[6] = 2130771978;
+
+        $r0[7] = 2130771979;
+
+        $r0[8] = 2130771980;
+
+        $r0[9] = 2130771981;
+
+        <cz.romario.opensudoku.R$styleable: int[] SudokuBoardView> = $r0;
+
+        methodCount = <cz.romario.opensudoku.R$styleable: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void <init>()
+    {
+        cz.romario.opensudoku.R$styleable $r0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.R$styleable;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.R$styleable: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

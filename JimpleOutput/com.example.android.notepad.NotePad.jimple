@@ -1,0 +1,22 @@
+public final class com.example.android.notepad.NotePad extends java.lang.Object
+{
+    public static final java.lang.String AUTHORITY;
+
+    private void <init>()
+    {
+        com.example.android.notepad.NotePad $r0;
+
+        $r0 := @this: com.example.android.notepad.NotePad;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.example.android.notepad.NotePad: java.lang.String AUTHORITY> = "com.example.notepad.provider.NotePad";
+
+        return;
+    }
+}

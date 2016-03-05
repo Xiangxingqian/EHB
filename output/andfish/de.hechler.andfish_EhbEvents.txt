@@ -1,0 +1,2 @@
+Body. SootClass: de.hechler.andfish.AndroFishHighscoreActivity, SootMethod: <de.hechler.andfish.AndroFishHighscoreActivity: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r8.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r11)
+Body. SootClass: de.hechler.andfish.AndroFishMainActivity, SootMethod: <de.hechler.andfish.AndroFishMainActivity: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r4.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r6)

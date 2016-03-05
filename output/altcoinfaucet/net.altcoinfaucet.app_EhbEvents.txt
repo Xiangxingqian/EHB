@@ -1,0 +1,1 @@
+Body. SootClass: net.altcoinfaucet.app.MainActivity, SootMethod: <net.altcoinfaucet.app.MainActivity: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r5.<android.widget.ListView: void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)>($r2)

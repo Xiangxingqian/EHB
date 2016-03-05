@@ -1,0 +1,181 @@
+public class com.example.android.notepad.NotesLiveFolder extends android.app.Activity
+{
+    public static final android.net.Uri CONTENT_URI;
+    public static final android.net.Uri NOTE_URI;
+    public static java.util.LinkedList systemeventlinkedlist;
+    public static java.util.LinkedList interappeventlinkedlist;
+    public static java.util.LinkedList uieventlinkedlist;
+    public static boolean isVisited;
+    public static android.view.Menu activityMenu;
+    public static java.util.LinkedList methodCountList;
+
+    static void <clinit>()
+    {
+        android.net.Uri $r0;
+        java.util.LinkedList linkedList, methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <com.example.android.notepad.NotesLiveFolder: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        $r0 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>("content://com.example.notepad.provider.NotePad/live_folders/notes");
+
+        <com.example.android.notepad.NotesLiveFolder: android.net.Uri CONTENT_URI> = $r0;
+
+        $r0 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>("content://com.example.notepad.provider.NotePad/notes/#");
+
+        <com.example.android.notepad.NotesLiveFolder: android.net.Uri NOTE_URI> = $r0;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.NotesLiveFolder: java.util.LinkedList systemeventlinkedlist> = linkedList;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.NotesLiveFolder: java.util.LinkedList interappeventlinkedlist> = linkedList;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.NotesLiveFolder: java.util.LinkedList uieventlinkedlist> = linkedList;
+
+        <com.example.android.notepad.NotesLiveFolder: boolean isVisited> = 0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.example.android.notepad.NotesLiveFolder $r0;
+
+        $r0 := @this: com.example.android.notepad.NotesLiveFolder;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        com.example.android.notepad.NotesLiveFolder $r0;
+        android.os.Bundle $r1;
+        android.content.Intent $r2, $r7;
+        android.net.Uri $r3;
+        java.lang.String $r4, $r5;
+        boolean $z0;
+        android.content.Intent$ShortcutIconResource $r6;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NotesLiveFolder;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        $r2 = virtualinvoke $r0.<com.example.android.notepad.NotesLiveFolder: android.content.Intent getIntent()>();
+
+        $r4 = virtualinvoke $r2.<android.content.Intent: java.lang.String getAction()>();
+
+        $r5 = "android.intent.action.CREATE_LIVE_FOLDER";
+
+        $z0 = virtualinvoke $r5.<java.lang.String: boolean equals(java.lang.Object)>($r4);
+
+        if $z0 == 0 goto label2;
+
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>()>();
+
+        $r3 = <com.example.android.notepad.NotesLiveFolder: android.net.Uri CONTENT_URI>;
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent setData(android.net.Uri)>($r3);
+
+        $r4 = virtualinvoke $r0.<com.example.android.notepad.NotesLiveFolder: java.lang.String getString(int)>(2130968577);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,java.lang.String)>("android.intent.extra.livefolder.NAME", $r4);
+
+        $r6 = staticinvoke <android.content.Intent$ShortcutIconResource: android.content.Intent$ShortcutIconResource fromContext(android.content.Context,int)>($r0, 2130837511);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable)>("android.intent.extra.livefolder.ICON", $r6);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,int)>("android.intent.extra.livefolder.DISPLAY_MODE", 2);
+
+        $r7 = new android.content.Intent;
+
+        $r3 = <com.example.android.notepad.NotesLiveFolder: android.net.Uri NOTE_URI>;
+
+        specialinvoke $r7.<android.content.Intent: void <init>(java.lang.String,android.net.Uri)>("android.intent.action.EDIT", $r3);
+
+        virtualinvoke $r2.<android.content.Intent: android.content.Intent putExtra(java.lang.String,android.os.Parcelable)>("android.intent.extra.livefolder.BASE_INTENT", $r7);
+
+        virtualinvoke $r0.<com.example.android.notepad.NotesLiveFolder: void setResult(int,android.content.Intent)>(-1, $r2);
+
+     label1:
+        virtualinvoke $r0.<com.example.android.notepad.NotesLiveFolder: void finish()>();
+
+        return;
+
+     label2:
+        virtualinvoke $r0.<com.example.android.notepad.NotesLiveFolder: void setResult(int)>(0);
+
+        methodCount = <com.example.android.notepad.NotesLiveFolder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        com.example.android.notepad.NotesLiveFolder activity;
+        android.view.Menu menu;
+
+        activity := @this: com.example.android.notepad.NotesLiveFolder;
+
+        menu := @parameter0: android.view.Menu;
+
+        specialinvoke activity.<android.app.Activity: boolean onCreateOptionsMenu(android.view.Menu)>(menu);
+
+        staticinvoke <com.app.test.event.SystemEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>(activity, menu);
+
+        staticinvoke <com.app.test.event.UIEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>(activity, menu);
+
+        staticinvoke <com.app.test.event.InterAppEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>(activity, menu);
+
+        return 1;
+    }
+}

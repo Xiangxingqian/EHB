@@ -1,0 +1,61 @@
+public class com.app.test.AppDir extends java.lang.Object
+{
+    public static final java.lang.String APPNAME;
+    public static final java.lang.String XMLEVENT;
+    public static final java.lang.String SDCARD;
+    public static java.util.LinkedList linkedList;
+    public static java.lang.String file;
+    public static int visitedMethodCount;
+
+    static void <clinit>()
+    {
+        java.util.LinkedList $r0, $r1;
+        java.lang.Integer $r2;
+        int i0;
+
+        <com.app.test.AppDir: java.lang.String SDCARD> = "/mnt/sdcard/";
+
+        <com.app.test.AppDir: java.lang.String XMLEVENT> = "Notepad_xmlevents";
+
+        <com.app.test.AppDir: java.lang.String APPNAME> = "Notepad";
+
+        $r0 = new java.util.LinkedList;
+
+        specialinvoke $r0.<java.util.LinkedList: void <init>()>();
+
+        <com.app.test.AppDir: java.util.LinkedList linkedList> = $r0;
+
+        i0 = 0;
+
+        goto label2;
+
+     label1:
+        $r1 = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        virtualinvoke $r1.<java.util.LinkedList: boolean add(java.lang.Object)>($r2);
+
+        i0 = i0 + 1;
+
+     label2:
+        if i0 < 500 goto label1;
+
+        <com.app.test.AppDir: java.lang.String file> = "/mnt/sdcard/Notepad_xmlevents.txt";
+
+        <com.app.test.AppDir: int visitedMethodCount> = 0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.app.test.AppDir r0;
+
+        r0 := @this: com.app.test.AppDir;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

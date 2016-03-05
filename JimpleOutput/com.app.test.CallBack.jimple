@@ -1,0 +1,1120 @@
+public class com.app.test.CallBack extends java.lang.Object implements java.io.Serializable
+{
+    public static java.util.Map dialogToCallBacks;
+    public static java.util.Map viewToCallBacks;
+    public static java.util.Map serviceToCallBacks;
+    public static java.util.Set viewRegistars;
+    public static java.util.Set dialogRegistars;
+    public static java.util.Set serViceRegistars;
+    public static final java.lang.String SETONKEYLISTENER;
+    public static final java.lang.String ONKEYLISTENER;
+    public static final java.lang.String ONKEY;
+    public static final java.lang.String[] array1;
+    public static final java.lang.String SETONTOUCHLISTENER;
+    public static final java.lang.String ONTOUCHLISTENER;
+    public static final java.lang.String ONTOUCH;
+    public static final java.lang.String[] array2;
+    public static final java.lang.String SETONHOVERLISTENER;
+    public static final java.lang.String ONHOVERLISTENER;
+    public static final java.lang.String ONHOVER;
+    public static final java.lang.String[] array3;
+    public static final java.lang.String SETONGENERICMOTIONLISTENER;
+    public static final java.lang.String ONGENERICMOTIONLISTENER;
+    public static final java.lang.String ONGENERICMOTION;
+    public static final java.lang.String[] array4;
+    public static final java.lang.String SETONLONGCLICKLISTENER;
+    public static final java.lang.String ONLONGCLICKLISTENER;
+    public static final java.lang.String ONLONGCLICK;
+    public static final java.lang.String[] array5;
+    public static final java.lang.String SETONDRAGLISTENER;
+    public static final java.lang.String ONDRAGLISTENER;
+    public static final java.lang.String ONDRAG;
+    public static final java.lang.String[] array6;
+    public static final java.lang.String SETONFOCUSCHANGELISTENER;
+    public static final java.lang.String ONFOCUSCHANGELISTENER;
+    public static final java.lang.String ONFOCUSCHANGE;
+    public static final java.lang.String[] array7;
+    public static final java.lang.String SETONCLICKLISTENER;
+    public static final java.lang.String ONCLICKLISTENER;
+    public static final java.lang.String ONCLICK;
+    public static final java.lang.String[] array8;
+    public static final java.lang.String SETONCREATECONTEXTMENULISTENER;
+    public static final java.lang.String ONCREATECONTEXTMENULISTENER;
+    public static final java.lang.String ONCONTEXTITEMSELECTED;
+    public static final java.lang.String ONCREATECONTEXTMENU;
+    public static final java.lang.String[] array9;
+    public static final java.lang.String SETONSYSTEMUIVISIBILITYCHANGELISTENER;
+    public static final java.lang.String ONSYSTEMUIVISIBILITYCHANGELISTENER;
+    public static final java.lang.String ONSYSTEMUIVISIBILITYCHANGE;
+    public static final java.lang.String[] array10;
+    public static final java.lang.String SETONPREFERENCECLICKLISTENER;
+    public static final java.lang.String ONPREFERENCECLICKLISTENER;
+    public static final java.lang.String ONPREFERENCETREECLICK;
+    public static final java.lang.String[] array11;
+    public static final java.lang.String SETONEDITORACTIONLISTENER;
+    public static final java.lang.String ONEDITORACTIONLISTENER;
+    public static final java.lang.String ONEDITORACTION;
+    public static final java.lang.String[] array12;
+    public static final java.lang.String SETONHIERARCHYCHANGELISTENER;
+    public static final java.lang.String ONHIERARCHYCHANGELISTENER;
+    public static final java.lang.String ONCHILDVIEWADDED;
+    public static final java.lang.String ONCHILDVIEWREMOVED;
+    public static final java.lang.String[] array13;
+    public static final java.lang.String SETONITEMCLICKLISTENER;
+    public static final java.lang.String ONITEMCLICKLISTENER;
+    public static final java.lang.String ONITEMCLICK;
+    public static final java.lang.String[] array14;
+    public static final java.lang.String SETONITEMLONGCLICKLISTENER;
+    public static final java.lang.String ONITEMLONGCLICKLISTENER;
+    public static final java.lang.String ONITEMLONGCLICK;
+    public static final java.lang.String[] array15;
+    public static final java.lang.String SETONITEMSELECTEDLISTENER;
+    public static final java.lang.String ONITEMSELECTEDLISTENER;
+    public static final java.lang.String ONITEMSELECTED;
+    public static final java.lang.String ONNOTHINGSELECTED;
+    public static final java.lang.String[] array16;
+    public static final java.lang.String setOnSeekBarChangeListener;
+    public static final java.lang.String OnSeekBarChangeListener;
+    public static final java.lang.String onProgressChanged;
+    public static final java.lang.String onStartTrackingTouch;
+    public static final java.lang.String onStopTrackingTouch;
+    public static final java.lang.String[] array17;
+    public static final java.lang.String setOnCheckedChangeListener;
+    public static final java.lang.String OnCheckedChangeListener;
+    public static final java.lang.String onCheckedChanged;
+    public static final java.lang.String[] array18;
+    public static final java.lang.String setOnRatingBarChangeListener;
+    public static final java.lang.String OnRatingBarChangeListener;
+    public static final java.lang.String onRatingChanged;
+    public static final java.lang.String[] array19;
+    public static final java.lang.String setOnInflateListener;
+    public static final java.lang.String OnInflateListener;
+    public static final java.lang.String onInflate;
+    public static final java.lang.String[] array20;
+    public static final java.lang.String NumberPicker_setOnScrollListener;
+    public static final java.lang.String NumberPicker_OnScrollListener;
+    public static final java.lang.String NumberPicker_onScrollStateChange;
+    public static final java.lang.String[] array21;
+    public static final java.lang.String setOnValueChangeListener;
+    public static final java.lang.String OnValueChangeListener;
+    public static final java.lang.String onValueChange;
+    public static final java.lang.String[] array22;
+    public static final java.lang.String AbsListView_setOnScrollListener;
+    public static final java.lang.String AbsListView_OnScrollListener;
+    public static final java.lang.String onScrollStateChanged;
+    public static final java.lang.String onScroll;
+    public static final java.lang.String[] array23;
+    public static final java.lang.String DialogInterface_setOnCancelListener;
+    public static final java.lang.String DialogInterface_OnCancelListener;
+    public static final java.lang.String DialogInterface_onCancel;
+    public static final java.lang.String[] array24;
+    public static final java.lang.String DialogInterface_setOnDismissListener;
+    public static final java.lang.String DialogInterface_OnDismissListener;
+    public static final java.lang.String DialogInterface_onDismiss;
+    public static final java.lang.String[] array25;
+    public static final java.lang.String DialogInterface_setOnShowListener;
+    public static final java.lang.String DialogInterface_OnShowListener;
+    public static final java.lang.String DialogInterface_onShow;
+    public static final java.lang.String[] array26;
+    public static final java.lang.String DialogInterface_setOnClickListener;
+    public static final java.lang.String DialogInterface_OnClickListener;
+    public static final java.lang.String DialogInterface_onClick;
+    public static final java.lang.String[] array27;
+    public static final java.lang.String DialogInterface_setOnMultiChoiceClickListener;
+    public static final java.lang.String DialogInterface_OnMultiChoiceClickListener;
+    public static final java.lang.String DialogInterface_OnMultiChoiceClickListener_onClick;
+    public static final java.lang.String[] array28;
+    public static final java.lang.String DialogInterface_setOnKeyListener;
+    public static final java.lang.String DialogInterface_OnKeyListener;
+    public static final java.lang.String DialogInterface_onKey;
+    public static final java.lang.String[] array29;
+    public static final java.lang.String setOnPageChangeListener;
+    public static final java.lang.String OnPageChangeListener;
+    public static final java.lang.String onPageSelected;
+    public static final java.lang.String onPageScrolled;
+    public static final java.lang.String onPageScrollStateChanged;
+    public static final java.lang.String[] array30;
+    public static final java.lang.String setOnQueryTextListener;
+    public static final java.lang.String OnQueryTextListener;
+    public static final java.lang.String onQueryTextSubmit;
+    public static final java.lang.String onQueryTextChange;
+    public static final java.lang.String[] array31;
+    public static final java.lang.String setOnCloseListener;
+    public static final java.lang.String OnCloseListener;
+    public static final java.lang.String onClose;
+    public static final java.lang.String[] array32;
+    public static final java.lang.String setOnSuggestionListener;
+    public static final java.lang.String OnSuggestionListener;
+    public static final java.lang.String onSuggestionSelect;
+    public static final java.lang.String onSuggestionClick;
+    public static final java.lang.String[] array33;
+    public static final java.lang.String receiver_registerReceiver;
+    public static final java.lang.String service_registerListener1;
+    public static final java.lang.String service_registerListener2;
+    public static final java.lang.String service_registerListener3;
+    public static final java.lang.String service_registerListener4;
+    public static final java.lang.String SensorEventListener;
+    public static final java.lang.String onSensorChanged;
+    public static final java.lang.String onAccuracyChanged;
+    public static final java.lang.String[] array35;
+    public static final java.lang.String service_requestAudioFocus;
+    public static final java.lang.String OnAudioFocusChangeListener;
+    public static final java.lang.String onAudioFocusChange;
+    public static final java.lang.String[] array36;
+    public static final java.lang.String service_requestLocationUpdates;
+    public static final java.lang.String service_addGpsStatusListener;
+    public static final java.lang.String Listener;
+    public static final java.lang.String onGpsStatusChanged;
+    public static final java.lang.String[] array37;
+    public static final java.lang.String service_addNmeaListener;
+    public static final java.lang.String NmeaListener;
+    public static final java.lang.String onNmeaReceived;
+    public static final java.lang.String[] array38;
+    public static final java.lang.String service_requestSingleUpdate;
+    public static final java.lang.String LocationListener;
+    public static final java.lang.String onLocationChanged;
+    public static final java.lang.String onStatusChanged;
+    public static final java.lang.String onProviderEnabled;
+    public static final java.lang.String onProviderDisabled;
+    public static final java.lang.String[] array39;
+    public static final java.lang.String service_addProximityAlert;
+    public static final java.lang.String service_registerMediaButtonEventReceiver;
+    public static final java.lang.String service_listen;
+
+    static void <clinit>()
+    {
+        java.util.HashMap $r0, $r1, $r2;
+        java.lang.String[] $r3, $r4, $r5, $r6, $r7, $r8, $r9, $r10, $r11, $r12, $r13, $r14, $r15, $r16, $r17, $r18, $r19, $r20, $r21, $r22, $r23, $r24, $r25, $r26, $r27, $r28, $r29, $r30, $r31, $r32, $r33, $r34, $r35, $r36, $r37, $r38, $r39, $r41, $r42, $r43, $r47, $r55, $r57, $r61, $r64, $r66, $r75, $r76, $r83, $r87, $r89, $r92, $r94, $r100, $r105, $r109, $r112, $r114, $r118, $r126, $r131, $r135, $r136, $r143, $r146, $r149, $r154, $r157, $r161, $r165, $r166, $r170, $r176, $r178, $r186, $r189, $r193, $r197, $r202, $r208;
+        java.util.Map $r40, $r44, $r52, $r54, $r56, $r65, $r67, $r69, $r74, $r78, $r79, $r85, $r90, $r95, $r99, $r103, $r104, $r108, $r111, $r116, $r120, $r123, $r127, $r132, $r141, $r142, $r145, $r150, $r158, $r159, $r164, $r168, $r169, $r172, $r177, $r179, $r181, $r188, $r192, $r196, $r203, $r206;
+        java.util.List $r45, $r49, $r51, $r53, $r59, $r62, $r68, $r70, $r73, $r81, $r82, $r88, $r93, $r96, $r98, $r102, $r107, $r113, $r117, $r122, $r124, $r128, $r129, $r133, $r138, $r140, $r148, $r151, $r155, $r156, $r163, $r171, $r174, $r180, $r182, $r184, $r187, $r191, $r195, $r199, $r201, $r204;
+
+        <com.app.test.CallBack: java.lang.String service_listen> = "void listen(android.telephony.PhoneStateListener,int)";
+
+        <com.app.test.CallBack: java.lang.String service_registerMediaButtonEventReceiver> = "void registerMediaButtonEventReceiver(android.content.ComponentName)";
+
+        <com.app.test.CallBack: java.lang.String service_addProximityAlert> = "void addProximityAlert(double,double,float,long,android.app.PendingIntent)";
+
+        <com.app.test.CallBack: java.lang.String onProviderDisabled> = "void onProviderDisabled(java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String onProviderEnabled> = "void onProviderEnabled(java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String onStatusChanged> = "void onStatusChanged(java.lang.String,int,android.os.Bundle)";
+
+        <com.app.test.CallBack: java.lang.String onLocationChanged> = "void onLocationChanged(android.location.Location)";
+
+        <com.app.test.CallBack: java.lang.String LocationListener> = "android.location.LocationListener";
+
+        <com.app.test.CallBack: java.lang.String service_requestSingleUpdate> = "void requestSingleUpdate(java.lang.String,android.location.LocationListener,android.os.Looper)";
+
+        <com.app.test.CallBack: java.lang.String onNmeaReceived> = "void onNmeaReceived(long,java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String NmeaListener> = "android.location.GpsStatus$NmeaListener";
+
+        <com.app.test.CallBack: java.lang.String service_addNmeaListener> = "boolean addNmeaListener(android.location.GpsStatus$NmeaListener)";
+
+        <com.app.test.CallBack: java.lang.String onGpsStatusChanged> = "void onGpsStatusChanged(int)";
+
+        <com.app.test.CallBack: java.lang.String Listener> = "android.location.GpsStatus$Listener";
+
+        <com.app.test.CallBack: java.lang.String service_addGpsStatusListener> = "boolean addGpsStatusListener(android.location.GpsStatus$Listener)";
+
+        <com.app.test.CallBack: java.lang.String service_requestLocationUpdates> = "void requestLocationUpdates(java.lang.String,long,float,android.location.GpsStatus$Listener)";
+
+        <com.app.test.CallBack: java.lang.String onAudioFocusChange> = "void onAudioFocusChange(int)";
+
+        <com.app.test.CallBack: java.lang.String OnAudioFocusChangeListener> = "android.media.AudioManager$OnAudioFocusChangeListener";
+
+        <com.app.test.CallBack: java.lang.String service_requestAudioFocus> = "int requestAudioFocus(android.media.AudioManager$OnAudioFocusChangeListener,int,int)";
+
+        <com.app.test.CallBack: java.lang.String onAccuracyChanged> = "void onAccuracyChanged(android.hardware.Sensor,int)";
+
+        <com.app.test.CallBack: java.lang.String onSensorChanged> = "void onSensorChanged(android.hardware.SensorEvent)";
+
+        <com.app.test.CallBack: java.lang.String SensorEventListener> = "android.hardware.SensorEventListener";
+
+        <com.app.test.CallBack: java.lang.String service_registerListener4> = "boolean registerListener(android.hardware.SensorEventListener,android.hardware.Sensor,int,android.os.Handler)";
+
+        <com.app.test.CallBack: java.lang.String service_registerListener3> = "boolean registerListener(android.hardware.SensorEventListener,android.hardware.Sensor,int)";
+
+        <com.app.test.CallBack: java.lang.String service_registerListener2> = "boolean registerListener(android.hardware.SensorEventListener,int,int)";
+
+        <com.app.test.CallBack: java.lang.String service_registerListener1> = "boolean registerListener(android.hardware.SensorEventListener,int)";
+
+        <com.app.test.CallBack: java.lang.String receiver_registerReceiver> = "void registerReceiver(android.content.BroadcastReceiver,android.content.IntentFilter)";
+
+        <com.app.test.CallBack: java.lang.String onSuggestionClick> = "boolean onSuggestionClick(int)";
+
+        <com.app.test.CallBack: java.lang.String onSuggestionSelect> = "boolean onSuggestionSelect(int)";
+
+        <com.app.test.CallBack: java.lang.String OnSuggestionListener> = "android.widget.SearchView$OnSuggestionListener";
+
+        <com.app.test.CallBack: java.lang.String setOnSuggestionListener> = "void setOnSuggestionListener(android.widget.SearchView$OnSuggestionListener)";
+
+        <com.app.test.CallBack: java.lang.String onClose> = "boolean onClose()";
+
+        <com.app.test.CallBack: java.lang.String OnCloseListener> = "android.widget.SearchView$OnCloseListener";
+
+        <com.app.test.CallBack: java.lang.String setOnCloseListener> = "void setOnCloseListener(android.widget.SearchView$OnCloseListener)";
+
+        <com.app.test.CallBack: java.lang.String onQueryTextChange> = "boolean onQueryTextChange(java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String onQueryTextSubmit> = "boolean onQueryTextSubmit(java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String OnQueryTextListener> = "android.widget.SearchView$OnQueryTextListener";
+
+        <com.app.test.CallBack: java.lang.String setOnQueryTextListener> = "void setOnQueryTextListener(android.widget.SearchView$OnQueryTextListener)";
+
+        <com.app.test.CallBack: java.lang.String onPageScrollStateChanged> = "void onPageScrollStateChanged(int)";
+
+        <com.app.test.CallBack: java.lang.String onPageScrolled> = "void onPageScrolled(int,float,int)";
+
+        <com.app.test.CallBack: java.lang.String onPageSelected> = "void onPageSelected(int)";
+
+        <com.app.test.CallBack: java.lang.String OnPageChangeListener> = "android.support.v4.view.ViewPager$OnPageChangeListener";
+
+        <com.app.test.CallBack: java.lang.String setOnPageChangeListener> = "void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_onKey> = "boolean onKey(android.content.DialogInterface,int,android.view.KeyEvent)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_OnKeyListener> = "android.content.DialogInterface$OnKeyListener";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_setOnKeyListener> = "void setOnKeyListener(android.content.DialogInterface$OnKeyListener)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_OnMultiChoiceClickListener_onClick> = "void onClick(android.content.DialogInterface,int,boolean)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_OnMultiChoiceClickListener> = "android.content.DialogInterface$OnMultiChoiceClickListener";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_setOnMultiChoiceClickListener> = "void setOnMultiChoiceClickListener(android.content.DialogInterface$OnMultiChoiceClickListener)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_onClick> = "void onClick(android.content.DialogInterface,int)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_OnClickListener> = "android.content.DialogInterface$OnClickListener";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_setOnClickListener> = "void setOnClickListener(android.content.DialogInterface$OnClickListener)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_onShow> = "void onShow(android.content.DialogInterface)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_OnShowListener> = "android.content.DialogInterface$OnShowListener";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_setOnShowListener> = "void setOnShowListener(android.content.DialogInterface$OnShowListener)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_onDismiss> = "void onDismiss(android.content.DialogInterface)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_OnDismissListener> = "android.content.DialogInterface$OnDismissListener";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_setOnDismissListener> = "void setOnDismissListener(android.content.DialogInterface$OnDismissListener)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_onCancel> = "void onCancel(android.content.DialogInterface)";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_OnCancelListener> = "android.content.DialogInterface$OnCancelListener";
+
+        <com.app.test.CallBack: java.lang.String DialogInterface_setOnCancelListener> = "void setOnCancelListener(android.content.DialogInterface$OnCancelListener)";
+
+        <com.app.test.CallBack: java.lang.String onScroll> = "void onScroll(android.widget.AbsListView,int,int,int)";
+
+        <com.app.test.CallBack: java.lang.String onScrollStateChanged> = "void onScrollStateChanged(android.widget.AbsListView,int)";
+
+        <com.app.test.CallBack: java.lang.String AbsListView_OnScrollListener> = "android.widget.AbsListView$OnScrollListener";
+
+        <com.app.test.CallBack: java.lang.String AbsListView_setOnScrollListener> = "void setOnScrollListener(android.widget.AbsListView$OnScrollListener)";
+
+        <com.app.test.CallBack: java.lang.String onValueChange> = "void onValueChange(android.widget.NumberPicker,int,int)";
+
+        <com.app.test.CallBack: java.lang.String OnValueChangeListener> = "android.widget.NumberPicker$OnValueChangeListener";
+
+        <com.app.test.CallBack: java.lang.String setOnValueChangeListener> = "void setOnValueChangeListener(android.widget.NumberPicker$OnValueChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String NumberPicker_onScrollStateChange> = "void onScrollStateChange(android.widget.NumberPicker,int)";
+
+        <com.app.test.CallBack: java.lang.String NumberPicker_OnScrollListener> = "android.widget.NumberPicker$OnScrollListener";
+
+        <com.app.test.CallBack: java.lang.String NumberPicker_setOnScrollListener> = "void setOnScrollListener(android.widget.NumberPicker$OnScrollListener)";
+
+        <com.app.test.CallBack: java.lang.String onInflate> = "void onInflate(android.view.ViewStub,android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String OnInflateListener> = "android.view.ViewStub$OnInflateListener";
+
+        <com.app.test.CallBack: java.lang.String setOnInflateListener> = "void setOnInflateListener(android.view.ViewStub$OnInflateListener)";
+
+        <com.app.test.CallBack: java.lang.String onRatingChanged> = "void onRatingChanged(android.widget.RatingBar,float,boolean)";
+
+        <com.app.test.CallBack: java.lang.String OnRatingBarChangeListener> = "android.widget.RatingBar$OnRatingBarChangeListener";
+
+        <com.app.test.CallBack: java.lang.String setOnRatingBarChangeListener> = "void setOnRatingBarChangeListener(android.widget.RatingBar$OnRatingBarChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String onCheckedChanged> = "void onCheckedChanged(android.widget.CompoundButton,boolean)";
+
+        <com.app.test.CallBack: java.lang.String OnCheckedChangeListener> = "android.widget.CompoundButton$OnCheckedChangeListener";
+
+        <com.app.test.CallBack: java.lang.String setOnCheckedChangeListener> = "void setOnCheckedChangeListener(android.widget.CompoundButton$OnCheckedChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String onStopTrackingTouch> = "void onStopTrackingTouch(android.widget.SeekBar)";
+
+        <com.app.test.CallBack: java.lang.String onStartTrackingTouch> = "void onStartTrackingTouch(android.widget.SeekBar)";
+
+        <com.app.test.CallBack: java.lang.String onProgressChanged> = "void onProgressChanged(android.widget.SeekBar,int,boolean)";
+
+        <com.app.test.CallBack: java.lang.String OnSeekBarChangeListener> = "android.widget.SeekBar$OnSeekBarChangeListener";
+
+        <com.app.test.CallBack: java.lang.String setOnSeekBarChangeListener> = "void setOnSeekBarChangeListener(android.widget.SeekBar$OnSeekBarChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String ONNOTHINGSELECTED> = "void onNothingSelected(android.widget.AdapterView)";
+
+        <com.app.test.CallBack: java.lang.String ONITEMSELECTED> = "void onItemSelected(android.widget.AdapterView,android.view.View,int,long)";
+
+        <com.app.test.CallBack: java.lang.String ONITEMSELECTEDLISTENER> = "android.widget.AdapterView$OnItemSelectedListener";
+
+        <com.app.test.CallBack: java.lang.String SETONITEMSELECTEDLISTENER> = "void setOnItemSelectedListener(android.widget.AdapterView$OnItemSelectedListener)";
+
+        <com.app.test.CallBack: java.lang.String ONITEMLONGCLICK> = "boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long)";
+
+        <com.app.test.CallBack: java.lang.String ONITEMLONGCLICKLISTENER> = "android.widget.AdapterView$OnItemLongClickListener";
+
+        <com.app.test.CallBack: java.lang.String SETONITEMLONGCLICKLISTENER> = "void setOnItemLongClickListener(android.widget.AdapterView$OnItemLongClickListener)";
+
+        <com.app.test.CallBack: java.lang.String ONITEMCLICK> = "void onItemClick(android.widget.AdapterView,android.view.View,int,long)";
+
+        <com.app.test.CallBack: java.lang.String ONITEMCLICKLISTENER> = "android.widget.AdapterView$OnItemClickListener";
+
+        <com.app.test.CallBack: java.lang.String SETONITEMCLICKLISTENER> = "void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)";
+
+        <com.app.test.CallBack: java.lang.String ONCHILDVIEWREMOVED> = "void onChildViewRemoved(android.view.View,android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String ONCHILDVIEWADDED> = "void onChildViewAdded(android.view.View,android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String ONHIERARCHYCHANGELISTENER> = "android.view.ViewGroup$OnHierarchyChangeListener";
+
+        <com.app.test.CallBack: java.lang.String SETONHIERARCHYCHANGELISTENER> = "void setOnHierarchyChangeListener(android.view.ViewGroup$OnHierarchyChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String ONEDITORACTION> = "boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent)";
+
+        <com.app.test.CallBack: java.lang.String ONEDITORACTIONLISTENER> = "android.widget.TextView$OnEditorActionListener";
+
+        <com.app.test.CallBack: java.lang.String SETONEDITORACTIONLISTENER> = "void setOnEditorActionListener(android.widget.TextView$OnEditorActionListener)";
+
+        <com.app.test.CallBack: java.lang.String ONPREFERENCETREECLICK> = "boolean onPreferenceTreeClick(android.preference.PreferenceScreen,android.preference.Preference)";
+
+        <com.app.test.CallBack: java.lang.String ONPREFERENCECLICKLISTENER> = "android.preference.Preference$OnPreferenceClickListener";
+
+        <com.app.test.CallBack: java.lang.String SETONPREFERENCECLICKLISTENER> = "void setOnPreferenceClickListener(android.preference.Preference$OnPreferenceClickListener)";
+
+        <com.app.test.CallBack: java.lang.String ONSYSTEMUIVISIBILITYCHANGE> = "void onSystemUiVisibilityChange(int)";
+
+        <com.app.test.CallBack: java.lang.String ONSYSTEMUIVISIBILITYCHANGELISTENER> = "android.view.View$OnSystemUiVisibilityChangeListener";
+
+        <com.app.test.CallBack: java.lang.String SETONSYSTEMUIVISIBILITYCHANGELISTENER> = "void setOnSystemUiVisibilityChangeListener(android.view.View$OnSystemUiVisibilityChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String ONCREATECONTEXTMENU> = "void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo)";
+
+        <com.app.test.CallBack: java.lang.String ONCONTEXTITEMSELECTED> = "boolean onContextItemSelected(android.view.MenuItem)";
+
+        <com.app.test.CallBack: java.lang.String ONCREATECONTEXTMENULISTENER> = "android.view.View$OnCreateContextMenuListener";
+
+        <com.app.test.CallBack: java.lang.String SETONCREATECONTEXTMENULISTENER> = "void setOnCreateContextMenuListener(android.view.View$OnCreateContextMenuListener)";
+
+        <com.app.test.CallBack: java.lang.String ONCLICK> = "void onClick(android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String ONCLICKLISTENER> = "android.view.View$OnClickListener";
+
+        <com.app.test.CallBack: java.lang.String SETONCLICKLISTENER> = "void setOnClickListener(android.view.View$OnClickListener)";
+
+        <com.app.test.CallBack: java.lang.String ONFOCUSCHANGE> = "void onFocusChange(android.view.View,boolean)";
+
+        <com.app.test.CallBack: java.lang.String ONFOCUSCHANGELISTENER> = "android.view.View$OnFocusChangeListener";
+
+        <com.app.test.CallBack: java.lang.String SETONFOCUSCHANGELISTENER> = "void setOnFocusChangeListener(android.view.View$OnFocusChangeListener)";
+
+        <com.app.test.CallBack: java.lang.String ONDRAG> = "boolean onDrag(android.view.View,android.view.DragEvent)";
+
+        <com.app.test.CallBack: java.lang.String ONDRAGLISTENER> = "android.view.View$OnDragListener";
+
+        <com.app.test.CallBack: java.lang.String SETONDRAGLISTENER> = "void setOnDragListener(android.view.View$OnDragListener)";
+
+        <com.app.test.CallBack: java.lang.String ONLONGCLICK> = "boolean onLongClick(android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String ONLONGCLICKLISTENER> = "android.view.View$OnLongClickListener";
+
+        <com.app.test.CallBack: java.lang.String SETONLONGCLICKLISTENER> = "void setOnLongClickListener(android.view.View$OnLongClickListener)";
+
+        <com.app.test.CallBack: java.lang.String ONGENERICMOTION> = "boolean onGenericMotion(android.view.View,android.view.MotionEvent)";
+
+        <com.app.test.CallBack: java.lang.String ONGENERICMOTIONLISTENER> = "android.view.View$OnGenericMotionListener";
+
+        <com.app.test.CallBack: java.lang.String SETONGENERICMOTIONLISTENER> = "void setOnGenericMotionListener(android.view.View$OnGenericMotionListener)";
+
+        <com.app.test.CallBack: java.lang.String ONHOVER> = "boolean onHover(android.view.View,android.view.MotionEvent)";
+
+        <com.app.test.CallBack: java.lang.String ONHOVERLISTENER> = "android.view.View$OnHoverListener";
+
+        <com.app.test.CallBack: java.lang.String SETONHOVERLISTENER> = "void setOnHoverListener(android.view.View$OnHoverListener)";
+
+        <com.app.test.CallBack: java.lang.String ONTOUCH> = "boolean onTouch(android.view.View,android.view.MotionEvent)";
+
+        <com.app.test.CallBack: java.lang.String ONTOUCHLISTENER> = "android.view.View$OnTouchListener";
+
+        <com.app.test.CallBack: java.lang.String SETONTOUCHLISTENER> = "void setOnTouchListener(android.view.View$OnTouchListener)";
+
+        <com.app.test.CallBack: java.lang.String ONKEY> = "boolean onKey(android.view.View,int,android.view.KeyEvent)";
+
+        <com.app.test.CallBack: java.lang.String ONKEYLISTENER> = "android.view.View$OnKeyListener";
+
+        <com.app.test.CallBack: java.lang.String SETONKEYLISTENER> = "void setOnKeyListener(android.view.View$OnKeyListener)";
+
+        $r0 = new java.util.HashMap;
+
+        specialinvoke $r0.<java.util.HashMap: void <init>()>();
+
+        <com.app.test.CallBack: java.util.Map dialogToCallBacks> = $r0;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        <com.app.test.CallBack: java.util.Map viewToCallBacks> = $r1;
+
+        $r2 = new java.util.HashMap;
+
+        specialinvoke $r2.<java.util.HashMap: void <init>()>();
+
+        <com.app.test.CallBack: java.util.Map serviceToCallBacks> = $r2;
+
+        $r3 = newarray (java.lang.String)[1];
+
+        $r3[0] = "boolean onKey(android.view.View,int,android.view.KeyEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array1> = $r3;
+
+        $r4 = newarray (java.lang.String)[1];
+
+        $r4[0] = "boolean onTouch(android.view.View,android.view.MotionEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array2> = $r4;
+
+        $r5 = newarray (java.lang.String)[1];
+
+        $r5[0] = "boolean onHover(android.view.View,android.view.MotionEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array3> = $r5;
+
+        $r6 = newarray (java.lang.String)[1];
+
+        $r6[0] = "boolean onGenericMotion(android.view.View,android.view.MotionEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array4> = $r6;
+
+        $r7 = newarray (java.lang.String)[1];
+
+        $r7[0] = "boolean onLongClick(android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String[] array5> = $r7;
+
+        $r8 = newarray (java.lang.String)[1];
+
+        $r8[0] = "boolean onDrag(android.view.View,android.view.DragEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array6> = $r8;
+
+        $r9 = newarray (java.lang.String)[1];
+
+        $r9[0] = "void onFocusChange(android.view.View,boolean)";
+
+        <com.app.test.CallBack: java.lang.String[] array7> = $r9;
+
+        $r10 = newarray (java.lang.String)[1];
+
+        $r10[0] = "void onClick(android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String[] array8> = $r10;
+
+        $r11 = newarray (java.lang.String)[1];
+
+        $r11[0] = "void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo)";
+
+        <com.app.test.CallBack: java.lang.String[] array9> = $r11;
+
+        $r12 = newarray (java.lang.String)[1];
+
+        $r12[0] = "void onSystemUiVisibilityChange(int)";
+
+        <com.app.test.CallBack: java.lang.String[] array10> = $r12;
+
+        $r13 = newarray (java.lang.String)[1];
+
+        $r13[0] = "boolean onPreferenceTreeClick(android.preference.PreferenceScreen,android.preference.Preference)";
+
+        <com.app.test.CallBack: java.lang.String[] array11> = $r13;
+
+        $r14 = newarray (java.lang.String)[1];
+
+        $r14[0] = "boolean onEditorAction(android.widget.TextView,int,android.view.KeyEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array12> = $r14;
+
+        $r15 = newarray (java.lang.String)[2];
+
+        $r15[0] = "void onChildViewAdded(android.view.View,android.view.View)";
+
+        $r15[1] = "void onChildViewRemoved(android.view.View,android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String[] array13> = $r15;
+
+        $r17 = newarray (java.lang.String)[1];
+
+        $r17[0] = "void onItemClick(android.widget.AdapterView,android.view.View,int,long)";
+
+        <com.app.test.CallBack: java.lang.String[] array14> = $r17;
+
+        $r16 = newarray (java.lang.String)[1];
+
+        $r16[0] = "boolean onItemLongClick(android.widget.AdapterView,android.view.View,int,long)";
+
+        <com.app.test.CallBack: java.lang.String[] array15> = $r16;
+
+        $r19 = newarray (java.lang.String)[2];
+
+        $r19[0] = "void onItemSelected(android.widget.AdapterView,android.view.View,int,long)";
+
+        $r19[1] = "void onNothingSelected(android.widget.AdapterView)";
+
+        <com.app.test.CallBack: java.lang.String[] array16> = $r19;
+
+        $r18 = newarray (java.lang.String)[3];
+
+        $r18[0] = "void onProgressChanged(android.widget.SeekBar,int,boolean)";
+
+        $r18[1] = "void onStartTrackingTouch(android.widget.SeekBar)";
+
+        $r18[2] = "void onStopTrackingTouch(android.widget.SeekBar)";
+
+        <com.app.test.CallBack: java.lang.String[] array17> = $r18;
+
+        $r21 = newarray (java.lang.String)[1];
+
+        $r21[0] = "void onCheckedChanged(android.widget.CompoundButton,boolean)";
+
+        <com.app.test.CallBack: java.lang.String[] array18> = $r21;
+
+        $r20 = newarray (java.lang.String)[1];
+
+        $r20[0] = "void onRatingChanged(android.widget.RatingBar,float,boolean)";
+
+        <com.app.test.CallBack: java.lang.String[] array19> = $r20;
+
+        $r23 = newarray (java.lang.String)[1];
+
+        $r23[0] = "void onInflate(android.view.ViewStub,android.view.View)";
+
+        <com.app.test.CallBack: java.lang.String[] array20> = $r23;
+
+        $r22 = newarray (java.lang.String)[1];
+
+        $r22[0] = "void onScrollStateChange(android.widget.NumberPicker,int)";
+
+        <com.app.test.CallBack: java.lang.String[] array21> = $r22;
+
+        $r25 = newarray (java.lang.String)[1];
+
+        $r25[0] = "boolean onTouch(android.view.View,android.view.MotionEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array22> = $r25;
+
+        $r24 = newarray (java.lang.String)[2];
+
+        $r24[0] = "void onScrollStateChanged(android.widget.AbsListView,int)";
+
+        $r24[1] = "void onScroll(android.widget.AbsListView,int,int,int)";
+
+        <com.app.test.CallBack: java.lang.String[] array23> = $r24;
+
+        $r27 = newarray (java.lang.String)[1];
+
+        $r27[0] = "void onCancel(android.content.DialogInterface)";
+
+        <com.app.test.CallBack: java.lang.String[] array24> = $r27;
+
+        $r26 = newarray (java.lang.String)[1];
+
+        $r26[0] = "void onDismiss(android.content.DialogInterface)";
+
+        <com.app.test.CallBack: java.lang.String[] array25> = $r26;
+
+        $r29 = newarray (java.lang.String)[1];
+
+        $r29[0] = "void onShow(android.content.DialogInterface)";
+
+        <com.app.test.CallBack: java.lang.String[] array26> = $r29;
+
+        $r28 = newarray (java.lang.String)[1];
+
+        $r28[0] = "void onClick(android.content.DialogInterface,int)";
+
+        <com.app.test.CallBack: java.lang.String[] array27> = $r28;
+
+        $r31 = newarray (java.lang.String)[1];
+
+        $r31[0] = "void onClick(android.content.DialogInterface,int,boolean)";
+
+        <com.app.test.CallBack: java.lang.String[] array28> = $r31;
+
+        $r30 = newarray (java.lang.String)[1];
+
+        $r30[0] = "boolean onKey(android.content.DialogInterface,int,android.view.KeyEvent)";
+
+        <com.app.test.CallBack: java.lang.String[] array29> = $r30;
+
+        $r34 = newarray (java.lang.String)[3];
+
+        $r34[0] = "void onPageSelected(int)";
+
+        $r34[1] = "void onPageScrolled(int,float,int)";
+
+        $r34[2] = "void onPageScrollStateChanged(int)";
+
+        <com.app.test.CallBack: java.lang.String[] array30> = $r34;
+
+        $r35 = newarray (java.lang.String)[2];
+
+        $r35[0] = "boolean onQueryTextSubmit(java.lang.String)";
+
+        $r35[1] = "boolean onQueryTextChange(java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String[] array31> = $r35;
+
+        $r32 = newarray (java.lang.String)[1];
+
+        $r32[0] = "boolean onClose()";
+
+        <com.app.test.CallBack: java.lang.String[] array32> = $r32;
+
+        $r33 = newarray (java.lang.String)[2];
+
+        $r33[0] = "boolean onSuggestionSelect(int)";
+
+        $r33[1] = "boolean onSuggestionClick(int)";
+
+        <com.app.test.CallBack: java.lang.String[] array33> = $r33;
+
+        $r38 = newarray (java.lang.String)[2];
+
+        $r38[0] = "void onSensorChanged(android.hardware.SensorEvent)";
+
+        $r38[1] = "void onAccuracyChanged(android.hardware.Sensor,int)";
+
+        <com.app.test.CallBack: java.lang.String[] array35> = $r38;
+
+        $r39 = newarray (java.lang.String)[1];
+
+        $r39[0] = "void onAudioFocusChange(int)";
+
+        <com.app.test.CallBack: java.lang.String[] array36> = $r39;
+
+        $r36 = newarray (java.lang.String)[1];
+
+        $r36[0] = "void onGpsStatusChanged(int)";
+
+        <com.app.test.CallBack: java.lang.String[] array37> = $r36;
+
+        $r37 = newarray (java.lang.String)[1];
+
+        $r37[0] = "void onNmeaReceived(long,java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String[] array38> = $r37;
+
+        $r41 = newarray (java.lang.String)[4];
+
+        $r41[0] = "void onLocationChanged(android.location.Location)";
+
+        $r41[1] = "void onStatusChanged(java.lang.String,int,android.os.Bundle)";
+
+        $r41[2] = "void onProviderEnabled(java.lang.String)";
+
+        $r41[3] = "void onProviderDisabled(java.lang.String)";
+
+        <com.app.test.CallBack: java.lang.String[] array39> = $r41;
+
+        $r40 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r42 = <com.app.test.CallBack: java.lang.String[] array18>;
+
+        $r45 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r42);
+
+        interfaceinvoke $r40.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnCheckedChangeListener(android.widget.CompoundButton$OnCheckedChangeListener)", $r45);
+
+        $r44 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r43 = <com.app.test.CallBack: java.lang.String[] array32>;
+
+        $r49 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r43);
+
+        interfaceinvoke $r44.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnCloseListener(android.widget.SearchView$OnCloseListener)", $r49);
+
+        $r52 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r47 = <com.app.test.CallBack: java.lang.String[] array20>;
+
+        $r51 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r47);
+
+        interfaceinvoke $r52.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnInflateListener(android.view.ViewStub$OnInflateListener)", $r51);
+
+        $r54 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r55 = <com.app.test.CallBack: java.lang.String[] array16>;
+
+        $r53 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r55);
+
+        interfaceinvoke $r54.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnItemSelectedListener(android.widget.AdapterView$OnItemSelectedListener)", $r53);
+
+        $r56 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r57 = <com.app.test.CallBack: java.lang.String[] array30>;
+
+        $r62 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r57);
+
+        interfaceinvoke $r56.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnPageChangeListener(android.support.v4.view.ViewPager$OnPageChangeListener)", $r62);
+
+        $r65 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r64 = <com.app.test.CallBack: java.lang.String[] array31>;
+
+        $r59 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r64);
+
+        interfaceinvoke $r65.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnQueryTextListener(android.widget.SearchView$OnQueryTextListener)", $r59);
+
+        $r69 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r61 = <com.app.test.CallBack: java.lang.String[] array19>;
+
+        $r70 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r61);
+
+        interfaceinvoke $r69.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnRatingBarChangeListener(android.widget.RatingBar$OnRatingBarChangeListener)", $r70);
+
+        $r67 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r66 = <com.app.test.CallBack: java.lang.String[] array17>;
+
+        $r68 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r66);
+
+        interfaceinvoke $r67.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnSeekBarChangeListener(android.widget.SeekBar$OnSeekBarChangeListener)", $r68);
+
+        $r78 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r76 = <com.app.test.CallBack: java.lang.String[] array33>;
+
+        $r73 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r76);
+
+        interfaceinvoke $r78.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnSuggestionListener(android.widget.SearchView$OnSuggestionListener)", $r73);
+
+        $r74 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r75 = <com.app.test.CallBack: java.lang.String[] array22>;
+
+        $r82 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r75);
+
+        interfaceinvoke $r74.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnValueChangeListener(android.widget.NumberPicker$OnValueChangeListener)", $r82);
+
+        $r79 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r83 = <com.app.test.CallBack: java.lang.String[] array8>;
+
+        $r81 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r83);
+
+        interfaceinvoke $r79.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnClickListener(android.view.View$OnClickListener)", $r81);
+
+        $r90 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r89 = <com.app.test.CallBack: java.lang.String[] array9>;
+
+        $r88 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r89);
+
+        interfaceinvoke $r90.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnCreateContextMenuListener(android.view.View$OnCreateContextMenuListener)", $r88);
+
+        $r85 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r87 = <com.app.test.CallBack: java.lang.String[] array6>;
+
+        $r96 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r87);
+
+        interfaceinvoke $r85.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnDragListener(android.view.View$OnDragListener)", $r96);
+
+        $r95 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r94 = <com.app.test.CallBack: java.lang.String[] array12>;
+
+        $r93 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r94);
+
+        interfaceinvoke $r95.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnEditorActionListener(android.widget.TextView$OnEditorActionListener)", $r93);
+
+        $r103 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r92 = <com.app.test.CallBack: java.lang.String[] array7>;
+
+        $r102 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r92);
+
+        interfaceinvoke $r103.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnFocusChangeListener(android.view.View$OnFocusChangeListener)", $r102);
+
+        $r99 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r100 = <com.app.test.CallBack: java.lang.String[] array4>;
+
+        $r98 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r100);
+
+        interfaceinvoke $r99.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnGenericMotionListener(android.view.View$OnGenericMotionListener)", $r98);
+
+        $r108 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r109 = <com.app.test.CallBack: java.lang.String[] array13>;
+
+        $r107 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r109);
+
+        interfaceinvoke $r108.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnHierarchyChangeListener(android.view.ViewGroup$OnHierarchyChangeListener)", $r107);
+
+        $r104 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r105 = <com.app.test.CallBack: java.lang.String[] array3>;
+
+        $r117 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r105);
+
+        interfaceinvoke $r104.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnHoverListener(android.view.View$OnHoverListener)", $r117);
+
+        $r120 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r118 = <com.app.test.CallBack: java.lang.String[] array14>;
+
+        $r122 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r118);
+
+        interfaceinvoke $r120.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnItemClickListener(android.widget.AdapterView$OnItemClickListener)", $r122);
+
+        $r111 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r112 = <com.app.test.CallBack: java.lang.String[] array15>;
+
+        $r113 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r112);
+
+        interfaceinvoke $r111.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnItemLongClickListener(android.widget.AdapterView$OnItemLongClickListener)", $r113);
+
+        $r116 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r114 = <com.app.test.CallBack: java.lang.String[] array1>;
+
+        $r129 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r114);
+
+        interfaceinvoke $r116.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnKeyListener(android.view.View$OnKeyListener)", $r129);
+
+        $r132 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r131 = <com.app.test.CallBack: java.lang.String[] array5>;
+
+        $r133 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r131);
+
+        interfaceinvoke $r132.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnLongClickListener(android.view.View$OnLongClickListener)", $r133);
+
+        $r123 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r135 = <com.app.test.CallBack: java.lang.String[] array11>;
+
+        $r124 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r135);
+
+        interfaceinvoke $r123.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnPreferenceClickListener(android.preference.Preference$OnPreferenceClickListener)", $r124);
+
+        $r127 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r126 = <com.app.test.CallBack: java.lang.String[] array10>;
+
+        $r128 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r126);
+
+        interfaceinvoke $r127.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnSystemUiVisibilityChangeListener(android.view.View$OnSystemUiVisibilityChangeListener)", $r128);
+
+        $r142 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r143 = <com.app.test.CallBack: java.lang.String[] array2>;
+
+        $r148 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r143);
+
+        interfaceinvoke $r142.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnTouchListener(android.view.View$OnTouchListener)", $r148);
+
+        $r145 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r146 = <com.app.test.CallBack: java.lang.String[] array21>;
+
+        $r138 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r146);
+
+        interfaceinvoke $r145.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnScrollListener(android.widget.NumberPicker$OnScrollListener)", $r138);
+
+        $r141 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r136 = <com.app.test.CallBack: java.lang.String[] array23>;
+
+        $r140 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r136);
+
+        interfaceinvoke $r141.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnScrollListener(android.widget.AbsListView$OnScrollListener)", $r140);
+
+        $r158 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r157 = <com.app.test.CallBack: java.lang.String[] array35>;
+
+        $r156 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r157);
+
+        interfaceinvoke $r158.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("boolean registerListener(android.hardware.SensorEventListener,int)", $r156);
+
+        $r159 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r161 = <com.app.test.CallBack: java.lang.String[] array35>;
+
+        $r151 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r161);
+
+        interfaceinvoke $r159.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("boolean registerListener(android.hardware.SensorEventListener,int,int)", $r151);
+
+        $r150 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r149 = <com.app.test.CallBack: java.lang.String[] array35>;
+
+        $r155 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r149);
+
+        interfaceinvoke $r150.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("boolean registerListener(android.hardware.SensorEventListener,android.hardware.Sensor,int)", $r155);
+
+        $r172 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r154 = <com.app.test.CallBack: java.lang.String[] array35>;
+
+        $r174 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r154);
+
+        interfaceinvoke $r172.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("boolean registerListener(android.hardware.SensorEventListener,android.hardware.Sensor,int,android.os.Handler)", $r174);
+
+        $r169 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r170 = <com.app.test.CallBack: java.lang.String[] array36>;
+
+        $r171 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r170);
+
+        interfaceinvoke $r169.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("int requestAudioFocus(android.media.AudioManager$OnAudioFocusChangeListener,int,int)", $r171);
+
+        $r168 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r166 = <com.app.test.CallBack: java.lang.String[] array37>;
+
+        $r163 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r166);
+
+        interfaceinvoke $r168.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void requestLocationUpdates(java.lang.String,long,float,android.location.GpsStatus$Listener)", $r163);
+
+        $r164 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r165 = <com.app.test.CallBack: java.lang.String[] array37>;
+
+        $r184 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r165);
+
+        interfaceinvoke $r164.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("boolean addGpsStatusListener(android.location.GpsStatus$Listener)", $r184);
+
+        $r181 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r186 = <com.app.test.CallBack: java.lang.String[] array38>;
+
+        $r182 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r186);
+
+        interfaceinvoke $r181.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("boolean addNmeaListener(android.location.GpsStatus$NmeaListener)", $r182);
+
+        $r179 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r178 = <com.app.test.CallBack: java.lang.String[] array39>;
+
+        $r180 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r178);
+
+        interfaceinvoke $r179.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void requestSingleUpdate(java.lang.String,android.location.LocationListener,android.os.Looper)", $r180);
+
+        $r177 = <com.app.test.CallBack: java.util.Map dialogToCallBacks>;
+
+        $r176 = <com.app.test.CallBack: java.lang.String[] array24>;
+
+        $r199 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r176);
+
+        interfaceinvoke $r177.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnCancelListener(android.content.DialogInterface$OnCancelListener)", $r199);
+
+        $r196 = <com.app.test.CallBack: java.util.Map dialogToCallBacks>;
+
+        $r197 = <com.app.test.CallBack: java.lang.String[] array27>;
+
+        $r195 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r197);
+
+        interfaceinvoke $r196.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnClickListener(android.content.DialogInterface$OnClickListener)", $r195);
+
+        $r192 = <com.app.test.CallBack: java.util.Map dialogToCallBacks>;
+
+        $r193 = <com.app.test.CallBack: java.lang.String[] array25>;
+
+        $r191 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r193);
+
+        interfaceinvoke $r192.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnDismissListener(android.content.DialogInterface$OnDismissListener)", $r191);
+
+        $r188 = <com.app.test.CallBack: java.util.Map dialogToCallBacks>;
+
+        $r189 = <com.app.test.CallBack: java.lang.String[] array29>;
+
+        $r187 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r189);
+
+        interfaceinvoke $r188.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnKeyListener(android.content.DialogInterface$OnKeyListener)", $r187);
+
+        $r206 = <com.app.test.CallBack: java.util.Map dialogToCallBacks>;
+
+        $r208 = <com.app.test.CallBack: java.lang.String[] array28>;
+
+        $r204 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r208);
+
+        interfaceinvoke $r206.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnMultiChoiceClickListener(android.content.DialogInterface$OnMultiChoiceClickListener)", $r204);
+
+        $r203 = <com.app.test.CallBack: java.util.Map dialogToCallBacks>;
+
+        $r202 = <com.app.test.CallBack: java.lang.String[] array26>;
+
+        $r201 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r202);
+
+        interfaceinvoke $r203.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>("void setOnShowListener(android.content.DialogInterface$OnShowListener)", $r201);
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.app.test.CallBack r0;
+
+        r0 := @this: com.app.test.CallBack;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static java.util.Set getDialogRegistars()
+    {
+        java.util.Map $r0;
+        java.util.Set $r1;
+
+        $r0 = <com.app.test.CallBack: java.util.Map dialogToCallBacks>;
+
+        $r1 = interfaceinvoke $r0.<java.util.Map: java.util.Set keySet()>();
+
+        return $r1;
+    }
+
+    public static java.util.Set getViewRegistars()
+    {
+        java.util.Map $r0;
+        java.util.Set $r1;
+
+        $r0 = <com.app.test.CallBack: java.util.Map viewToCallBacks>;
+
+        $r1 = interfaceinvoke $r0.<java.util.Map: java.util.Set keySet()>();
+
+        return $r1;
+    }
+
+    public static java.util.Set getSerViceRegistars()
+    {
+        java.util.Map $r0;
+        java.util.Set $r1;
+
+        $r0 = <com.app.test.CallBack: java.util.Map serviceToCallBacks>;
+
+        $r1 = interfaceinvoke $r0.<java.util.Map: java.util.Set keySet()>();
+
+        return $r1;
+    }
+}

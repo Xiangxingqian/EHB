@@ -1,0 +1,250 @@
+class cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder extends java.lang.Object implements android.widget.SimpleCursorAdapter$ViewBinder
+{
+    private android.content.Context mContext;
+    private cz.romario.opensudoku.gui.FolderDetailLoader mDetailLoader;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(android.content.Context)
+    {
+        cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder $r0;
+        android.content.Context $r1;
+        cz.romario.opensudoku.gui.FolderDetailLoader $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: android.content.Context mContext> = $r1;
+
+        $r2 = new cz.romario.opensudoku.gui.FolderDetailLoader;
+
+        specialinvoke $r2.<cz.romario.opensudoku.gui.FolderDetailLoader: void <init>(android.content.Context)>($r1);
+
+        $r0.<cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: cz.romario.opensudoku.gui.FolderDetailLoader mDetailLoader> = $r2;
+
+        methodCount = <cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static android.content.Context access$0(cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder)
+    {
+        cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder $r0;
+        android.content.Context r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @parameter0: cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder;
+
+        r1 = $r0.<cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: android.content.Context mContext>;
+
+        methodCount = <cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return r1;
+    }
+
+    public void destroy()
+    {
+        cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder $r0;
+        cz.romario.opensudoku.gui.FolderDetailLoader $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: cz.romario.opensudoku.gui.FolderDetailLoader mDetailLoader>;
+
+        virtualinvoke $r1.<cz.romario.opensudoku.gui.FolderDetailLoader: void destroy()>();
+
+        methodCount = <cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean setViewValue(android.view.View, android.database.Cursor, int)
+    {
+        cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder $r0;
+        android.database.Cursor $r1;
+        int $i0, $i1, visitedCount, flagInt;
+        android.view.View $r2;
+        android.widget.TextView $r3;
+        java.lang.String $r4;
+        long $l2;
+        android.content.Context $r5;
+        cz.romario.opensudoku.gui.FolderDetailLoader $r6;
+        cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder$1 $r7;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder;
+
+        $r2 := @parameter0: android.view.View;
+
+        $r1 := @parameter1: android.database.Cursor;
+
+        $i0 := @parameter2: int;
+
+        $i1 = virtualinvoke $r2.<android.view.View: int getId()>();
+
+        lookupswitch($i1)
+        {
+            case 2131230722: goto label2;
+            case 2131230723: goto label3;
+            default: goto label1;
+        };
+
+     label1:
+        return 1;
+
+     label2:
+        $r3 = (android.widget.TextView) $r2;
+
+        $r4 = interfaceinvoke $r1.<android.database.Cursor: java.lang.String getString(int)>($i0);
+
+        virtualinvoke $r3.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        goto label1;
+
+     label3:
+        $l2 = interfaceinvoke $r1.<android.database.Cursor: long getLong(int)>($i0);
+
+        $r3 = (android.widget.TextView) $r2;
+
+        $r5 = $r0.<cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: android.content.Context mContext>;
+
+        $r4 = virtualinvoke $r5.<android.content.Context: java.lang.String getString(int)>(2131296354);
+
+        virtualinvoke $r3.<android.widget.TextView: void setText(java.lang.CharSequence)>($r4);
+
+        $r6 = $r0.<cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: cz.romario.opensudoku.gui.FolderDetailLoader mDetailLoader>;
+
+        $r7 = new cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder$1;
+
+        specialinvoke $r7.<cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder$1: void <init>(cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder,android.widget.TextView)>($r0, $r3);
+
+        virtualinvoke $r6.<cz.romario.opensudoku.gui.FolderDetailLoader: void loadDetailAsync(long,cz.romario.opensudoku.gui.FolderDetailLoader$FolderDetailCallback)>($l2, $r7);
+
+        methodCount = <cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label4;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label4:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.FolderListActivity$FolderListViewBinder: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

@@ -1,0 +1,84 @@
+public class com.app.test.event.SystemEventConstants extends java.lang.Object
+{
+    public static final java.lang.String[] serviceType1;
+    public static final java.lang.String[] serviceType2;
+    public static final java.lang.String[] serviceType4;
+    public static final java.util.Set extenalServicesList;
+    public static final java.util.List serviceType1List;
+    public static final java.util.List serviceType2List;
+    public static final java.util.List serviceType4List;
+
+    static void <clinit>()
+    {
+        java.lang.String[] $r0, $r1, $r2, $r4, $r6, $r8;
+        java.util.Set $r3;
+        java.util.List $r5, $r7, $r9;
+
+        $r0 = newarray (java.lang.String)[8];
+
+        $r0[0] = "boolean addGpsStatusListener(android.location.GpsStatus$Listener)";
+
+        $r0[1] = "boolean addNmeaListener(android.location.GpsStatus$NmeaListener)";
+
+        $r0[2] = "boolean registerListener(android.hardware.SensorEventListener,int)";
+
+        $r0[3] = "boolean registerListener(android.hardware.SensorEventListener,int,int)";
+
+        $r0[4] = "boolean registerListener(android.hardware.SensorEventListener,android.hardware.Sensor,int)";
+
+        $r0[5] = "boolean registerListener(android.hardware.SensorEventListener,android.hardware.Sensor,int,android.os.Handler)";
+
+        $r0[6] = "int requestAudioFocus(android.media.AudioManager$OnAudioFocusChangeListener,int,int)";
+
+        $r0[7] = "void listen(android.telephony.PhoneStateListener,int)";
+
+        <com.app.test.event.SystemEventConstants: java.lang.String[] serviceType1> = $r0;
+
+        $r1 = newarray (java.lang.String)[1];
+
+        $r1[0] = "void requestSingleUpdate(java.lang.String,android.location.LocationListener,android.os.Looper)";
+
+        <com.app.test.event.SystemEventConstants: java.lang.String[] serviceType2> = $r1;
+
+        $r2 = newarray (java.lang.String)[1];
+
+        $r2[0] = "void requestLocationUpdates(java.lang.String,long,float,android.location.GpsStatus$Listener)";
+
+        <com.app.test.event.SystemEventConstants: java.lang.String[] serviceType4> = $r2;
+
+        $r3 = staticinvoke <com.app.test.CallBack: java.util.Set getSerViceRegistars()>();
+
+        <com.app.test.event.SystemEventConstants: java.util.Set extenalServicesList> = $r3;
+
+        $r4 = <com.app.test.event.SystemEventConstants: java.lang.String[] serviceType1>;
+
+        $r5 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r4);
+
+        <com.app.test.event.SystemEventConstants: java.util.List serviceType1List> = $r5;
+
+        $r6 = <com.app.test.event.SystemEventConstants: java.lang.String[] serviceType2>;
+
+        $r7 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r6);
+
+        <com.app.test.event.SystemEventConstants: java.util.List serviceType2List> = $r7;
+
+        $r8 = <com.app.test.event.SystemEventConstants: java.lang.String[] serviceType4>;
+
+        $r9 = staticinvoke <java.util.Arrays: java.util.List asList(java.lang.Object[])>($r8);
+
+        <com.app.test.event.SystemEventConstants: java.util.List serviceType4List> = $r9;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.app.test.event.SystemEventConstants r0;
+
+        r0 := @this: com.app.test.event.SystemEventConstants;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

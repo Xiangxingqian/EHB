@@ -1,0 +1,5 @@
+public interface  cz.romario.opensudoku.game.SudokuGame$OnPuzzleSolvedListener extends java.lang.Object
+{
+
+    public abstract void onPuzzleSolved();
+}

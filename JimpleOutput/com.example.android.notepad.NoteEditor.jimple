@@ -1,0 +1,1004 @@
+public class com.example.android.notepad.NoteEditor extends android.app.Activity
+{
+    private static final int COLUMN_INDEX_NOTE;
+    private static final int COLUMN_INDEX_TITLE;
+    private static final java.lang.String ORIGINAL_CONTENT;
+    private static final java.lang.String[] PROJECTION;
+    private static final int STATE_EDIT;
+    private static final int STATE_INSERT;
+    private static final java.lang.String TAG;
+    private android.database.Cursor mCursor;
+    private java.lang.String mOriginalContent;
+    private int mState;
+    private android.widget.EditText mText;
+    private android.net.Uri mUri;
+    public static java.util.LinkedList systemeventlinkedlist;
+    public static java.util.LinkedList interappeventlinkedlist;
+    public static java.util.LinkedList uieventlinkedlist;
+    public static boolean isVisited;
+    public static android.view.Menu activityMenu;
+    public static java.util.LinkedList methodCountList;
+
+    static void <clinit>()
+    {
+        java.lang.String[] $r0;
+        java.util.LinkedList linkedList, methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        <com.example.android.notepad.NoteEditor: java.lang.String TAG> = "NoteEditor";
+
+        <com.example.android.notepad.NoteEditor: int STATE_INSERT> = 1;
+
+        <com.example.android.notepad.NoteEditor: int STATE_EDIT> = 0;
+
+        <com.example.android.notepad.NoteEditor: java.lang.String ORIGINAL_CONTENT> = "origContent";
+
+        <com.example.android.notepad.NoteEditor: int COLUMN_INDEX_TITLE> = 2;
+
+        <com.example.android.notepad.NoteEditor: int COLUMN_INDEX_NOTE> = 1;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        $r0 = newarray (java.lang.String)[3];
+
+        $r0[0] = "_id";
+
+        $r0[1] = "note";
+
+        $r0[2] = "title";
+
+        <com.example.android.notepad.NoteEditor: java.lang.String[] PROJECTION> = $r0;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.NoteEditor: java.util.LinkedList systemeventlinkedlist> = linkedList;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.NoteEditor: java.util.LinkedList interappeventlinkedlist> = linkedList;
+
+        linkedList = new java.util.LinkedList;
+
+        specialinvoke linkedList.<java.util.LinkedList: void <init>()>();
+
+        <com.example.android.notepad.NoteEditor: java.util.LinkedList uieventlinkedlist> = linkedList;
+
+        <com.example.android.notepad.NoteEditor: boolean isVisited> = 0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.example.android.notepad.NoteEditor $r0;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        specialinvoke $r0.<android.app.Activity: void <init>()>();
+
+        return;
+    }
+
+    private final void cancelNote()
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.content.ContentValues $r1;
+        android.content.ContentResolver $r2;
+        android.database.Cursor $r3;
+        int $i0, visitedCount, flagInt;
+        java.lang.String $r4;
+        android.net.Uri $r5;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r3 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        if $r3 == null goto label1;
+
+        $i0 = $r0.<com.example.android.notepad.NoteEditor: int mState>;
+
+        if $i0 != 0 goto label2;
+
+        $r3 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        interfaceinvoke $r3.<android.database.Cursor: void close()>();
+
+        $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor> = null;
+
+        $r1 = new android.content.ContentValues;
+
+        specialinvoke $r1.<android.content.ContentValues: void <init>()>();
+
+        $r4 = $r0.<com.example.android.notepad.NoteEditor: java.lang.String mOriginalContent>;
+
+        virtualinvoke $r1.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("note", $r4);
+
+        $r2 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.ContentResolver getContentResolver()>();
+
+        $r5 = $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri>;
+
+        virtualinvoke $r2.<android.content.ContentResolver: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])>($r5, $r1, null, null);
+
+     label1:
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void setResult(int)>(0);
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void finish()>();
+
+        return;
+
+     label2:
+        $i0 = $r0.<com.example.android.notepad.NoteEditor: int mState>;
+
+        if $i0 != 1 goto label1;
+
+        specialinvoke $r0.<com.example.android.notepad.NoteEditor: void deleteNote()>();
+
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    private final void deleteNote()
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.content.ContentResolver $r1;
+        android.database.Cursor $r2;
+        android.net.Uri $r3;
+        android.widget.EditText $r4;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r2 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        interfaceinvoke $r2.<android.database.Cursor: void close()>();
+
+        $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor> = null;
+
+        $r1 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.ContentResolver getContentResolver()>();
+
+        $r3 = $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri>;
+
+        virtualinvoke $r1.<android.content.ContentResolver: int delete(android.net.Uri,java.lang.String,java.lang.String[])>($r3, null, null);
+
+        $r4 = $r0.<com.example.android.notepad.NoteEditor: android.widget.EditText mText>;
+
+        virtualinvoke $r4.<android.widget.EditText: void setText(java.lang.CharSequence)>("");
+
+        return;
+
+     label1:
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private final void saveNote()
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        java.lang.NullPointerException $r1;
+        android.content.ContentValues $r2;
+        android.database.Cursor $r3;
+        long $l0;
+        java.lang.Long $r4;
+        android.widget.EditText $r5;
+        android.text.Editable $r6;
+        java.lang.String $r7, $r9, $r10;
+        int $i1, $i2, visitedCount, flagInt;
+        android.widget.Toast $r8;
+        android.content.ContentResolver $r11;
+        android.net.Uri $r12;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r3 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        if $r3 == null goto label7;
+
+        $r2 = new android.content.ContentValues;
+
+        specialinvoke $r2.<android.content.ContentValues: void <init>()>();
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $r4 = staticinvoke <java.lang.Long: java.lang.Long valueOf(long)>($l0);
+
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,java.lang.Long)>("modified", $r4);
+
+        $r5 = $r0.<com.example.android.notepad.NoteEditor: android.widget.EditText mText>;
+
+        $r6 = virtualinvoke $r5.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r7 = interfaceinvoke $r6.<android.text.Editable: java.lang.String toString()>();
+
+        $i1 = virtualinvoke $r7.<java.lang.String: int length()>();
+
+        $i2 = $r0.<com.example.android.notepad.NoteEditor: int mState>;
+
+        if $i2 != 1 goto label3;
+
+        if $i1 != 0 goto label1;
+
+        $r8 = staticinvoke <android.widget.Toast: android.widget.Toast makeText(android.content.Context,int,int)>($r0, 2130968594, 0);
+
+        virtualinvoke $r8.<android.widget.Toast: void show()>();
+
+        return;
+
+     label1:
+        $i2 = staticinvoke <java.lang.Math: int min(int,int)>(30, $i1);
+
+        $r9 = virtualinvoke $r7.<java.lang.String: java.lang.String substring(int,int)>(0, $i2);
+
+        $r10 = $r9;
+
+        if $i1 <= 30 goto label2;
+
+        $i1 = virtualinvoke $r9.<java.lang.String: int lastIndexOf(int)>(32);
+
+        if $i1 <= 0 goto label2;
+
+        $r10 = virtualinvoke $r9.<java.lang.String: java.lang.String substring(int,int)>(0, $i1);
+
+     label2:
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("title", $r10);
+
+     label3:
+        virtualinvoke $r2.<android.content.ContentValues: void put(java.lang.String,java.lang.String)>("note", $r7);
+
+     label4:
+        $r11 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.ContentResolver getContentResolver()>();
+
+        $r12 = $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri>;
+
+        virtualinvoke $r11.<android.content.ContentResolver: int update(android.net.Uri,android.content.ContentValues,java.lang.String,java.lang.String[])>($r12, $r2, null, null);
+
+     label5:
+        return;
+
+     label6:
+        $r1 := @caughtexception;
+
+        $r7 = virtualinvoke $r1.<java.lang.NullPointerException: java.lang.String getMessage()>();
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("NoteEditor", $r7);
+
+        return;
+
+     label7:
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label8;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label8:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+
+        catch java.lang.NullPointerException from label4 to label5 with label6;
+    }
+
+    protected void onCreate(android.os.Bundle)
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.os.Bundle $r1;
+        android.content.Intent $r2;
+        java.lang.String $r3, $r4;
+        boolean $z0;
+        android.net.Uri $r5;
+        android.view.View $r6;
+        android.widget.EditText $r7;
+        java.lang.String[] $r8;
+        android.database.Cursor $r9;
+        android.content.ContentResolver $r10;
+        java.lang.StringBuilder $r11;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        specialinvoke $r0.<android.app.Activity: void onCreate(android.os.Bundle)>($r1);
+
+        $r2 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.Intent getIntent()>();
+
+        $r3 = virtualinvoke $r2.<android.content.Intent: java.lang.String getAction()>();
+
+        $r4 = "android.intent.action.EDIT";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label2;
+
+        $r0.<com.example.android.notepad.NoteEditor: int mState> = 0;
+
+        $r5 = virtualinvoke $r2.<android.content.Intent: android.net.Uri getData()>();
+
+        $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri> = $r5;
+
+     label1:
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void setContentView(int)>(2130903040);
+
+        $r6 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.view.View findViewById(int)>(2131099648);
+
+        $r7 = (android.widget.EditText) $r6;
+
+        $r0.<com.example.android.notepad.NoteEditor: android.widget.EditText mText> = $r7;
+
+        $r5 = $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri>;
+
+        $r8 = <com.example.android.notepad.NoteEditor: java.lang.String[] PROJECTION>;
+
+        $r9 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor managedQuery(android.net.Uri,java.lang.String[],java.lang.String,java.lang.String[],java.lang.String)>($r5, $r8, null, null, null);
+
+        $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor> = $r9;
+
+        if $r1 == null goto label5;
+
+        $r3 = virtualinvoke $r1.<android.os.Bundle: java.lang.String getString(java.lang.String)>("origContent");
+
+        $r0.<com.example.android.notepad.NoteEditor: java.lang.String mOriginalContent> = $r3;
+
+        return;
+
+     label2:
+        $r4 = "android.intent.action.INSERT";
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>($r3);
+
+        if $z0 == 0 goto label4;
+
+        $r0.<com.example.android.notepad.NoteEditor: int mState> = 1;
+
+        $r10 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.ContentResolver getContentResolver()>();
+
+        $r5 = virtualinvoke $r2.<android.content.Intent: android.net.Uri getData()>();
+
+        $r5 = virtualinvoke $r10.<android.content.ContentResolver: android.net.Uri insert(android.net.Uri,android.content.ContentValues)>($r5, null);
+
+        $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri> = $r5;
+
+        $r5 = $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri>;
+
+        if $r5 != null goto label3;
+
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>("Failed to insert new note into ");
+
+        $r2 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.Intent getIntent()>();
+
+        $r5 = virtualinvoke $r2.<android.content.Intent: android.net.Uri getData()>();
+
+        $r11 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r5);
+
+        $r3 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("NoteEditor", $r3);
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void finish()>();
+
+        return;
+
+     label3:
+        $r2 = new android.content.Intent;
+
+        specialinvoke $r2.<android.content.Intent: void <init>()>();
+
+        $r5 = $r0.<com.example.android.notepad.NoteEditor: android.net.Uri mUri>;
+
+        $r3 = virtualinvoke $r5.<android.net.Uri: java.lang.String toString()>();
+
+        $r2 = virtualinvoke $r2.<android.content.Intent: android.content.Intent setAction(java.lang.String)>($r3);
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void setResult(int,android.content.Intent)>(-1, $r2);
+
+        goto label1;
+
+     label4:
+        staticinvoke <android.util.Log: int e(java.lang.String,java.lang.String)>("NoteEditor", "Unknown action, exiting");
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void finish()>();
+
+        return;
+
+     label5:
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label6;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label6:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean onCreateOptionsMenu(android.view.Menu)
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.view.Menu $r1;
+        android.content.ComponentName $r2;
+        android.content.Intent $r3, $r5;
+        android.view.MenuInflater $r4;
+        android.net.Uri $r6;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        $r4 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.view.MenuInflater getMenuInflater()>();
+
+        virtualinvoke $r4.<android.view.MenuInflater: void inflate(int,android.view.Menu)>(2131034112, $r1);
+
+        $r3 = new android.content.Intent;
+
+        $r5 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.Intent getIntent()>();
+
+        $r6 = virtualinvoke $r5.<android.content.Intent: android.net.Uri getData()>();
+
+        specialinvoke $r3.<android.content.Intent: void <init>(java.lang.String,android.net.Uri)>(null, $r6);
+
+        virtualinvoke $r3.<android.content.Intent: android.content.Intent addCategory(java.lang.String)>("android.intent.category.ALTERNATIVE");
+
+        $r2 = new android.content.ComponentName;
+
+        specialinvoke $r2.<android.content.ComponentName: void <init>(android.content.Context,java.lang.Class)>($r0, class "com/example/android/notepad/NoteEditor");
+
+        interfaceinvoke $r1.<android.view.Menu: int addIntentOptions(int,int,int,android.content.ComponentName,android.content.Intent[],android.content.Intent,int,android.view.MenuItem[])>(262144, 0, 0, $r2, null, $r3, 0, null);
+
+        $z0 = specialinvoke $r0.<android.app.Activity: boolean onCreateOptionsMenu(android.view.Menu)>($r1);
+
+        <com.example.android.notepad.NoteEditor: android.view.Menu activityMenu> = $r1;
+
+        staticinvoke <com.app.test.event.SystemEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>($r0, $r1);
+
+        staticinvoke <com.app.test.event.UIEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>($r0, $r1);
+
+        staticinvoke <com.app.test.event.InterAppEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>($r0, $r1);
+
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(4);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(4, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $z0;
+    }
+
+    public boolean onOptionsItemSelected(android.view.MenuItem)
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.view.MenuItem $r1;
+        int $i0, visitedCount, flagInt;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r1 := @parameter0: android.view.MenuItem;
+
+        $i0 = interfaceinvoke $r1.<android.view.MenuItem: int getItemId()>();
+
+        lookupswitch($i0)
+        {
+            case 2131099651: goto label2;
+            case 2131099652: goto label1;
+            case 2131099653: goto label4;
+            case 2131099654: goto label3;
+            case 2131099655: goto label1;
+            case 2131099656: goto label4;
+            default: goto label1;
+        };
+
+     label1:
+        $z0 = specialinvoke $r0.<android.app.Activity: boolean onOptionsItemSelected(android.view.MenuItem)>($r1);
+
+        return $z0;
+
+     label2:
+        specialinvoke $r0.<com.example.android.notepad.NoteEditor: void saveNote()>();
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void finish()>();
+
+        goto label1;
+
+     label3:
+        specialinvoke $r0.<com.example.android.notepad.NoteEditor: void deleteNote()>();
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void finish()>();
+
+        goto label1;
+
+     label4:
+        specialinvoke $r0.<com.example.android.notepad.NoteEditor: void cancelNote()>();
+
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(5);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label5;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(5, flagInteger);
+
+     label5:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    protected void onPause()
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.widget.EditText $r1;
+        android.text.Editable $r2;
+        java.lang.String $r3;
+        int $i0, visitedCount, flagInt;
+        boolean $z0;
+        android.database.Cursor $r4;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        specialinvoke $r0.<android.app.Activity: void onPause()>();
+
+        $r1 = $r0.<com.example.android.notepad.NoteEditor: android.widget.EditText mText>;
+
+        $r2 = virtualinvoke $r1.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r3 = interfaceinvoke $r2.<android.text.Editable: java.lang.String toString()>();
+
+        $i0 = virtualinvoke $r3.<java.lang.String: int length()>();
+
+        $z0 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: boolean isFinishing()>();
+
+        if $z0 == 0 goto label1;
+
+        if $i0 != 0 goto label1;
+
+        $r4 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        if $r4 == null goto label1;
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void setResult(int)>(0);
+
+        specialinvoke $r0.<com.example.android.notepad.NoteEditor: void deleteNote()>();
+
+        return;
+
+     label1:
+        specialinvoke $r0.<com.example.android.notepad.NoteEditor: void saveNote()>();
+
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(6);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(6, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean onPrepareOptionsMenu(android.view.Menu)
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.view.Menu $r1;
+        int $i0, visitedCount, flagInt;
+        android.database.Cursor $r2;
+        java.lang.String $r3, $r6;
+        android.widget.EditText $r4;
+        android.text.Editable $r5;
+        boolean $z0;
+        android.view.MenuItem $r7;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r1 := @parameter0: android.view.Menu;
+
+        $i0 = $r0.<com.example.android.notepad.NoteEditor: int mState>;
+
+        if $i0 != 0 goto label3;
+
+        interfaceinvoke $r1.<android.view.Menu: void setGroupVisible(int,boolean)>(2131099652, 1);
+
+        interfaceinvoke $r1.<android.view.Menu: void setGroupVisible(int,boolean)>(2131099655, 0);
+
+        $r2 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        $r3 = interfaceinvoke $r2.<android.database.Cursor: java.lang.String getString(int)>(1);
+
+        $r4 = $r0.<com.example.android.notepad.NoteEditor: android.widget.EditText mText>;
+
+        $r5 = virtualinvoke $r4.<android.widget.EditText: android.text.Editable getText()>();
+
+        $r6 = interfaceinvoke $r5.<android.text.Editable: java.lang.String toString()>();
+
+        $z0 = virtualinvoke $r3.<java.lang.String: boolean equals(java.lang.Object)>($r6);
+
+        if $z0 == 0 goto label2;
+
+        $r7 = interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem findItem(int)>(2131099653);
+
+        interfaceinvoke $r7.<android.view.MenuItem: android.view.MenuItem setEnabled(boolean)>(0);
+
+     label1:
+        $z0 = specialinvoke $r0.<android.app.Activity: boolean onPrepareOptionsMenu(android.view.Menu)>($r1);
+
+        return $z0;
+
+     label2:
+        $r7 = interfaceinvoke $r1.<android.view.Menu: android.view.MenuItem findItem(int)>(2131099653);
+
+        interfaceinvoke $r7.<android.view.MenuItem: android.view.MenuItem setEnabled(boolean)>(1);
+
+        goto label1;
+
+     label3:
+        interfaceinvoke $r1.<android.view.Menu: void setGroupVisible(int,boolean)>(2131099652, 0);
+
+        interfaceinvoke $r1.<android.view.Menu: void setGroupVisible(int,boolean)>(2131099655, 1);
+
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(7);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label4;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(7, flagInteger);
+
+     label4:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    protected void onResume()
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.database.Cursor $r1;
+        int $i0, visitedCount, flagInt;
+        java.lang.String $r2, $r4;
+        android.content.res.Resources $r3;
+        java.lang.Object[] $r5;
+        android.widget.EditText $r6;
+        java.lang.CharSequence $r7;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        specialinvoke $r0.<android.app.Activity: void onResume()>();
+
+        $r1 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        if $r1 == null goto label3;
+
+        $r1 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        interfaceinvoke $r1.<android.database.Cursor: boolean requery()>();
+
+        $r1 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        interfaceinvoke $r1.<android.database.Cursor: boolean moveToFirst()>();
+
+        $i0 = $r0.<com.example.android.notepad.NoteEditor: int mState>;
+
+        if $i0 != 0 goto label2;
+
+        $r1 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        $r2 = interfaceinvoke $r1.<android.database.Cursor: java.lang.String getString(int)>(2);
+
+        $r3 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: android.content.res.Resources getResources()>();
+
+        $r4 = virtualinvoke $r3.<android.content.res.Resources: java.lang.String getString(int)>(2130968580);
+
+        $r5 = newarray (java.lang.Object)[1];
+
+        $r5[0] = $r2;
+
+        $r2 = staticinvoke <java.lang.String: java.lang.String format(java.lang.String,java.lang.Object[])>($r4, $r5);
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void setTitle(java.lang.CharSequence)>($r2);
+
+     label1:
+        $r1 = $r0.<com.example.android.notepad.NoteEditor: android.database.Cursor mCursor>;
+
+        $r2 = interfaceinvoke $r1.<android.database.Cursor: java.lang.String getString(int)>(1);
+
+        $r6 = $r0.<com.example.android.notepad.NoteEditor: android.widget.EditText mText>;
+
+        virtualinvoke $r6.<android.widget.EditText: void setTextKeepState(java.lang.CharSequence)>($r2);
+
+        $r4 = $r0.<com.example.android.notepad.NoteEditor: java.lang.String mOriginalContent>;
+
+        if $r4 != null goto label4;
+
+        $r0.<com.example.android.notepad.NoteEditor: java.lang.String mOriginalContent> = $r2;
+
+        return;
+
+     label2:
+        $i0 = $r0.<com.example.android.notepad.NoteEditor: int mState>;
+
+        if $i0 != 1 goto label1;
+
+        $r7 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: java.lang.CharSequence getText(int)>(2130968579);
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void setTitle(java.lang.CharSequence)>($r7);
+
+        goto label1;
+
+     label3:
+        $r7 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: java.lang.CharSequence getText(int)>(2130968592);
+
+        virtualinvoke $r0.<com.example.android.notepad.NoteEditor: void setTitle(java.lang.CharSequence)>($r7);
+
+        $r6 = $r0.<com.example.android.notepad.NoteEditor: android.widget.EditText mText>;
+
+        $r7 = virtualinvoke $r0.<com.example.android.notepad.NoteEditor: java.lang.CharSequence getText(int)>(2130968593);
+
+        virtualinvoke $r6.<android.widget.EditText: void setText(java.lang.CharSequence)>($r7);
+
+        return;
+
+     label4:
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(8);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label5;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(8, flagInteger);
+
+     label5:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void onSaveInstanceState(android.os.Bundle)
+    {
+        com.example.android.notepad.NoteEditor $r0;
+        android.os.Bundle $r1;
+        java.lang.String $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.example.android.notepad.NoteEditor;
+
+        $r1 := @parameter0: android.os.Bundle;
+
+        $r2 = $r0.<com.example.android.notepad.NoteEditor: java.lang.String mOriginalContent>;
+
+        virtualinvoke $r1.<android.os.Bundle: void putString(java.lang.String,java.lang.String)>("origContent", $r2);
+
+        methodCount = <com.example.android.notepad.NoteEditor: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(9);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(9, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

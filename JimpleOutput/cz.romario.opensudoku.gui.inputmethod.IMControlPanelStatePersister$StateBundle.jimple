@@ -1,0 +1,692 @@
+public class cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle extends java.lang.Object
+{
+    private final boolean mEditable;
+    private final android.content.SharedPreferences$Editor mPrefEditor;
+    private final android.content.SharedPreferences mPreferences;
+    private final java.lang.String mPrefix;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(android.content.SharedPreferences, java.lang.String, boolean)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        android.content.SharedPreferences $r1;
+        java.lang.String $r2;
+        boolean $z0;
+        android.content.SharedPreferences$Editor $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: android.content.SharedPreferences;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 := @parameter2: boolean;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences mPreferences> = $r1;
+
+        $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix> = $r2;
+
+        $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: boolean mEditable> = $z0;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: boolean mEditable>;
+
+        if $z0 == 0 goto label1;
+
+        $r3 = interfaceinvoke $r1.<android.content.SharedPreferences: android.content.SharedPreferences$Editor edit()>();
+
+        $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences$Editor mPrefEditor> = $r3;
+
+        return;
+
+     label1:
+        $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences$Editor mPrefEditor> = null;
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void commit()
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        boolean $z0;
+        java.lang.IllegalStateException $r1;
+        android.content.SharedPreferences$Editor $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: boolean mEditable>;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = new java.lang.IllegalStateException;
+
+        specialinvoke $r1.<java.lang.IllegalStateException: void <init>(java.lang.String)>("StateBundle is not editable");
+
+        throw $r1;
+
+     label1:
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences$Editor mPrefEditor>;
+
+        interfaceinvoke $r2.<android.content.SharedPreferences$Editor: boolean commit()>();
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean getBoolean(java.lang.String, boolean)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r4;
+        boolean $z0;
+        android.content.SharedPreferences $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences mPreferences>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $z0 = interfaceinvoke $r2.<android.content.SharedPreferences: boolean getBoolean(java.lang.String,boolean)>($r1, $z0);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $z0;
+    }
+
+    public float getFloat(java.lang.String, float)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r4;
+        float $f0;
+        android.content.SharedPreferences $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $f0 := @parameter1: float;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences mPreferences>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $f0 = interfaceinvoke $r2.<android.content.SharedPreferences: float getFloat(java.lang.String,float)>($r1, $f0);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $f0;
+    }
+
+    public int getInt(java.lang.String, int)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r4;
+        int $i0, visitedCount, flagInt;
+        android.content.SharedPreferences $r2;
+        java.lang.StringBuilder $r3;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences mPreferences>;
+
+        $r3 = new java.lang.StringBuilder;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r4 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r4);
+
+        specialinvoke $r3.<java.lang.StringBuilder: void <init>(java.lang.String)>($r4);
+
+        $r3 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $i0 = interfaceinvoke $r2.<android.content.SharedPreferences: int getInt(java.lang.String,int)>($r1, $i0);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(4);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(4, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public java.lang.String getString(java.lang.String, java.lang.String)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r2, $r5;
+        android.content.SharedPreferences $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences mPreferences>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        $r5 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r1 = interfaceinvoke $r3.<android.content.SharedPreferences: java.lang.String getString(java.lang.String,java.lang.String)>($r1, $r2);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(5);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(5, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r1;
+    }
+
+    public void putBoolean(java.lang.String, boolean)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r5;
+        boolean $z0, $z1;
+        java.lang.IllegalStateException $r2;
+        android.content.SharedPreferences$Editor $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $z0 := @parameter1: boolean;
+
+        $z1 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: boolean mEditable>;
+
+        if $z1 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("StateBundle is not editable");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences$Editor mPrefEditor>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        $r5 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putBoolean(java.lang.String,boolean)>($r1, $z0);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(6);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(6, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void putFloat(java.lang.String, float)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r5;
+        float $f0;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+        android.content.SharedPreferences$Editor $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $f0 := @parameter1: float;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: boolean mEditable>;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("StateBundle is not editable");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences$Editor mPrefEditor>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        $r5 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putFloat(java.lang.String,float)>($r1, $f0);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(7);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(7, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void putInt(java.lang.String, int)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r5;
+        int $i0, visitedCount, flagInt;
+        boolean $z0;
+        java.lang.IllegalStateException $r2;
+        android.content.SharedPreferences$Editor $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: boolean mEditable>;
+
+        if $z0 != 0 goto label1;
+
+        $r2 = new java.lang.IllegalStateException;
+
+        specialinvoke $r2.<java.lang.IllegalStateException: void <init>(java.lang.String)>("StateBundle is not editable");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences$Editor mPrefEditor>;
+
+        $r4 = new java.lang.StringBuilder;
+
+        $r5 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r5 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r5);
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>($r5);
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r3.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putInt(java.lang.String,int)>($r1, $i0);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(8);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(8, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void putString(java.lang.String, java.lang.String)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle $r0;
+        java.lang.String $r1, $r2, $r6;
+        boolean $z0;
+        java.lang.IllegalStateException $r3;
+        android.content.SharedPreferences$Editor $r4;
+        java.lang.StringBuilder $r5;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle;
+
+        $r1 := @parameter0: java.lang.String;
+
+        $r2 := @parameter1: java.lang.String;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: boolean mEditable>;
+
+        if $z0 != 0 goto label1;
+
+        $r3 = new java.lang.IllegalStateException;
+
+        specialinvoke $r3.<java.lang.IllegalStateException: void <init>(java.lang.String)>("StateBundle is not editable");
+
+        throw $r3;
+
+     label1:
+        $r4 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: android.content.SharedPreferences$Editor mPrefEditor>;
+
+        $r5 = new java.lang.StringBuilder;
+
+        $r6 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.lang.String mPrefix>;
+
+        $r6 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>($r6);
+
+        specialinvoke $r5.<java.lang.StringBuilder: void <init>(java.lang.String)>($r6);
+
+        $r5 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r1);
+
+        $r1 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        interfaceinvoke $r4.<android.content.SharedPreferences$Editor: android.content.SharedPreferences$Editor putString(java.lang.String,java.lang.String)>($r1, $r2);
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(9);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(9, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.inputmethod.IMControlPanelStatePersister$StateBundle: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

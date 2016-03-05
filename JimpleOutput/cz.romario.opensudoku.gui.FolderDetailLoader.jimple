@@ -1,0 +1,277 @@
+public class cz.romario.opensudoku.gui.FolderDetailLoader extends java.lang.Object
+{
+    private static final java.lang.String TAG;
+    private android.content.Context mContext;
+    private cz.romario.opensudoku.db.SudokuDatabase mDatabase;
+    private android.os.Handler mGuiHandler;
+    private java.util.concurrent.ExecutorService mLoaderService;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(android.content.Context)
+    {
+        cz.romario.opensudoku.gui.FolderDetailLoader $r0;
+        android.content.Context $r1;
+        java.util.concurrent.ExecutorService $r2;
+        cz.romario.opensudoku.db.SudokuDatabase $r3;
+        android.os.Handler $r4;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FolderDetailLoader;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r2 = staticinvoke <java.util.concurrent.Executors: java.util.concurrent.ExecutorService newSingleThreadExecutor()>();
+
+        $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: java.util.concurrent.ExecutorService mLoaderService> = $r2;
+
+        $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: android.content.Context mContext> = $r1;
+
+        $r3 = new cz.romario.opensudoku.db.SudokuDatabase;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: android.content.Context mContext>;
+
+        specialinvoke $r3.<cz.romario.opensudoku.db.SudokuDatabase: void <init>(android.content.Context)>($r1);
+
+        $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: cz.romario.opensudoku.db.SudokuDatabase mDatabase> = $r3;
+
+        $r4 = new android.os.Handler;
+
+        specialinvoke $r4.<android.os.Handler: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: android.os.Handler mGuiHandler> = $r4;
+
+        methodCount = <cz.romario.opensudoku.gui.FolderDetailLoader: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static cz.romario.opensudoku.db.SudokuDatabase access$0(cz.romario.opensudoku.gui.FolderDetailLoader)
+    {
+        cz.romario.opensudoku.gui.FolderDetailLoader $r0;
+        cz.romario.opensudoku.db.SudokuDatabase r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @parameter0: cz.romario.opensudoku.gui.FolderDetailLoader;
+
+        r1 = $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: cz.romario.opensudoku.db.SudokuDatabase mDatabase>;
+
+        methodCount = <cz.romario.opensudoku.gui.FolderDetailLoader: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return r1;
+    }
+
+    static android.os.Handler access$1(cz.romario.opensudoku.gui.FolderDetailLoader)
+    {
+        cz.romario.opensudoku.gui.FolderDetailLoader $r0;
+        android.os.Handler r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @parameter0: cz.romario.opensudoku.gui.FolderDetailLoader;
+
+        r1 = $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: android.os.Handler mGuiHandler>;
+
+        methodCount = <cz.romario.opensudoku.gui.FolderDetailLoader: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return r1;
+    }
+
+    public void destroy()
+    {
+        cz.romario.opensudoku.gui.FolderDetailLoader $r0;
+        java.util.concurrent.ExecutorService $r1;
+        cz.romario.opensudoku.db.SudokuDatabase $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FolderDetailLoader;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: java.util.concurrent.ExecutorService mLoaderService>;
+
+        interfaceinvoke $r1.<java.util.concurrent.ExecutorService: java.util.List shutdownNow()>();
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: cz.romario.opensudoku.db.SudokuDatabase mDatabase>;
+
+        virtualinvoke $r2.<cz.romario.opensudoku.db.SudokuDatabase: void close()>();
+
+        methodCount = <cz.romario.opensudoku.gui.FolderDetailLoader: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void loadDetailAsync(long, cz.romario.opensudoku.gui.FolderDetailLoader$FolderDetailCallback)
+    {
+        cz.romario.opensudoku.gui.FolderDetailLoader $r0;
+        long $l0;
+        cz.romario.opensudoku.gui.FolderDetailLoader$FolderDetailCallback $r1;
+        java.util.concurrent.ExecutorService $r2;
+        cz.romario.opensudoku.gui.FolderDetailLoader$1 $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.FolderDetailLoader;
+
+        $l0 := @parameter0: long;
+
+        $r1 := @parameter1: cz.romario.opensudoku.gui.FolderDetailLoader$FolderDetailCallback;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.FolderDetailLoader: java.util.concurrent.ExecutorService mLoaderService>;
+
+        $r3 = new cz.romario.opensudoku.gui.FolderDetailLoader$1;
+
+        specialinvoke $r3.<cz.romario.opensudoku.gui.FolderDetailLoader$1: void <init>(cz.romario.opensudoku.gui.FolderDetailLoader,long,cz.romario.opensudoku.gui.FolderDetailLoader$FolderDetailCallback)>($r0, $l0, $r1);
+
+        interfaceinvoke $r2.<java.util.concurrent.ExecutorService: void execute(java.lang.Runnable)>($r3);
+
+        methodCount = <cz.romario.opensudoku.gui.FolderDetailLoader: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(4);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(4, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        <cz.romario.opensudoku.gui.FolderDetailLoader: java.lang.String TAG> = "FolderDetailLoader";
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.FolderDetailLoader: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

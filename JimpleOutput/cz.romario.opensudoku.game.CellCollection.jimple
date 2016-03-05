@@ -1,0 +1,2418 @@
+public class cz.romario.opensudoku.game.CellCollection extends java.lang.Object
+{
+    private static java.util.regex.Pattern DATA_PATTERN_VERSION_1;
+    private static java.util.regex.Pattern DATA_PATTERN_VERSION_PLAIN;
+    public static int DATA_VERSION_1;
+    public static int DATA_VERSION_PLAIN;
+    public static final int SUDOKU_SIZE;
+    private cz.romario.opensudoku.game.Cell[][] mCells;
+    private final java.util.List mChangeListeners;
+    private cz.romario.opensudoku.game.CellGroup[] mColumns;
+    private boolean mOnChangeEnabled;
+    private cz.romario.opensudoku.game.CellGroup[] mRows;
+    private cz.romario.opensudoku.game.CellGroup[] mSectors;
+    public static java.util.LinkedList methodCountList;
+
+    static void <clinit>()
+    {
+        java.util.regex.Pattern $r0;
+        java.util.LinkedList methodCountListLocal, methodCount;
+        java.lang.Object linkedListobject, invalid, flagObj;
+        int visitedCount, flagInt;
+        java.lang.Integer flagInteger;
+
+        <cz.romario.opensudoku.game.CellCollection: int SUDOKU_SIZE> = 9;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        <cz.romario.opensudoku.game.CellCollection: int DATA_VERSION_PLAIN> = 0;
+
+        <cz.romario.opensudoku.game.CellCollection: int DATA_VERSION_1> = 1;
+
+        $r0 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String)>("^\\d{81}$");
+
+        <cz.romario.opensudoku.game.CellCollection: java.util.regex.Pattern DATA_PATTERN_VERSION_PLAIN> = $r0;
+
+        $r0 = staticinvoke <java.util.regex.Pattern: java.util.regex.Pattern compile(java.lang.String)>("^version: 1\\n((?#value)\\d\\|(?#note)((\\d,)+|-)\\|(?#editable)[01]\\|){0,81}$");
+
+        <cz.romario.opensudoku.game.CellCollection: java.util.regex.Pattern DATA_PATTERN_VERSION_1> = $r0;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void <init>(cz.romario.opensudoku.game.Cell[][])
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell[][] $r1;
+        java.util.ArrayList $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.Cell[][];
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: boolean mOnChangeEnabled> = 1;
+
+        $r2 = new java.util.ArrayList;
+
+        specialinvoke $r2.<java.util.ArrayList: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners> = $r2;
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells> = $r1;
+
+        specialinvoke $r0.<cz.romario.opensudoku.game.CellCollection: void initCollection()>();
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static cz.romario.opensudoku.game.CellCollection createDebugGame()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell[][] $r1;
+        cz.romario.opensudoku.game.Cell[] $r2;
+        cz.romario.opensudoku.game.Cell $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 = new cz.romario.opensudoku.game.CellCollection;
+
+        $r1 = newarray (cz.romario.opensudoku.game.Cell[])[9];
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(4);
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(5);
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(6);
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(7);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(8);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(9);
+
+        $r2[8] = $r3;
+
+        $r1[0] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(7);
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(8);
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(9);
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(1);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(2);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(3);
+
+        $r2[8] = $r3;
+
+        $r1[1] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(1);
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(2);
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(3);
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(4);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(5);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(6);
+
+        $r2[8] = $r3;
+
+        $r1[2] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(2);
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(3);
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(4);
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(8);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(9);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(1);
+
+        $r2[8] = $r3;
+
+        $r1[3] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(5);
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(6);
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(7);
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(2);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(3);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(4);
+
+        $r2[8] = $r3;
+
+        $r1[4] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(8);
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(9);
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(1);
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(5);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(6);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(7);
+
+        $r2[8] = $r3;
+
+        $r1[5] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(3);
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(4);
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(5);
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(6);
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(7);
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(8);
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(9);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(1);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(2);
+
+        $r2[8] = $r3;
+
+        $r1[6] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(6);
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(7);
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(8);
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(9);
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(1);
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(2);
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(3);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(4);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(5);
+
+        $r2[8] = $r3;
+
+        $r1[7] = $r2;
+
+        $r2 = newarray (cz.romario.opensudoku.game.Cell)[9];
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(9);
+
+        $r2[0] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(1);
+
+        $r2[1] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(2);
+
+        $r2[2] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(3);
+
+        $r2[3] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(4);
+
+        $r2[4] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(5);
+
+        $r2[5] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(6);
+
+        $r2[6] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(7);
+
+        $r2[7] = $r3;
+
+        $r3 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.Cell: void <init>(int)>(8);
+
+        $r2[8] = $r3;
+
+        $r1[8] = $r2;
+
+        specialinvoke $r0.<cz.romario.opensudoku.game.CellCollection: void <init>(cz.romario.opensudoku.game.Cell[][])>($r1);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.game.CellCollection: void markFilledCellsAsNotEditable()>();
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r0;
+    }
+
+    public static cz.romario.opensudoku.game.CellCollection createEmpty()
+    {
+        int[] $r0;
+        java.lang.Object $r1, invalid, flagObj;
+        cz.romario.opensudoku.game.Cell[][] $r2;
+        int $i0, $i1, visitedCount, flagInt;
+        cz.romario.opensudoku.game.CellCollection $r3;
+        cz.romario.opensudoku.game.Cell[] $r4;
+        cz.romario.opensudoku.game.Cell $r5;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 = newarray (int)[2];
+
+        $r0[0] = 9;
+
+        $r0[1] = 9;
+
+        $r1 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>(class "cz/romario/opensudoku/game/Cell", $r0);
+
+        $r2 = (cz.romario.opensudoku.game.Cell[][]) $r1;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 < 9 goto label2;
+
+        $r3 = new cz.romario.opensudoku.game.CellCollection;
+
+        specialinvoke $r3.<cz.romario.opensudoku.game.CellCollection: void <init>(cz.romario.opensudoku.game.Cell[][])>($r2);
+
+        return $r3;
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        if $i1 < 9 goto label4;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r4 = $r2[$i0];
+
+        $r5 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r5.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        $r4[$i1] = $r5;
+
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label5;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label5:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label3;
+    }
+
+    public static cz.romario.opensudoku.game.CellCollection deserialize(java.lang.String)
+    {
+        java.lang.String $r0, $r4;
+        java.util.StringTokenizer $r1;
+        java.lang.String[] $r2;
+        int $i0, visitedCount, flagInt;
+        java.lang.IllegalArgumentException $r3;
+        boolean $z0;
+        cz.romario.opensudoku.game.CellCollection $r5;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 = virtualinvoke $r0.<java.lang.String: java.lang.String[] split(java.lang.String)>("\n");
+
+        $i0 = lengthof $r2;
+
+        if $i0 != 0 goto label1;
+
+        $r3 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("Cannot deserialize Sudoku, data corrupted.");
+
+        throw $r3;
+
+     label1:
+        $r4 = $r2[0];
+
+        $z0 = virtualinvoke $r4.<java.lang.String: boolean equals(java.lang.Object)>("version: 1");
+
+        if $z0 == 0 goto label2;
+
+        $r1 = new java.util.StringTokenizer;
+
+        $r0 = $r2[1];
+
+        specialinvoke $r1.<java.util.StringTokenizer: void <init>(java.lang.String,java.lang.String)>($r0, "|");
+
+        $r5 = staticinvoke <cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellCollection deserialize(java.util.StringTokenizer)>($r1);
+
+        return $r5;
+
+     label2:
+        $r5 = staticinvoke <cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellCollection fromString(java.lang.String)>($r0);
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(4);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(4, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r5;
+    }
+
+    public static cz.romario.opensudoku.game.CellCollection deserialize(java.util.StringTokenizer)
+    {
+        java.util.StringTokenizer $r0;
+        int[] $r1;
+        java.lang.Object $r2, invalid, flagObj;
+        cz.romario.opensudoku.game.Cell[][] $r3;
+        int $i0, $i1, visitedCount, flagInt;
+        boolean $z0;
+        cz.romario.opensudoku.game.CellCollection $r4;
+        cz.romario.opensudoku.game.Cell[] $r5;
+        cz.romario.opensudoku.game.Cell $r6;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @parameter0: java.util.StringTokenizer;
+
+        $r1 = newarray (int)[2];
+
+        $r1[0] = 9;
+
+        $r1[1] = 9;
+
+        $r2 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>(class "cz/romario/opensudoku/game/Cell", $r1);
+
+        $r3 = (cz.romario.opensudoku.game.Cell[][]) $r2;
+
+        $i0 = 0;
+
+        $i1 = 0;
+
+     label1:
+        $z0 = virtualinvoke $r0.<java.util.StringTokenizer: boolean hasMoreTokens()>();
+
+        if $z0 == 0 goto label2;
+
+        if $i0 < 9 goto label3;
+
+     label2:
+        $r4 = new cz.romario.opensudoku.game.CellCollection;
+
+        specialinvoke $r4.<cz.romario.opensudoku.game.CellCollection: void <init>(cz.romario.opensudoku.game.Cell[][])>($r3);
+
+        return $r4;
+
+     label3:
+        $r5 = $r3[$i0];
+
+        $r6 = staticinvoke <cz.romario.opensudoku.game.Cell: cz.romario.opensudoku.game.Cell deserialize(java.util.StringTokenizer)>($r0);
+
+        $r5[$i1] = $r6;
+
+        $i1 = $i1 + 1;
+
+        if $i1 != 9 goto label1;
+
+        $i0 = $i0 + 1;
+
+        $i1 = 0;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(5);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label4;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(5, flagInteger);
+
+     label4:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    public static cz.romario.opensudoku.game.CellCollection fromString(java.lang.String)
+    {
+        java.lang.String $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        int[] $r2;
+        java.lang.Object $r3, invalid, flagObj;
+        cz.romario.opensudoku.game.Cell[][] $r4;
+        int $i0, $i1, $i2, $i3, $i4, visitedCount, flagInt;
+        cz.romario.opensudoku.game.CellCollection $r5;
+        boolean $z0;
+        java.lang.Boolean $r6;
+        cz.romario.opensudoku.game.Cell[] $r7;
+        char $c5;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $r2 = newarray (int)[2];
+
+        $r2[0] = 9;
+
+        $r2[1] = 9;
+
+        $r3 = staticinvoke <java.lang.reflect.Array: java.lang.Object newInstance(java.lang.Class,int[])>(class "cz/romario/opensudoku/game/Cell", $r2);
+
+        $r4 = (cz.romario.opensudoku.game.Cell[][]) $r3;
+
+        $i0 = 0;
+
+        $i1 = 0;
+
+     label01:
+        if $i1 < 9 goto label02;
+
+        $r5 = new cz.romario.opensudoku.game.CellCollection;
+
+        specialinvoke $r5.<cz.romario.opensudoku.game.CellCollection: void <init>(cz.romario.opensudoku.game.Cell[][])>($r4);
+
+        return $r5;
+
+     label02:
+        $i2 = 0;
+
+     label03:
+        if $i2 < 9 goto label04;
+
+        $i1 = $i1 + 1;
+
+        goto label01;
+
+     label04:
+        $i3 = 0;
+
+     label05:
+        $i4 = virtualinvoke $r0.<java.lang.String: int length()>();
+
+        if $i0 < $i4 goto label08;
+
+     label06:
+        $r1 = new cz.romario.opensudoku.game.Cell;
+
+        specialinvoke $r1.<cz.romario.opensudoku.game.Cell: void <init>()>();
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: void setValue(int)>($i3);
+
+        if $i3 != 0 goto label09;
+
+        $z0 = 1;
+
+     label07:
+        $r6 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: void setEditable(java.lang.Boolean)>($r6);
+
+        $r7 = $r4[$i1];
+
+        $r7[$i2] = $r1;
+
+        $i2 = $i2 + 1;
+
+        goto label03;
+
+     label08:
+        $i0 = $i0 + 1;
+
+        $i4 = $i0 + -1;
+
+        $c5 = virtualinvoke $r0.<java.lang.String: char charAt(int)>($i4);
+
+        if $c5 < 48 goto label05;
+
+        $i4 = $i0 + -1;
+
+        $c5 = virtualinvoke $r0.<java.lang.String: char charAt(int)>($i4);
+
+        if $c5 > 57 goto label05;
+
+        $i3 = $i0 + -1;
+
+        $c5 = virtualinvoke $r0.<java.lang.String: char charAt(int)>($i3);
+
+        $i3 = $c5 + -48;
+
+        goto label06;
+
+     label09:
+        $z0 = 0;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(6);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label10;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(6, flagInteger);
+
+     label10:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label07;
+    }
+
+    private void initCollection()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        cz.romario.opensudoku.game.CellGroup $r2, $r6, $r7;
+        cz.romario.opensudoku.game.CellGroup[] $r3;
+        int $i0, $i1, $i2, $i3, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r4;
+        cz.romario.opensudoku.game.Cell[] $r5;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r3 = newarray (cz.romario.opensudoku.game.CellGroup)[9];
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mRows> = $r3;
+
+        $r3 = newarray (cz.romario.opensudoku.game.CellGroup)[9];
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mColumns> = $r3;
+
+        $r3 = newarray (cz.romario.opensudoku.game.CellGroup)[9];
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mSectors> = $r3;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 < 9 goto label3;
+
+        $i0 = 0;
+
+     label2:
+        if $i0 < 9 goto label4;
+
+        return;
+
+     label3:
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mRows>;
+
+        $r2 = new cz.romario.opensudoku.game.CellGroup;
+
+        specialinvoke $r2.<cz.romario.opensudoku.game.CellGroup: void <init>()>();
+
+        $r3[$i0] = $r2;
+
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mColumns>;
+
+        $r2 = new cz.romario.opensudoku.game.CellGroup;
+
+        specialinvoke $r2.<cz.romario.opensudoku.game.CellGroup: void <init>()>();
+
+        $r3[$i0] = $r2;
+
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mSectors>;
+
+        $r2 = new cz.romario.opensudoku.game.CellGroup;
+
+        specialinvoke $r2.<cz.romario.opensudoku.game.CellGroup: void <init>()>();
+
+        $r3[$i0] = $r2;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $i1 = 0;
+
+     label5:
+        if $i1 < 9 goto label6;
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label6:
+        $r4 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r5 = $r4[$i0];
+
+        $r1 = $r5[$i1];
+
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mSectors>;
+
+        $i2 = $i1 / 3;
+
+        $i2 = $i2 * 3;
+
+        $i3 = $i0 / 3;
+
+        $i2 = $i2 + $i3;
+
+        $r6 = $r3[$i2];
+
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mRows>;
+
+        $r7 = $r3[$i1];
+
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mColumns>;
+
+        $r2 = $r3[$i0];
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: void initCollection(cz.romario.opensudoku.game.CellCollection,int,int,cz.romario.opensudoku.game.CellGroup,cz.romario.opensudoku.game.CellGroup,cz.romario.opensudoku.game.CellGroup)>($r0, $i0, $i1, $r6, $r7, $r2);
+
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(7);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label7;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(7, flagInteger);
+
+     label7:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label5;
+    }
+
+    public static boolean isValid(java.lang.String, int)
+    {
+        java.lang.String $r0;
+        int $i0, $i1, visitedCount, flagInt;
+        java.util.regex.Pattern $r1;
+        java.util.regex.Matcher $r2;
+        boolean $z0;
+        java.lang.IllegalArgumentException $r3;
+        java.lang.StringBuilder $r4;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @parameter0: java.lang.String;
+
+        $i0 := @parameter1: int;
+
+        $i1 = <cz.romario.opensudoku.game.CellCollection: int DATA_VERSION_PLAIN>;
+
+        if $i0 != $i1 goto label1;
+
+        $r1 = <cz.romario.opensudoku.game.CellCollection: java.util.regex.Pattern DATA_PATTERN_VERSION_PLAIN>;
+
+        $r2 = virtualinvoke $r1.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r0);
+
+        $z0 = virtualinvoke $r2.<java.util.regex.Matcher: boolean matches()>();
+
+        return $z0;
+
+     label1:
+        $i1 = <cz.romario.opensudoku.game.CellCollection: int DATA_VERSION_1>;
+
+        if $i0 != $i1 goto label2;
+
+        $r1 = <cz.romario.opensudoku.game.CellCollection: java.util.regex.Pattern DATA_PATTERN_VERSION_1>;
+
+        $r2 = virtualinvoke $r1.<java.util.regex.Pattern: java.util.regex.Matcher matcher(java.lang.CharSequence)>($r0);
+
+        $z0 = virtualinvoke $r2.<java.util.regex.Matcher: boolean matches()>();
+
+        return $z0;
+
+     label2:
+        $r3 = new java.lang.IllegalArgumentException;
+
+        $r4 = new java.lang.StringBuilder;
+
+        specialinvoke $r4.<java.lang.StringBuilder: void <init>(java.lang.String)>("Unknown version: ");
+
+        $r4 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>($i0);
+
+        $r0 = virtualinvoke $r4.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r3.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>($r0);
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(8);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(8, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        throw $r3;
+    }
+
+    public void addOnChangeListener(cz.romario.opensudoku.game.CellCollection$OnChangeListener)
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.CellCollection$OnChangeListener $r1;
+        java.lang.IllegalArgumentException $r2;
+        java.util.List $r3, $r4;
+        boolean $z0;
+        java.lang.IllegalStateException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+        java.lang.Throwable $r8;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.CellCollection$OnChangeListener;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The listener is null.");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        entermonitor $r3;
+
+     label2:
+        $r4 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        $z0 = interfaceinvoke $r4.<java.util.List: boolean contains(java.lang.Object)>($r1);
+
+        if $z0 == 0 goto label5;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Listener ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("is already registered.");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r7);
+
+        throw $r5;
+
+     label3:
+        $r8 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label4:
+        throw $r8;
+
+     label5:
+        $r4 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        interfaceinvoke $r4.<java.util.List: boolean add(java.lang.Object)>($r1);
+
+        exitmonitor $r3;
+
+     label6:
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(9);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label7;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(9, flagInteger);
+
+     label7:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+
+        catch java.lang.Throwable from label2 to label4 with label3;
+        catch java.lang.Throwable from label5 to label6 with label3;
+    }
+
+    public cz.romario.opensudoku.game.Cell getCell(int, int)
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        int $i0, $i1, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r1;
+        cz.romario.opensudoku.game.Cell[] $r2;
+        cz.romario.opensudoku.game.Cell $r3;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r2 = $r1[$i0];
+
+        $r3 = $r2[$i1];
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(10);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(10, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r3;
+    }
+
+    public cz.romario.opensudoku.game.Cell[][] getCells()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell[][] r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        r1 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(11);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(11, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return r1;
+    }
+
+    public java.util.Map getValuesUseCount()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        java.util.HashMap $r1;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        java.lang.Integer $r2, $r3, flagInteger;
+        cz.romario.opensudoku.game.Cell $r4;
+        java.lang.Object $r5, invalid, flagObj;
+        java.util.LinkedList methodCount;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r1 = new java.util.HashMap;
+
+        specialinvoke $r1.<java.util.HashMap: void <init>()>();
+
+        $i0 = 1;
+
+     label1:
+        if $i0 <= 9 goto label3;
+
+        $i0 = 0;
+
+     label2:
+        if $i0 < 9 goto label4;
+
+        return $r1;
+
+     label3:
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i0);
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(0);
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r3);
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $i1 = 0;
+
+     label5:
+        if $i1 < 9 goto label6;
+
+        $i0 = $i0 + 1;
+
+        goto label2;
+
+     label6:
+        $r4 = virtualinvoke $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell getCell(int,int)>($i0, $i1);
+
+        $i2 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: int getValue()>();
+
+        if $i2 == 0 goto label7;
+
+        $r2 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        $r5 = interfaceinvoke $r1.<java.util.Map: java.lang.Object get(java.lang.Object)>($r3);
+
+        $r3 = (java.lang.Integer) $r5;
+
+        $i2 = virtualinvoke $r3.<java.lang.Integer: int intValue()>();
+
+        $i2 = $i2 + 1;
+
+        $r3 = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>($i2);
+
+        interfaceinvoke $r1.<java.util.Map: java.lang.Object put(java.lang.Object,java.lang.Object)>($r2, $r3);
+
+     label7:
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(12);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label8;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(12, flagInteger);
+
+     label8:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label5;
+    }
+
+    public boolean isCompleted()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r2;
+        cz.romario.opensudoku.game.Cell[] $r3;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 < 9 goto label2;
+
+        return 1;
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        if $i1 < 9 goto label4;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r3 = $r2[$i0];
+
+        $r1 = $r3[$i1];
+
+        $i2 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: int getValue()>();
+
+        if $i2 == 0 goto label5;
+
+        $z0 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: boolean isValid()>();
+
+        if $z0 != 0 goto label6;
+
+     label5:
+        return 0;
+
+     label6:
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(13);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label7;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(13, flagInteger);
+
+     label7:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label3;
+    }
+
+    public boolean isEmpty()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r2;
+        cz.romario.opensudoku.game.Cell[] $r3;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $i1 = 0;
+
+     label1:
+        if $i1 < 9 goto label2;
+
+        return 1;
+
+     label2:
+        $i2 = 0;
+
+     label3:
+        if $i2 < 9 goto label4;
+
+        $i1 = $i1 + 1;
+
+        goto label1;
+
+     label4:
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r3 = $r2[$i1];
+
+        $r1 = $r3[$i2];
+
+        $i0 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: int getValue()>();
+
+        if $i0 == 0 goto label5;
+
+        return 0;
+
+     label5:
+        $i2 = $i2 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(14);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label6;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(14, flagInteger);
+
+     label6:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label3;
+    }
+
+    public void markAllCellsAsEditable()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        java.lang.Boolean $r2;
+        int $i0, $i1, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r3;
+        cz.romario.opensudoku.game.Cell[] $r4;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 < 9 goto label2;
+
+        return;
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        if $i1 < 9 goto label4;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r4 = $r3[$i0];
+
+        $r1 = $r4[$i1];
+
+        $r2 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: void setEditable(java.lang.Boolean)>($r2);
+
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(15);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label5;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(15, flagInteger);
+
+     label5:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label3;
+    }
+
+    public void markAllCellsAsValid()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        java.lang.Boolean $r1;
+        int $i0, $i1, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r2;
+        cz.romario.opensudoku.game.Cell[] $r3;
+        cz.romario.opensudoku.game.Cell $r4;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: boolean mOnChangeEnabled> = 0;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 < 9 goto label2;
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: boolean mOnChangeEnabled> = 1;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.game.CellCollection: void onChange()>();
+
+        return;
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        if $i1 < 9 goto label4;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r3 = $r2[$i0];
+
+        $r4 = $r3[$i1];
+
+        $r1 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>(1);
+
+        virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: void setValid(java.lang.Boolean)>($r1);
+
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(16);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label5;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(16, flagInteger);
+
+     label5:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label3;
+    }
+
+    public void markFilledCellsAsNotEditable()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r2;
+        cz.romario.opensudoku.game.Cell[] $r3;
+        boolean $z0;
+        java.lang.Boolean $r4;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $i0 = 0;
+
+     label1:
+        if $i0 < 9 goto label2;
+
+        return;
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        if $i1 < 9 goto label4;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r3 = $r2[$i0];
+
+        $r1 = $r3[$i1];
+
+        $i2 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: int getValue()>();
+
+        if $i2 != 0 goto label6;
+
+        $z0 = 1;
+
+     label5:
+        $r4 = staticinvoke <java.lang.Boolean: java.lang.Boolean valueOf(boolean)>($z0);
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: void setEditable(java.lang.Boolean)>($r4);
+
+        $i1 = $i1 + 1;
+
+        goto label3;
+
+     label6:
+        $z0 = 0;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(17);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label7;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(17, flagInteger);
+
+     label7:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label5;
+    }
+
+    protected void onChange()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        java.util.List $r1, $r2;
+        boolean $z0;
+        java.util.Iterator $r3;
+        java.lang.Object $r4, invalid, flagObj;
+        cz.romario.opensudoku.game.CellCollection$OnChangeListener $r5;
+        java.lang.Throwable $r6;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $z0 = $r0.<cz.romario.opensudoku.game.CellCollection: boolean mOnChangeEnabled>;
+
+        if $z0 == 0 goto label7;
+
+        $r1 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        entermonitor $r1;
+
+     label1:
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        $r3 = interfaceinvoke $r2.<java.util.List: java.util.Iterator iterator()>();
+
+     label2:
+        $z0 = interfaceinvoke $r3.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label4;
+
+        exitmonitor $r1;
+
+     label3:
+        return;
+
+     label4:
+        $r4 = interfaceinvoke $r3.<java.util.Iterator: java.lang.Object next()>();
+
+        $r5 = (cz.romario.opensudoku.game.CellCollection$OnChangeListener) $r4;
+
+        interfaceinvoke $r5.<cz.romario.opensudoku.game.CellCollection$OnChangeListener: void onChange()>();
+
+        goto label2;
+
+     label5:
+        $r6 := @caughtexception;
+
+        exitmonitor $r1;
+
+     label6:
+        throw $r6;
+
+     label7:
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(18);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label8;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(18, flagInteger);
+
+     label8:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+
+        catch java.lang.Throwable from label1 to label3 with label5;
+        catch java.lang.Throwable from label4 to label6 with label5;
+    }
+
+    public void removeOnChangeListener(cz.romario.opensudoku.game.CellCollection$OnChangeListener)
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.CellCollection$OnChangeListener $r1;
+        java.lang.IllegalArgumentException $r2;
+        java.util.List $r3, $r4;
+        boolean $z0;
+        java.lang.IllegalStateException $r5;
+        java.lang.StringBuilder $r6;
+        java.lang.String $r7;
+        java.lang.Throwable $r8;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.CellCollection$OnChangeListener;
+
+        if $r1 != null goto label1;
+
+        $r2 = new java.lang.IllegalArgumentException;
+
+        specialinvoke $r2.<java.lang.IllegalArgumentException: void <init>(java.lang.String)>("The listener is null.");
+
+        throw $r2;
+
+     label1:
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        entermonitor $r3;
+
+     label2:
+        $r4 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        $z0 = interfaceinvoke $r4.<java.util.List: boolean contains(java.lang.Object)>($r1);
+
+        if $z0 != 0 goto label5;
+
+        $r5 = new java.lang.IllegalStateException;
+
+        $r6 = new java.lang.StringBuilder;
+
+        specialinvoke $r6.<java.lang.StringBuilder: void <init>(java.lang.String)>("Listener ");
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.Object)>($r1);
+
+        $r6 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(" was not registered.");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        specialinvoke $r5.<java.lang.IllegalStateException: void <init>(java.lang.String)>($r7);
+
+        throw $r5;
+
+     label3:
+        $r8 := @caughtexception;
+
+        exitmonitor $r3;
+
+     label4:
+        throw $r8;
+
+     label5:
+        $r4 = $r0.<cz.romario.opensudoku.game.CellCollection: java.util.List mChangeListeners>;
+
+        interfaceinvoke $r4.<java.util.List: boolean remove(java.lang.Object)>($r1);
+
+        exitmonitor $r3;
+
+     label6:
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(19);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label7;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(19, flagInteger);
+
+     label7:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+
+        catch java.lang.Throwable from label2 to label4 with label3;
+        catch java.lang.Throwable from label5 to label6 with label3;
+    }
+
+    public java.lang.String serialize()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        java.lang.StringBuilder $r1;
+        java.lang.String $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r1 = new java.lang.StringBuilder;
+
+        specialinvoke $r1.<java.lang.StringBuilder: void <init>()>();
+
+        virtualinvoke $r0.<cz.romario.opensudoku.game.CellCollection: void serialize(java.lang.StringBuilder)>($r1);
+
+        $r2 = virtualinvoke $r1.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(20);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(20, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $r2;
+    }
+
+    public void serialize(java.lang.StringBuilder)
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        java.lang.StringBuilder $r1;
+        cz.romario.opensudoku.game.Cell $r2;
+        int $i0, $i1, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell[][] $r3;
+        cz.romario.opensudoku.game.Cell[] $r4;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $r1 := @parameter0: java.lang.StringBuilder;
+
+        virtualinvoke $r1.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("version: 1\n");
+
+        $i0 = 0;
+
+     label1:
+        if $i0 < 9 goto label2;
+
+        return;
+
+     label2:
+        $i1 = 0;
+
+     label3:
+        if $i1 < 9 goto label4;
+
+        $i0 = $i0 + 1;
+
+        goto label1;
+
+     label4:
+        $r3 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell[][] mCells>;
+
+        $r4 = $r3[$i0];
+
+        $r2 = $r4[$i1];
+
+        virtualinvoke $r2.<cz.romario.opensudoku.game.Cell: void serialize(java.lang.StringBuilder)>($r1);
+
+        $i1 = $i1 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(21);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label5;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(21, flagInteger);
+
+     label5:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label3;
+    }
+
+    public boolean validate()
+    {
+        cz.romario.opensudoku.game.CellCollection $r0;
+        cz.romario.opensudoku.game.CellGroup $r1;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        boolean $z0, $z1;
+        cz.romario.opensudoku.game.CellGroup[] $r2;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.game.CellCollection;
+
+        $i0 = 0;
+
+        $z0 = 1;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.game.CellCollection: void markAllCellsAsValid()>();
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: boolean mOnChangeEnabled> = 0;
+
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mRows>;
+
+        $i1 = lengthof $r2;
+
+        $i2 = 0;
+
+     label01:
+        if $i2 < $i1 goto label04;
+
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mColumns>;
+
+        $i1 = lengthof $r2;
+
+        $i2 = 0;
+
+     label02:
+        if $i2 < $i1 goto label06;
+
+        $r2 = $r0.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.CellGroup[] mSectors>;
+
+        $i1 = lengthof $r2;
+
+     label03:
+        if $i0 < $i1 goto label08;
+
+        $r0.<cz.romario.opensudoku.game.CellCollection: boolean mOnChangeEnabled> = 1;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.game.CellCollection: void onChange()>();
+
+        return $z0;
+
+     label04:
+        $r1 = $r2[$i2];
+
+        $z1 = virtualinvoke $r1.<cz.romario.opensudoku.game.CellGroup: boolean validate()>();
+
+        if $z1 != 0 goto label05;
+
+        $z0 = 0;
+
+     label05:
+        $i2 = $i2 + 1;
+
+        goto label01;
+
+     label06:
+        $r1 = $r2[$i2];
+
+        $z1 = virtualinvoke $r1.<cz.romario.opensudoku.game.CellGroup: boolean validate()>();
+
+        if $z1 != 0 goto label07;
+
+        $z0 = 0;
+
+     label07:
+        $i2 = $i2 + 1;
+
+        goto label02;
+
+     label08:
+        $r1 = $r2[$i0];
+
+        $z1 = virtualinvoke $r1.<cz.romario.opensudoku.game.CellGroup: boolean validate()>();
+
+        if $z1 != 0 goto label09;
+
+        $z0 = 0;
+
+     label09:
+        $i0 = $i0 + 1;
+
+        methodCount = <cz.romario.opensudoku.game.CellCollection: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(22);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label10;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(22, flagInteger);
+
+     label10:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label03;
+    }
+}

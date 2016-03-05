@@ -1,0 +1,28 @@
+public final class com.example.android.notepad.R$layout extends java.lang.Object
+{
+    public static final int note_editor;
+    public static final int noteslist_item;
+    public static final int title_editor;
+
+    public void <init>()
+    {
+        com.example.android.notepad.R$layout $r0;
+
+        $r0 := @this: com.example.android.notepad.R$layout;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.example.android.notepad.R$layout: int title_editor> = 2130903042;
+
+        <com.example.android.notepad.R$layout: int noteslist_item> = 2130903041;
+
+        <com.example.android.notepad.R$layout: int note_editor> = 2130903040;
+
+        return;
+    }
+}

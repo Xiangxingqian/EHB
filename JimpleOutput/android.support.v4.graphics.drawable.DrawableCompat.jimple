@@ -1,0 +1,101 @@
+public class android.support.v4.graphics.drawable.DrawableCompat extends java.lang.Object
+{
+    static final android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl IMPL;
+
+    static void <clinit>()
+    {
+        int $i0;
+        android.support.v4.graphics.drawable.DrawableCompat$KitKatDrawableImpl $r0;
+        android.support.v4.graphics.drawable.DrawableCompat$HoneycombDrawableImpl $r1;
+        android.support.v4.graphics.drawable.DrawableCompat$BaseDrawableImpl $r2;
+
+        $i0 = <android.os.Build$VERSION: int SDK_INT>;
+
+        if $i0 < 19 goto label1;
+
+        $r0 = new android.support.v4.graphics.drawable.DrawableCompat$KitKatDrawableImpl;
+
+        specialinvoke $r0.<android.support.v4.graphics.drawable.DrawableCompat$KitKatDrawableImpl: void <init>()>();
+
+        <android.support.v4.graphics.drawable.DrawableCompat: android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl IMPL> = $r0;
+
+        return;
+
+     label1:
+        if $i0 < 11 goto label2;
+
+        $r1 = new android.support.v4.graphics.drawable.DrawableCompat$HoneycombDrawableImpl;
+
+        specialinvoke $r1.<android.support.v4.graphics.drawable.DrawableCompat$HoneycombDrawableImpl: void <init>()>();
+
+        <android.support.v4.graphics.drawable.DrawableCompat: android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl IMPL> = $r1;
+
+        return;
+
+     label2:
+        $r2 = new android.support.v4.graphics.drawable.DrawableCompat$BaseDrawableImpl;
+
+        specialinvoke $r2.<android.support.v4.graphics.drawable.DrawableCompat$BaseDrawableImpl: void <init>()>();
+
+        <android.support.v4.graphics.drawable.DrawableCompat: android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl IMPL> = $r2;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        android.support.v4.graphics.drawable.DrawableCompat $r0;
+
+        $r0 := @this: android.support.v4.graphics.drawable.DrawableCompat;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static boolean isAutoMirrored(android.graphics.drawable.Drawable)
+    {
+        android.graphics.drawable.Drawable $r0;
+        boolean $z0;
+        android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl $r1;
+
+        $r0 := @parameter0: android.graphics.drawable.Drawable;
+
+        $r1 = <android.support.v4.graphics.drawable.DrawableCompat: android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl IMPL>;
+
+        $z0 = interfaceinvoke $r1.<android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl: boolean isAutoMirrored(android.graphics.drawable.Drawable)>($r0);
+
+        return $z0;
+    }
+
+    public static void jumpToCurrentState(android.graphics.drawable.Drawable)
+    {
+        android.graphics.drawable.Drawable $r0;
+        android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl $r1;
+
+        $r0 := @parameter0: android.graphics.drawable.Drawable;
+
+        $r1 = <android.support.v4.graphics.drawable.DrawableCompat: android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl IMPL>;
+
+        interfaceinvoke $r1.<android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl: void jumpToCurrentState(android.graphics.drawable.Drawable)>($r0);
+
+        return;
+    }
+
+    public static void setAutoMirrored(android.graphics.drawable.Drawable, boolean)
+    {
+        android.graphics.drawable.Drawable $r0;
+        boolean $z0;
+        android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl $r1;
+
+        $r0 := @parameter0: android.graphics.drawable.Drawable;
+
+        $z0 := @parameter1: boolean;
+
+        $r1 = <android.support.v4.graphics.drawable.DrawableCompat: android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl IMPL>;
+
+        interfaceinvoke $r1.<android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl: void setAutoMirrored(android.graphics.drawable.Drawable,boolean)>($r0, $z0);
+
+        return;
+    }
+}

@@ -1,0 +1,3467 @@
+public class cz.romario.opensudoku.gui.SudokuBoardView extends android.view.View
+{
+    public static final int DEFAULT_BOARD_SIZE;
+    private static final int NO_COLOR;
+    private boolean mAutoHideTouchedCellHint;
+    private android.graphics.Paint mBackgroundColorReadOnly;
+    private android.graphics.Paint mBackgroundColorSecondary;
+    private android.graphics.Paint mBackgroundColorSelected;
+    private android.graphics.Paint mBackgroundColorTouched;
+    private float mCellHeight;
+    private android.graphics.Paint mCellNotePaint;
+    private android.graphics.Paint mCellValueInvalidPaint;
+    private android.graphics.Paint mCellValuePaint;
+    private android.graphics.Paint mCellValueReadonlyPaint;
+    private float mCellWidth;
+    private cz.romario.opensudoku.game.CellCollection mCells;
+    private cz.romario.opensudoku.game.SudokuGame mGame;
+    private boolean mHighlightTouchedCell;
+    private boolean mHighlightWrongVals;
+    private android.graphics.Paint mLinePaint;
+    private float mNoteTop;
+    private int mNumberLeft;
+    private int mNumberTop;
+    private cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener mOnCellSelectedListener;
+    private cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener mOnCellTappedListener;
+    private boolean mReadonly;
+    private android.graphics.Paint mSectorLinePaint;
+    private int mSectorLineWidth;
+    private cz.romario.opensudoku.game.Cell mSelectedCell;
+    private cz.romario.opensudoku.game.Cell mTouchedCell;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(android.content.Context)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        android.content.Context $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: android.content.Context;
+
+        specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void <init>(android.content.Context,android.util.AttributeSet)>($r1, null);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void <init>(android.content.Context, android.util.AttributeSet)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        android.content.Context $r1;
+        android.util.AttributeSet $r2;
+        android.graphics.Paint $r3;
+        int[] $r4;
+        android.content.res.TypedArray $r5;
+        int $i0, visitedCount, flagInt;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: android.content.Context;
+
+        $r2 := @parameter1: android.util.AttributeSet;
+
+        specialinvoke $r0.<android.view.View: void <init>(android.content.Context,android.util.AttributeSet)>($r1, $r2);
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly> = 0;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightWrongVals> = 1;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightTouchedCell> = 1;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mAutoHideTouchedCellHint> = 1;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setFocusable(boolean)>(1);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setFocusableInTouchMode(boolean)>(1);
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mLinePaint> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mSectorLinePaint> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueReadonlyPaint> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueInvalidPaint> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellNotePaint> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorReadOnly> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorTouched> = $r3;
+
+        $r3 = new android.graphics.Paint;
+
+        specialinvoke $r3.<android.graphics.Paint: void <init>()>();
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSelected> = $r3;
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setAntiAlias(boolean)>(1);
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueReadonlyPaint>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setAntiAlias(boolean)>(1);
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueInvalidPaint>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setAntiAlias(boolean)>(1);
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellNotePaint>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setAntiAlias(boolean)>(1);
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueInvalidPaint>;
+
+        virtualinvoke $r3.<android.graphics.Paint: void setColor(int)>(-65536);
+
+        $r4 = <cz.romario.opensudoku.R$styleable: int[] SudokuBoardView>;
+
+        $r5 = virtualinvoke $r1.<android.content.Context: android.content.res.TypedArray obtainStyledAttributes(android.util.AttributeSet,int[])>($r2, $r4);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(0, -16777216);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setLineColor(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(1, -16777216);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setSectorLineColor(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(2, -16777216);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setTextColor(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(3, -16777216);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setTextColorReadOnly(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(4, -16777216);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setTextColorNote(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(5, -1);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setBackgroundColor(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(6, 0);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setBackgroundColorSecondary(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(7, 0);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setBackgroundColorReadOnly(int)>($i0);
+
+        $i0 = staticinvoke <android.graphics.Color: int rgb(int,int,int)>(50, 50, 255);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(8, $i0);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setBackgroundColorTouched(int)>($i0);
+
+        $i0 = virtualinvoke $r5.<android.content.res.TypedArray: int getColor(int,int)>(9, -256);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setBackgroundColorSelected(int)>($i0);
+
+        virtualinvoke $r5.<android.content.res.TypedArray: void recycle()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void computeSectorLineWidth(int, int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, $i1, visitedCount, flagInt;
+        float $f0, $f1, $f2;
+        android.content.Context $r1;
+        android.content.res.Resources $r2;
+        android.util.DisplayMetrics $r3;
+        byte $b2;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        if $i0 >= $i1 goto label3;
+
+     label1:
+        $r1 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.content.Context getContext()>();
+
+        $r2 = virtualinvoke $r1.<android.content.Context: android.content.res.Resources getResources()>();
+
+        $r3 = virtualinvoke $r2.<android.content.res.Resources: android.util.DisplayMetrics getDisplayMetrics()>();
+
+        $f0 = $r3.<android.util.DisplayMetrics: float density>;
+
+        $f1 = (float) $i0;
+
+        $f1 = $f1 / $f0;
+
+        $f2 = 2.0F;
+
+        $b2 = $f1 cmpl 150.0F;
+
+        if $b2 <= 0 goto label2;
+
+        $f2 = 3.0F;
+
+     label2:
+        $f0 = $f2 * $f0;
+
+        $i0 = (int) $f0;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int mSectorLineWidth> = $i0;
+
+        return;
+
+     label3:
+        $i0 = $i1;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(2);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label4;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(2, flagInteger);
+
+     label4:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label1;
+    }
+
+    private cz.romario.opensudoku.game.Cell getCellAtPoint(int, int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        float $f0, $f1;
+        cz.romario.opensudoku.game.CellCollection $r1;
+        cz.romario.opensudoku.game.Cell $r2;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingLeft()>();
+
+        $i0 = $i0 - $i2;
+
+        $i2 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingTop()>();
+
+        $i1 = $i1 - $i2;
+
+        $f0 = (float) $i1;
+
+        $f1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f0 = $f0 / $f1;
+
+        $i1 = (int) $f0;
+
+        $f0 = (float) $i0;
+
+        $f1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = $f0 / $f1;
+
+        $i0 = (int) $f0;
+
+        if $i0 < 0 goto label1;
+
+        if $i0 >= 9 goto label1;
+
+        if $i1 < 0 goto label1;
+
+        if $i1 >= 9 goto label1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        $r2 = virtualinvoke $r1.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell getCell(int,int)>($i1, $i0);
+
+        return $r2;
+
+     label1:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(3);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(3, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return null;
+    }
+
+    private boolean moveCellSelection(int, int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, $i1, $i2, $i3, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell $r1;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 = 0;
+
+        $i3 = 0;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        if $r1 == null goto label1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        $i2 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: int getRowIndex()>();
+
+        $i2 = $i2 + $i1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        $i1 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: int getColumnIndex()>();
+
+        $i3 = $i1 + $i0;
+
+     label1:
+        $z0 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelectionTo(int,int)>($i2, $i3);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(4);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(4, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $z0;
+    }
+
+    private boolean moveCellSelectionTo(int, int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, $i1, visitedCount, flagInt;
+        cz.romario.opensudoku.game.Cell $r1;
+        cz.romario.opensudoku.game.CellCollection $r2;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        if $i1 < 0 goto label1;
+
+        if $i1 >= 9 goto label1;
+
+        if $i0 < 0 goto label1;
+
+        if $i0 >= 9 goto label1;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        $r1 = virtualinvoke $r2.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell getCell(int,int)>($i0, $i1);
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell> = $r1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void onCellSelected(cz.romario.opensudoku.game.Cell)>($r1);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void postInvalidate()>();
+
+        return 1;
+
+     label1:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(5);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(5, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return 0;
+    }
+
+    private void setCellNote(cz.romario.opensudoku.game.Cell, cz.romario.opensudoku.game.CellNote)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        cz.romario.opensudoku.game.CellNote $r2;
+        boolean $z0;
+        cz.romario.opensudoku.game.SudokuGame $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.Cell;
+
+        $r2 := @parameter1: cz.romario.opensudoku.game.CellNote;
+
+        $z0 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: boolean isEditable()>();
+
+        if $z0 == 0 goto label2;
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.SudokuGame mGame>;
+
+        if $r3 == null goto label1;
+
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.SudokuGame mGame>;
+
+        virtualinvoke $r3.<cz.romario.opensudoku.game.SudokuGame: void setCellNote(cz.romario.opensudoku.game.Cell,cz.romario.opensudoku.game.CellNote)>($r1, $r2);
+
+        return;
+
+     label1:
+        virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: void setNote(cz.romario.opensudoku.game.CellNote)>($r2);
+
+        return;
+
+     label2:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(6);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(6, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    private void setCellValue(cz.romario.opensudoku.game.Cell, int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        int $i0, visitedCount, flagInt;
+        boolean $z0;
+        cz.romario.opensudoku.game.SudokuGame $r2;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.Cell;
+
+        $i0 := @parameter1: int;
+
+        $z0 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: boolean isEditable()>();
+
+        if $z0 == 0 goto label2;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.SudokuGame mGame>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.SudokuGame mGame>;
+
+        virtualinvoke $r2.<cz.romario.opensudoku.game.SudokuGame: void setCellValue(cz.romario.opensudoku.game.Cell,int)>($r1, $i0);
+
+        return;
+
+     label1:
+        virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: void setValue(int)>($i0);
+
+        return;
+
+     label2:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(7);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(7, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean getAutoHideTouchedCellHint()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mAutoHideTouchedCellHint>;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(8);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(8, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return z0;
+    }
+
+    public int getBackgroundColorReadOnly()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorReadOnly>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(9);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(9, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public int getBackgroundColorSecondary()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(10);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(10, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public int getBackgroundColorSelected()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSelected>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(11);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(11, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public int getBackgroundColorTouched()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorTouched>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(12);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(12, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public cz.romario.opensudoku.game.CellCollection getCells()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.CellCollection r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(13);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(13, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return r1;
+    }
+
+    public boolean getHighlightTouchedCell()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightTouchedCell>;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(14);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(14, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return z0;
+    }
+
+    public boolean getHighlightWrongVals()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightWrongVals>;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(15);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(15, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return z0;
+    }
+
+    public int getLineColor()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mLinePaint>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(16);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(16, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public int getSectorLineColor()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mSectorLinePaint>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(17);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(17, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public cz.romario.opensudoku.game.Cell getSelectedCell()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.Cell r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(18);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(18, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return r1;
+    }
+
+    public int getTextColor()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(19);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(19, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public int getTextColorNote()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellNotePaint>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(20);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(20, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public int getTextColorReadOnly()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueReadonlyPaint>;
+
+        $i0 = virtualinvoke $r1.<android.graphics.Paint: int getColor()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(21);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(21, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return $i0;
+    }
+
+    public void hideTouchedCellHint()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mTouchedCell> = null;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void postInvalidate()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(22);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(22, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean isReadOnly()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly>;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(23);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(23, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return z0;
+    }
+
+    public void moveCellSelectionRight()
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean $z0;
+        cz.romario.opensudoku.game.Cell $r1;
+        int $i0, visitedCount, flagInt;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $z0 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelection(int,int)>(1, 0);
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        $i0 = virtualinvoke $r1.<cz.romario.opensudoku.game.Cell: int getRowIndex()>();
+
+        $i0 = $i0 + 1;
+
+        $z0 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelectionTo(int,int)>($i0, 0);
+
+        if $z0 != 0 goto label1;
+
+        specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelectionTo(int,int)>(0, 0);
+
+     label1:
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void postInvalidate()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(24);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(24, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void onCellSelected(cz.romario.opensudoku.game.Cell)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.Cell;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener mOnCellSelectedListener>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener mOnCellSelectedListener>;
+
+        interfaceinvoke $r2.<cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener: void onCellSelected(cz.romario.opensudoku.game.Cell)>($r1);
+
+        return;
+
+     label1:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(25);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(25, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void onCellTapped(cz.romario.opensudoku.game.Cell)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.Cell $r1;
+        cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.Cell;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener mOnCellTappedListener>;
+
+        if $r2 == null goto label1;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener mOnCellTappedListener>;
+
+        interfaceinvoke $r2.<cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener: void onCellTapped(cz.romario.opensudoku.game.Cell)>($r1);
+
+        return;
+
+     label1:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(26);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(26, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    protected void onDraw(android.graphics.Canvas)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        android.graphics.Canvas $r1;
+        int $i0, $i1, $i2, $i3, $i4, $i5, $i6, $i7, $i8, $i9, $i10, visitedCount, flagInt;
+        float $f0, $f1, $f2, $f3, $f4, $f5, $f6, $f7;
+        android.graphics.Paint $r2;
+        cz.romario.opensudoku.game.CellCollection $r3;
+        boolean $z0, $z1;
+        cz.romario.opensudoku.game.Cell $r4;
+        java.lang.String $r5;
+        cz.romario.opensudoku.game.CellNote $r6;
+        java.util.Set $r7;
+        java.util.Iterator $r8;
+        java.lang.Object $r9, invalid, flagObj;
+        java.lang.Integer $r10, flagInteger;
+        java.util.LinkedList methodCount;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: android.graphics.Canvas;
+
+        specialinvoke $r0.<android.view.View: void onDraw(android.graphics.Canvas)>($r1);
+
+        $i4 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getWidth()>();
+
+        $i5 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingRight()>();
+
+        $i4 = $i4 - $i5;
+
+        $i5 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getHeight()>();
+
+        $i6 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingBottom()>();
+
+        $i0 = $i5 - $i6;
+
+        $i5 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingLeft()>();
+
+        $i6 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingTop()>();
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary>;
+
+        $i2 = virtualinvoke $r2.<android.graphics.Paint: int getColor()>();
+
+        if $i2 == 0 goto label01;
+
+        $f1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = 3.0F * $f1;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f2 = $f2 * 6.0F;
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = 3.0F * $f0;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, 0.0F, $f2, $f0, $r2);
+
+        $f1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = $f1 * 3.0F;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f2 = $f2 * 3.0F;
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = 6.0F * $f0;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>(0.0F, $f1, $f2, $f0, $r2);
+
+        $f1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = 6.0F * $f1;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f2 = $f2 * 3.0F;
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = $f0 * 9.0F;
+
+        $f3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f3 = 6.0F * $f3;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, $f2, $f0, $f3, $r2);
+
+        $f1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = 3.0F * $f1;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f2 = $f2 * 6.0F;
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = $f0 * 6.0F;
+
+        $f3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f3 = 9.0F * $f3;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, $f2, $f0, $f3, $r2);
+
+     label01:
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        if $r3 == null goto label05;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorReadOnly>;
+
+        $i2 = virtualinvoke $r2.<android.graphics.Paint: int getColor()>();
+
+        if $i2 == 0 goto label10;
+
+        $z0 = 1;
+
+     label02:
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+        $f1 = virtualinvoke $r2.<android.graphics.Paint: float ascent()>();
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellNotePaint>;
+
+        $f2 = virtualinvoke $r2.<android.graphics.Paint: float ascent()>();
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = $f0 / 3.0F;
+
+        $i2 = 0;
+
+     label03:
+        if $i2 < 9 goto label11;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly>;
+
+        if $z0 != 0 goto label04;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        if $r4 == null goto label04;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        $i2 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: int getColumnIndex()>();
+
+        $f1 = (float) $i2;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = $f1 * $f2;
+
+        $i2 = staticinvoke <java.lang.Math: int round(float)>($f1);
+
+        $i2 = $i2 + $i5;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        $i3 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: int getRowIndex()>();
+
+        $f1 = (float) $i3;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f1 = $f1 * $f2;
+
+        $i3 = staticinvoke <java.lang.Math: int round(float)>($f1);
+
+        $i3 = $i3 + $i6;
+
+        $f1 = (float) $i2;
+
+        $f2 = (float) $i3;
+
+        $f0 = (float) $i2;
+
+        $f3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = $f3 + $f0;
+
+        $f3 = (float) $i3;
+
+        $f4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f3 = $f3 + $f4;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSelected>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, $f2, $f0, $f3, $r2);
+
+     label04:
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightTouchedCell>;
+
+        if $z0 == 0 goto label05;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mTouchedCell>;
+
+        if $r4 == null goto label05;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mTouchedCell>;
+
+        $i2 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: int getColumnIndex()>();
+
+        $f1 = (float) $i2;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = $f1 * $f2;
+
+        $i2 = staticinvoke <java.lang.Math: int round(float)>($f1);
+
+        $i2 = $i2 + $i5;
+
+        $r4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mTouchedCell>;
+
+        $i3 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: int getRowIndex()>();
+
+        $f1 = (float) $i3;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f1 = $f1 * $f2;
+
+        $i3 = staticinvoke <java.lang.Math: int round(float)>($f1);
+
+        $i3 = $i3 + $i6;
+
+        $f1 = (float) $i2;
+
+        $f2 = (float) $i6;
+
+        $f0 = (float) $i2;
+
+        $f3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f0 = $f3 + $f0;
+
+        $f3 = (float) $i0;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorTouched>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, $f2, $f0, $f3, $r2);
+
+        $f1 = (float) $i5;
+
+        $f2 = (float) $i3;
+
+        $f0 = (float) $i4;
+
+        $f3 = (float) $i3;
+
+        $f4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f3 = $f3 + $f4;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorTouched>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, $f2, $f0, $f3, $r2);
+
+     label05:
+        $i2 = 0;
+
+     label06:
+        if $i2 <= 9 goto label21;
+
+        $i2 = 0;
+
+     label07:
+        if $i2 <= 9 goto label22;
+
+        $i2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int mSectorLineWidth>;
+
+        $i2 = $i2 / 2;
+
+        $i3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int mSectorLineWidth>;
+
+        $i3 = $i3 % 2;
+
+        $i3 = $i2 + $i3;
+
+        $i7 = 0;
+
+     label08:
+        if $i7 <= 9 goto label23;
+
+        $i0 = 0;
+
+     label09:
+        if $i0 <= 9 goto label24;
+
+        return;
+
+     label10:
+        $z0 = 0;
+
+        goto label02;
+
+     label11:
+        $i3 = 0;
+
+     label12:
+        if $i3 < 9 goto label13;
+
+        $i2 = $i2 + 1;
+
+        goto label03;
+
+     label13:
+        $r3 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        $r4 = virtualinvoke $r3.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell getCell(int,int)>($i2, $i3);
+
+        $f3 = (float) $i3;
+
+        $f4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f3 = $f3 * $f4;
+
+        $f4 = (float) $i5;
+
+        $f3 = $f3 + $f4;
+
+        $i8 = staticinvoke <java.lang.Math: int round(float)>($f3);
+
+        $f3 = (float) $i2;
+
+        $f4 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f3 = $f3 * $f4;
+
+        $f4 = (float) $i6;
+
+        $f3 = $f3 + $f4;
+
+        $i7 = staticinvoke <java.lang.Math: int round(float)>($f3);
+
+        $z1 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: boolean isEditable()>();
+
+        if $z1 != 0 goto label14;
+
+        if $z0 == 0 goto label14;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorReadOnly>;
+
+        $i9 = virtualinvoke $r2.<android.graphics.Paint: int getColor()>();
+
+        if $i9 == 0 goto label14;
+
+        $f3 = (float) $i8;
+
+        $f4 = (float) $i7;
+
+        $f5 = (float) $i8;
+
+        $f6 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f5 = $f6 + $f5;
+
+        $f6 = (float) $i7;
+
+        $f7 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f6 = $f6 + $f7;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorReadOnly>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f3, $f4, $f5, $f6, $r2);
+
+     label14:
+        $i9 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: int getValue()>();
+
+        if $i9 == 0 goto label19;
+
+        $z1 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: boolean isEditable()>();
+
+        if $z1 == 0 goto label18;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+     label15:
+        $z1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightWrongVals>;
+
+        if $z1 == 0 goto label16;
+
+        $z1 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: boolean isValid()>();
+
+        if $z1 != 0 goto label16;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueInvalidPaint>;
+
+     label16:
+        $r5 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i9);
+
+        $i9 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int mNumberLeft>;
+
+        $i8 = $i9 + $i8;
+
+        $f3 = (float) $i8;
+
+        $i8 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int mNumberTop>;
+
+        $i7 = $i8 + $i7;
+
+        $f4 = (float) $i7;
+
+        $f4 = $f4 - $f1;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawText(java.lang.String,float,float,android.graphics.Paint)>($r5, $f3, $f4, $r2);
+
+     label17:
+        $i3 = $i3 + 1;
+
+        goto label12;
+
+     label18:
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueReadonlyPaint>;
+
+        goto label15;
+
+     label19:
+        $r6 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: cz.romario.opensudoku.game.CellNote getNote()>();
+
+        $z1 = virtualinvoke $r6.<cz.romario.opensudoku.game.CellNote: boolean isEmpty()>();
+
+        if $z1 != 0 goto label17;
+
+        $r6 = virtualinvoke $r4.<cz.romario.opensudoku.game.Cell: cz.romario.opensudoku.game.CellNote getNote()>();
+
+        $r7 = virtualinvoke $r6.<cz.romario.opensudoku.game.CellNote: java.util.Set getNotedNumbers()>();
+
+        $r8 = interfaceinvoke $r7.<java.util.Collection: java.util.Iterator iterator()>();
+
+     label20:
+        $z1 = interfaceinvoke $r8.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 == 0 goto label17;
+
+        $r9 = interfaceinvoke $r8.<java.util.Iterator: java.lang.Object next()>();
+
+        $r10 = (java.lang.Integer) $r9;
+
+        $i9 = virtualinvoke $r10.<java.lang.Integer: int intValue()>();
+
+        $i1 = $i9 + -1;
+
+        $i9 = $i1 % 3;
+
+        $i1 = $i1 / 3;
+
+        $i10 = virtualinvoke $r10.<java.lang.Integer: int intValue()>();
+
+        $r5 = staticinvoke <java.lang.Integer: java.lang.String toString(int)>($i10);
+
+        $f3 = (float) $i8;
+
+        $f4 = (float) $i9;
+
+        $f4 = $f4 * $f0;
+
+        $f3 = $f3 + $f4;
+
+        $f3 = $f3 + 2.0F;
+
+        $f4 = (float) $i7;
+
+        $f5 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mNoteTop>;
+
+        $f4 = $f4 + $f5;
+
+        $f4 = $f4 - $f2;
+
+        $f5 = (float) $i1;
+
+        $f5 = $f5 * $f0;
+
+        $f4 = $f4 + $f5;
+
+        $f4 = $f4 - 1.0F;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellNotePaint>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawText(java.lang.String,float,float,android.graphics.Paint)>($r5, $f3, $f4, $r2);
+
+        goto label20;
+
+     label21:
+        $f1 = (float) $i2;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = $f1 * $f2;
+
+        $f2 = (float) $i5;
+
+        $f1 = $f1 + $f2;
+
+        $f2 = (float) $i6;
+
+        $f0 = (float) $i0;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mLinePaint>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawLine(float,float,float,float,android.graphics.Paint)>($f1, $f2, $f1, $f0, $r2);
+
+        $i2 = $i2 + 1;
+
+        goto label06;
+
+     label22:
+        $f1 = (float) $i2;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f1 = $f1 * $f2;
+
+        $f2 = (float) $i6;
+
+        $f1 = $f1 + $f2;
+
+        $f2 = (float) $i5;
+
+        $f0 = (float) $i4;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mLinePaint>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawLine(float,float,float,float,android.graphics.Paint)>($f2, $f1, $f0, $f1, $r2);
+
+        $i2 = $i2 + 1;
+
+        goto label07;
+
+     label23:
+        $f1 = (float) $i7;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $f1 = $f1 * $f2;
+
+        $f2 = (float) $i5;
+
+        $f0 = $f1 + $f2;
+
+        $f1 = (float) $i2;
+
+        $f1 = $f0 - $f1;
+
+        $f2 = (float) $i6;
+
+        $f3 = (float) $i3;
+
+        $f0 = $f0 + $f3;
+
+        $f3 = (float) $i0;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mSectorLinePaint>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, $f2, $f0, $f3, $r2);
+
+        $i7 = $i7 + 3;
+
+        goto label08;
+
+     label24:
+        $f1 = (float) $i0;
+
+        $f2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f1 = $f1 * $f2;
+
+        $f2 = (float) $i6;
+
+        $f2 = $f1 + $f2;
+
+        $f1 = (float) $i5;
+
+        $f0 = (float) $i2;
+
+        $f0 = $f2 - $f0;
+
+        $f3 = (float) $i4;
+
+        $f4 = (float) $i3;
+
+        $f2 = $f2 + $f4;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mSectorLinePaint>;
+
+        virtualinvoke $r1.<android.graphics.Canvas: void drawRect(float,float,float,float,android.graphics.Paint)>($f1, $f0, $f3, $f2, $r2);
+
+        $i0 = $i0 + 3;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(27);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label25;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(27, flagInteger);
+
+     label25:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label09;
+    }
+
+    public boolean onKeyDown(int, android.view.KeyEvent)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.view.KeyEvent $r1;
+        cz.romario.opensudoku.game.Cell $r2;
+        boolean $z0;
+        cz.romario.opensudoku.game.CellNote $r3;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 := @parameter1: android.view.KeyEvent;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly>;
+
+        if $z0 != 0 goto label12;
+
+        lookupswitch($i0)
+        {
+            case 7: goto label07;
+            case 19: goto label03;
+            case 20: goto label05;
+            case 21: goto label06;
+            case 22: goto label04;
+            case 23: goto label10;
+            case 62: goto label07;
+            case 67: goto label07;
+            default: goto label01;
+        };
+
+     label01:
+        if $i0 < 8 goto label12;
+
+        if $i0 > 16 goto label12;
+
+        $i0 = $i0 + -7;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        $z0 = virtualinvoke $r1.<android.view.KeyEvent: boolean isShiftPressed()>();
+
+        if $z0 != 0 goto label02;
+
+        $z0 = virtualinvoke $r1.<android.view.KeyEvent: boolean isAltPressed()>();
+
+        if $z0 == 0 goto label11;
+
+     label02:
+        $r3 = virtualinvoke $r2.<cz.romario.opensudoku.game.Cell: cz.romario.opensudoku.game.CellNote getNote()>();
+
+        $r3 = virtualinvoke $r3.<cz.romario.opensudoku.game.CellNote: cz.romario.opensudoku.game.CellNote toggleNumber(int)>($i0);
+
+        specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setCellNote(cz.romario.opensudoku.game.Cell,cz.romario.opensudoku.game.CellNote)>($r2, $r3);
+
+        return 1;
+
+     label03:
+        $z0 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelection(int,int)>(0, -1);
+
+        return $z0;
+
+     label04:
+        $z0 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelection(int,int)>(1, 0);
+
+        return $z0;
+
+     label05:
+        $z0 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelection(int,int)>(0, 1);
+
+        return $z0;
+
+     label06:
+        $z0 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean moveCellSelection(int,int)>(-1, 0);
+
+        return $z0;
+
+     label07:
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        if $r2 == null goto label13;
+
+        $z0 = virtualinvoke $r1.<android.view.KeyEvent: boolean isShiftPressed()>();
+
+        if $z0 != 0 goto label08;
+
+        $z0 = virtualinvoke $r1.<android.view.KeyEvent: boolean isAltPressed()>();
+
+        if $z0 == 0 goto label09;
+
+     label08:
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        $r3 = <cz.romario.opensudoku.game.CellNote: cz.romario.opensudoku.game.CellNote EMPTY>;
+
+        specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setCellNote(cz.romario.opensudoku.game.Cell,cz.romario.opensudoku.game.CellNote)>($r2, $r3);
+
+        return 1;
+
+     label09:
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setCellValue(cz.romario.opensudoku.game.Cell,int)>($r2, 0);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void moveCellSelectionRight()>();
+
+        return 1;
+
+     label10:
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        if $r2 == null goto label14;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void onCellTapped(cz.romario.opensudoku.game.Cell)>($r2);
+
+        return 1;
+
+     label11:
+        specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setCellValue(cz.romario.opensudoku.game.Cell,int)>($r2, $i0);
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void moveCellSelectionRight()>();
+
+        return 1;
+
+     label12:
+        return 0;
+
+     label13:
+        return 1;
+
+     label14:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(28);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label15;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(28, flagInteger);
+
+     label15:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return 1;
+    }
+
+    protected void onMeasure(int, int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, $i1, $i2, $i3, $i4, $i5, visitedCount, flagInt;
+        float $f0, $f1;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $i1 := @parameter1: int;
+
+        $i2 = staticinvoke <android.view.View$MeasureSpec: int getMode(int)>($i0);
+
+        $i3 = staticinvoke <android.view.View$MeasureSpec: int getSize(int)>($i0);
+
+        $i4 = staticinvoke <android.view.View$MeasureSpec: int getMode(int)>($i1);
+
+        $i5 = staticinvoke <android.view.View$MeasureSpec: int getSize(int)>($i1);
+
+        if $i2 != 1073741824 goto label7;
+
+        $i0 = $i3;
+
+     label1:
+        if $i4 != 1073741824 goto label8;
+
+        $i1 = $i5;
+
+     label2:
+        if $i2 == 1073741824 goto label3;
+
+        $i0 = $i1;
+
+     label3:
+        if $i4 == 1073741824 goto label4;
+
+        $i1 = $i0;
+
+     label4:
+        if $i2 != -2147483648 goto label5;
+
+        if $i0 <= $i3 goto label5;
+
+        $i0 = $i3;
+
+     label5:
+        if $i4 != -2147483648 goto label6;
+
+        if $i1 <= $i5 goto label6;
+
+        $i1 = $i5;
+
+     label6:
+        $i2 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingLeft()>();
+
+        $i2 = $i0 - $i2;
+
+        $i3 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingRight()>();
+
+        $i2 = $i2 - $i3;
+
+        $f0 = (float) $i2;
+
+        $f0 = $f0 / 9.0F;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth> = $f0;
+
+        $i2 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingTop()>();
+
+        $i2 = $i1 - $i2;
+
+        $i3 = virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int getPaddingBottom()>();
+
+        $i2 = $i2 - $i3;
+
+        $f0 = (float) $i2;
+
+        $f0 = $f0 / 9.0F;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight> = $f0;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setMeasuredDimension(int,int)>($i0, $i1);
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f0 = $f0 * 0.75F;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setTextSize(float)>($f0);
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueReadonlyPaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setTextSize(float)>($f0);
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueInvalidPaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setTextSize(float)>($f0);
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellNotePaint>;
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f0 = $f0 / 3.0F;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setTextSize(float)>($f0);
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellWidth>;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+        $f1 = virtualinvoke $r1.<android.graphics.Paint: float measureText(java.lang.String)>("9");
+
+        $f0 = $f0 - $f1;
+
+        $f0 = $f0 / 2.0F;
+
+        $i2 = (int) $f0;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int mNumberLeft> = $i2;
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+        $f1 = virtualinvoke $r1.<android.graphics.Paint: float getTextSize()>();
+
+        $f0 = $f0 - $f1;
+
+        $f0 = $f0 / 2.0F;
+
+        $i2 = (int) $f0;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: int mNumberTop> = $i2;
+
+        $f0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mCellHeight>;
+
+        $f0 = $f0 / 50.0F;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: float mNoteTop> = $f0;
+
+        specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void computeSectorLineWidth(int,int)>($i0, $i1);
+
+        return;
+
+     label7:
+        $i0 = 100;
+
+        if $i2 != -2147483648 goto label1;
+
+        if 100 <= $i3 goto label1;
+
+        $i0 = $i3;
+
+        goto label1;
+
+     label8:
+        $i1 = 100;
+
+        if $i4 != -2147483648 goto label2;
+
+        if 100 <= $i5 goto label2;
+
+        $i1 = $i5;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(29);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label9;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(29, flagInteger);
+
+     label9:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        goto label2;
+    }
+
+    public boolean onTouchEvent(android.view.MotionEvent)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        android.view.MotionEvent $r1;
+        int $i0, $i1, $i2, visitedCount, flagInt;
+        boolean $z0;
+        float $f0;
+        cz.romario.opensudoku.game.Cell $r2;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: android.view.MotionEvent;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly>;
+
+        if $z0 != 0 goto label2;
+
+        $f0 = virtualinvoke $r1.<android.view.MotionEvent: float getX()>();
+
+        $i0 = (int) $f0;
+
+        $f0 = virtualinvoke $r1.<android.view.MotionEvent: float getY()>();
+
+        $i1 = (int) $f0;
+
+        $i2 = virtualinvoke $r1.<android.view.MotionEvent: int getAction()>();
+
+        lookupswitch($i2)
+        {
+            case 0: goto label3;
+            case 1: goto label4;
+            case 2: goto label3;
+            case 3: goto label6;
+            default: goto label1;
+        };
+
+     label1:
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void postInvalidate()>();
+
+     label2:
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly>;
+
+        if $z0 == 0 goto label7;
+
+        return 0;
+
+     label3:
+        $r2 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell getCellAtPoint(int,int)>($i0, $i1);
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mTouchedCell> = $r2;
+
+        goto label1;
+
+     label4:
+        $r2 = specialinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell getCellAtPoint(int,int)>($i0, $i1);
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell> = $r2;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void invalidate()>();
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        if $r2 == null goto label5;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void onCellTapped(cz.romario.opensudoku.game.Cell)>($r2);
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void onCellSelected(cz.romario.opensudoku.game.Cell)>($r2);
+
+     label5:
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mAutoHideTouchedCellHint>;
+
+        if $z0 == 0 goto label1;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mTouchedCell> = null;
+
+        goto label1;
+
+     label6:
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mTouchedCell> = null;
+
+        goto label1;
+
+     label7:
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(30);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label8;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(30, flagInteger);
+
+     label8:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return 1;
+    }
+
+    public void setAutoHideTouchedCellHint(boolean)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mAutoHideTouchedCellHint> = $z0;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(31);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(31, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setBackgroundColorReadOnly(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorReadOnly>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(32);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(32, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setBackgroundColorSecondary(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSecondary>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(33);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(33, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setBackgroundColorSelected(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSelected>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorSelected>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setAlpha(int)>(100);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(34);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(34, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setBackgroundColorTouched(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorTouched>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mBackgroundColorTouched>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setAlpha(int)>(100);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(35);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(35, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setCells(cz.romario.opensudoku.game.CellCollection)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.CellCollection $r1;
+        cz.romario.opensudoku.game.Cell $r2;
+        boolean $z0;
+        cz.romario.opensudoku.gui.SudokuBoardView$1 $r3;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.CellCollection;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells> = $r1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        if $r1 == null goto label2;
+
+        $z0 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly>;
+
+        if $z0 != 0 goto label1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        $r2 = virtualinvoke $r1.<cz.romario.opensudoku.game.CellCollection: cz.romario.opensudoku.game.Cell getCell(int,int)>(0, 0);
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell> = $r2;
+
+        $r2 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.Cell mSelectedCell>;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void onCellSelected(cz.romario.opensudoku.game.Cell)>($r2);
+
+     label1:
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.CellCollection mCells>;
+
+        $r3 = new cz.romario.opensudoku.gui.SudokuBoardView$1;
+
+        specialinvoke $r3.<cz.romario.opensudoku.gui.SudokuBoardView$1: void <init>(cz.romario.opensudoku.gui.SudokuBoardView)>($r0);
+
+        virtualinvoke $r1.<cz.romario.opensudoku.game.CellCollection: void addOnChangeListener(cz.romario.opensudoku.game.CellCollection$OnChangeListener)>($r3);
+
+     label2:
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void postInvalidate()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(36);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label3;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(36, flagInteger);
+
+     label3:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setGame(cz.romario.opensudoku.game.SudokuGame)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.game.SudokuGame $r1;
+        cz.romario.opensudoku.game.CellCollection $r2;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.game.SudokuGame;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.game.SudokuGame mGame> = $r1;
+
+        $r2 = virtualinvoke $r1.<cz.romario.opensudoku.game.SudokuGame: cz.romario.opensudoku.game.CellCollection getCells()>();
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void setCells(cz.romario.opensudoku.game.CellCollection)>($r2);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(37);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(37, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setHighlightTouchedCell(boolean)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightTouchedCell> = $z0;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(38);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(38, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setHighlightWrongVals(boolean)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mHighlightWrongVals> = $z0;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void postInvalidate()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(39);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(39, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setLineColor(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mLinePaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(40);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(40, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setOnCellSelectedListener(cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener mOnCellSelectedListener> = $r1;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(41);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(41, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setOnCellTappedListener(cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $r1 := @parameter0: cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: cz.romario.opensudoku.gui.SudokuBoardView$OnCellTappedListener mOnCellTappedListener> = $r1;
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(42);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(42, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setReadOnly(boolean)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        boolean $z0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $z0 := @parameter0: boolean;
+
+        $r0.<cz.romario.opensudoku.gui.SudokuBoardView: boolean mReadonly> = $z0;
+
+        virtualinvoke $r0.<cz.romario.opensudoku.gui.SudokuBoardView: void postInvalidate()>();
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(43);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(43, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setSectorLineColor(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mSectorLinePaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(44);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(44, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setTextColor(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValuePaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(45);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(45, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setTextColorNote(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellNotePaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(46);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(46, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public void setTextColorReadOnly(int)
+    {
+        cz.romario.opensudoku.gui.SudokuBoardView $r0;
+        int $i0, visitedCount, flagInt;
+        android.graphics.Paint $r1;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.SudokuBoardView;
+
+        $i0 := @parameter0: int;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.SudokuBoardView: android.graphics.Paint mCellValueReadonlyPaint>;
+
+        virtualinvoke $r1.<android.graphics.Paint: void setColor(int)>($i0);
+
+        methodCount = <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(47);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(47, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        <cz.romario.opensudoku.gui.SudokuBoardView: int DEFAULT_BOARD_SIZE> = 100;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.SudokuBoardView: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

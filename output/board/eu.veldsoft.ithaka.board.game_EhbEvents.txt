@@ -1,0 +1,1 @@
+Body. SootClass: eu.veldsoft.ithaka.board.game.GameActivity, SootMethod: <eu.veldsoft.ithaka.board.game.GameActivity: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r6.<android.widget.ImageView: void setOnClickListener(android.view.View$OnClickListener)>($r7)

@@ -1,0 +1,128 @@
+class cz.romario.opensudoku.gui.inputmethod.IMPopup$1 extends java.lang.Object implements cz.romario.opensudoku.gui.inputmethod.IMPopupDialog$OnNumberEditListener
+{
+    final cz.romario.opensudoku.gui.inputmethod.IMPopup this$0;
+    public static java.util.LinkedList methodCountList;
+
+    void <init>(cz.romario.opensudoku.gui.inputmethod.IMPopup)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMPopup$1 $r0;
+        cz.romario.opensudoku.gui.inputmethod.IMPopup $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMPopup$1;
+
+        $r1 := @parameter0: cz.romario.opensudoku.gui.inputmethod.IMPopup;
+
+        $r0.<cz.romario.opensudoku.gui.inputmethod.IMPopup$1: cz.romario.opensudoku.gui.inputmethod.IMPopup this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMPopup$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean onNumberEdit(int)
+    {
+        cz.romario.opensudoku.gui.inputmethod.IMPopup$1 $r0;
+        int $i0, visitedCount, flagInt;
+        cz.romario.opensudoku.gui.inputmethod.IMPopup $r1;
+        cz.romario.opensudoku.game.Cell $r2;
+        cz.romario.opensudoku.game.SudokuGame $r3;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.gui.inputmethod.IMPopup$1;
+
+        $i0 := @parameter0: int;
+
+        if $i0 == -1 goto label1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMPopup$1: cz.romario.opensudoku.gui.inputmethod.IMPopup this$0>;
+
+        $r2 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMPopup: cz.romario.opensudoku.game.Cell access$0(cz.romario.opensudoku.gui.inputmethod.IMPopup)>($r1);
+
+        if $r2 == null goto label1;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMPopup$1: cz.romario.opensudoku.gui.inputmethod.IMPopup this$0>;
+
+        $r3 = $r1.<cz.romario.opensudoku.gui.inputmethod.IMPopup: cz.romario.opensudoku.game.SudokuGame mGame>;
+
+        $r1 = $r0.<cz.romario.opensudoku.gui.inputmethod.IMPopup$1: cz.romario.opensudoku.gui.inputmethod.IMPopup this$0>;
+
+        $r2 = staticinvoke <cz.romario.opensudoku.gui.inputmethod.IMPopup: cz.romario.opensudoku.game.Cell access$0(cz.romario.opensudoku.gui.inputmethod.IMPopup)>($r1);
+
+        virtualinvoke $r3.<cz.romario.opensudoku.game.SudokuGame: void setCellValue(cz.romario.opensudoku.game.Cell,int)>($r2, $i0);
+
+     label1:
+        methodCount = <cz.romario.opensudoku.gui.inputmethod.IMPopup$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label2;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label2:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return 1;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.gui.inputmethod.IMPopup$1: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

@@ -1,0 +1,2 @@
+Body. SootClass: eu.domob.anacam.AnaCam, SootMethod: <eu.domob.anacam.AnaCam: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r5.<android.view.View: void setOnLongClickListener(android.view.View$OnLongClickListener)>($r0)
+Body. SootClass: eu.domob.anacam.AnaCam, SootMethod: <eu.domob.anacam.AnaCam: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r5.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r0)

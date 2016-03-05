@@ -1,0 +1,22 @@
+public final class com.uberspot.a2048.R$drawable extends java.lang.Object
+{
+    public static final int ic_launcher;
+
+    public void <init>()
+    {
+        com.uberspot.a2048.R$drawable $r0;
+
+        $r0 := @this: com.uberspot.a2048.R$drawable;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.uberspot.a2048.R$drawable: int ic_launcher> = 2130837504;
+
+        return;
+    }
+}

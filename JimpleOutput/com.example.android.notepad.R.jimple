@@ -1,0 +1,14 @@
+public final class com.example.android.notepad.R extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.example.android.notepad.R $r0;
+
+        $r0 := @this: com.example.android.notepad.R;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

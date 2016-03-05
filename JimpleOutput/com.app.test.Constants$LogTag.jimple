@@ -1,0 +1,34 @@
+public class com.app.test.Constants$LogTag extends java.lang.Object
+{
+    public static final java.lang.String menuTag;
+    public static final java.lang.String exceptionTag;
+    public static final java.lang.String eventTag;
+    public static final java.lang.String countTag;
+    public static final java.lang.String sysoutTag;
+
+    public void <init>()
+    {
+        com.app.test.Constants$LogTag r0;
+
+        r0 := @this: com.app.test.Constants$LogTag;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void <clinit>()
+    {
+        <com.app.test.Constants$LogTag: java.lang.String sysoutTag> = "SYSOUT";
+
+        <com.app.test.Constants$LogTag: java.lang.String countTag> = "COUNT";
+
+        <com.app.test.Constants$LogTag: java.lang.String eventTag> = "EVENT";
+
+        <com.app.test.Constants$LogTag: java.lang.String exceptionTag> = "EXCEPTION";
+
+        <com.app.test.Constants$LogTag: java.lang.String menuTag> = "MENU";
+
+        return;
+    }
+}

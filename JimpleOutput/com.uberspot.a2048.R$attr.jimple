@@ -1,0 +1,14 @@
+public final class com.uberspot.a2048.R$attr extends java.lang.Object
+{
+
+    public void <init>()
+    {
+        com.uberspot.a2048.R$attr $r0;
+
+        $r0 := @this: com.uberspot.a2048.R$attr;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

@@ -1,0 +1,168 @@
+class com.uberspot.a2048.MainActivity$1 extends java.lang.Object implements android.view.View$OnTouchListener
+{
+    final com.uberspot.a2048.MainActivity this$0;
+    public static java.util.LinkedList methodCountList;
+
+    void <init>(com.uberspot.a2048.MainActivity)
+    {
+        com.uberspot.a2048.MainActivity$1 $r0;
+        com.uberspot.a2048.MainActivity $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.uberspot.a2048.MainActivity$1;
+
+        $r1 := @parameter0: com.uberspot.a2048.MainActivity;
+
+        $r0.<com.uberspot.a2048.MainActivity$1: com.uberspot.a2048.MainActivity this$0> = $r1;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <com.uberspot.a2048.MainActivity$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public boolean onTouch(android.view.View, android.view.MotionEvent)
+    {
+        com.uberspot.a2048.MainActivity$1 $r0;
+        android.view.View $r1;
+        android.view.MotionEvent $r2;
+        boolean $z0, $z1;
+        long $l0, $l2;
+        int $i1, visitedCount, flagInt;
+        com.uberspot.a2048.MainActivity $r3;
+        byte $b3;
+        java.lang.Object invalid, flagObj;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: com.uberspot.a2048.MainActivity$1;
+
+        $r1 := @parameter0: android.view.View;
+
+        $r2 := @parameter1: android.view.MotionEvent;
+
+        $z0 = 1;
+
+        $l0 = staticinvoke <java.lang.System: long currentTimeMillis()>();
+
+        $i1 = virtualinvoke $r2.<android.view.MotionEvent: int getAction()>();
+
+        if $i1 != 1 goto label3;
+
+        $r3 = $r0.<com.uberspot.a2048.MainActivity$1: com.uberspot.a2048.MainActivity this$0>;
+
+        $l2 = staticinvoke <com.uberspot.a2048.MainActivity: long access$000(com.uberspot.a2048.MainActivity)>($r3);
+
+        $l2 = $l0 - $l2;
+
+        $l2 = staticinvoke <java.lang.Math: long abs(long)>($l2);
+
+        $b3 = $l2 cmp 2000L;
+
+        if $b3 <= 0 goto label3;
+
+        $r3 = $r0.<com.uberspot.a2048.MainActivity$1: com.uberspot.a2048.MainActivity this$0>;
+
+        $z1 = staticinvoke <com.uberspot.a2048.MainActivity: boolean access$100(com.uberspot.a2048.MainActivity)>($r3);
+
+        if $z1 != 0 goto label2;
+
+     label1:
+        $r3 = $r0.<com.uberspot.a2048.MainActivity$1: com.uberspot.a2048.MainActivity this$0>;
+
+        staticinvoke <com.uberspot.a2048.MainActivity: void access$200(com.uberspot.a2048.MainActivity,boolean)>($r3, $z0);
+
+        $r3 = $r0.<com.uberspot.a2048.MainActivity$1: com.uberspot.a2048.MainActivity this$0>;
+
+        staticinvoke <com.uberspot.a2048.MainActivity: void access$300(com.uberspot.a2048.MainActivity,boolean)>($r3, $z0);
+
+        return 0;
+
+     label2:
+        $z0 = 0;
+
+        goto label1;
+
+     label3:
+        $i1 = virtualinvoke $r2.<android.view.MotionEvent: int getAction()>();
+
+        if $i1 != 0 goto label4;
+
+        $r3 = $r0.<com.uberspot.a2048.MainActivity$1: com.uberspot.a2048.MainActivity this$0>;
+
+        staticinvoke <com.uberspot.a2048.MainActivity: long access$002(com.uberspot.a2048.MainActivity,long)>($r3, $l0);
+
+        return 0;
+
+     label4:
+        methodCount = <com.uberspot.a2048.MainActivity$1: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label5;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label5:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return 0;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <com.uberspot.a2048.MainActivity$1: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

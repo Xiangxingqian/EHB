@@ -1,0 +1,397 @@
+public class com.app.test.data.PatternMatcher extends java.lang.Object implements java.io.Serializable
+{
+    public static final int PATTERN_LITERAL;
+    public static final int PATTERN_PREFIX;
+    public static final int PATTERN_SIMPLE_GLOB;
+    private final java.lang.String mPattern;
+    private final int mType;
+
+    public void <init>(java.lang.String, int)
+    {
+        com.app.test.data.PatternMatcher r0;
+        java.lang.String r1;
+        int i0;
+
+        r0 := @this: com.app.test.data.PatternMatcher;
+
+        r1 := @parameter0: java.lang.String;
+
+        i0 := @parameter1: int;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        r0.<com.app.test.data.PatternMatcher: java.lang.String mPattern> = r1;
+
+        r0.<com.app.test.data.PatternMatcher: int mType> = i0;
+
+        return;
+    }
+
+    public final java.lang.String getPath()
+    {
+        com.app.test.data.PatternMatcher r0;
+        java.lang.String $r1;
+
+        r0 := @this: com.app.test.data.PatternMatcher;
+
+        $r1 = r0.<com.app.test.data.PatternMatcher: java.lang.String mPattern>;
+
+        return $r1;
+    }
+
+    public final int getType()
+    {
+        com.app.test.data.PatternMatcher r0;
+        int $i0;
+
+        r0 := @this: com.app.test.data.PatternMatcher;
+
+        $i0 = r0.<com.app.test.data.PatternMatcher: int mType>;
+
+        return $i0;
+    }
+
+    public boolean match(java.lang.String)
+    {
+        com.app.test.data.PatternMatcher r0;
+        java.lang.String r1, $r2;
+        int $i0;
+        boolean $z0;
+
+        r0 := @this: com.app.test.data.PatternMatcher;
+
+        r1 := @parameter0: java.lang.String;
+
+        $r2 = r0.<com.app.test.data.PatternMatcher: java.lang.String mPattern>;
+
+        $i0 = r0.<com.app.test.data.PatternMatcher: int mType>;
+
+        $z0 = staticinvoke <com.app.test.data.PatternMatcher: boolean matchPattern(java.lang.String,java.lang.String,int)>($r2, r1, $i0);
+
+        return $z0;
+    }
+
+    public java.lang.String toString()
+    {
+        com.app.test.data.PatternMatcher r0;
+        int $i0;
+        java.lang.String r1, $r4, $r7;
+        java.lang.StringBuilder $r2, $r3, $r5, $r6;
+
+        r0 := @this: com.app.test.data.PatternMatcher;
+
+        r1 = "? ";
+
+        $i0 = r0.<com.app.test.data.PatternMatcher: int mType>;
+
+        tableswitch($i0)
+        {
+            case 0: goto label1;
+            case 1: goto label2;
+            case 2: goto label3;
+            default: goto label4;
+        };
+
+     label1:
+        r1 = "LITERAL: ";
+
+        goto label4;
+
+     label2:
+        r1 = "PREFIX: ";
+
+        goto label4;
+
+     label3:
+        r1 = "GLOB: ";
+
+     label4:
+        $r2 = new java.lang.StringBuilder;
+
+        specialinvoke $r2.<java.lang.StringBuilder: void <init>(java.lang.String)>("PatternMatcher{");
+
+        $r3 = virtualinvoke $r2.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r1);
+
+        $r4 = r0.<com.app.test.data.PatternMatcher: java.lang.String mPattern>;
+
+        $r5 = virtualinvoke $r3.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>($r4);
+
+        $r6 = virtualinvoke $r5.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("}");
+
+        $r7 = virtualinvoke $r6.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        return $r7;
+    }
+
+    public int describeContents()
+    {
+        com.app.test.data.PatternMatcher r0;
+
+        r0 := @this: com.app.test.data.PatternMatcher;
+
+        return 0;
+    }
+
+    static boolean matchPattern(java.lang.String, java.lang.String, int)
+    {
+        java.lang.String r0, r1;
+        int i0, i1, i2, $i3, $i6, $i8, $i9, i10, i11, i16;
+        boolean z0, $z1, $z2, $z3;
+        char $c4, $c5, $c7, c12, c13, $c14, $c15, c17, $c18, $c19, $c20, $c21, $c22;
+
+        r0 := @parameter0: java.lang.String;
+
+        r1 := @parameter1: java.lang.String;
+
+        i0 := @parameter2: int;
+
+        if r1 != null goto label01;
+
+        return 0;
+
+     label01:
+        if i0 != 0 goto label02;
+
+        $z1 = virtualinvoke r0.<java.lang.String: boolean equals(java.lang.Object)>(r1);
+
+        return $z1;
+
+     label02:
+        if i0 != 1 goto label03;
+
+        $z2 = virtualinvoke r1.<java.lang.String: boolean startsWith(java.lang.String)>(r0);
+
+        return $z2;
+
+     label03:
+        if i0 == 2 goto label04;
+
+        return 0;
+
+     label04:
+        i1 = virtualinvoke r0.<java.lang.String: int length()>();
+
+        if i1 > 0 goto label06;
+
+        $i9 = virtualinvoke r1.<java.lang.String: int length()>();
+
+        if $i9 > 0 goto label05;
+
+        return 1;
+
+     label05:
+        return 0;
+
+     label06:
+        i2 = virtualinvoke r1.<java.lang.String: int length()>();
+
+        i10 = 0;
+
+        i11 = 0;
+
+        c12 = virtualinvoke r0.<java.lang.String: char charAt(int)>(0);
+
+        goto label31;
+
+     label07:
+        c13 = c12;
+
+        i10 = i10 + 1;
+
+        if i10 >= i1 goto label08;
+
+        $c14 = virtualinvoke r0.<java.lang.String: char charAt(int)>(i10);
+
+        goto label09;
+
+     label08:
+        $c14 = 0;
+
+     label09:
+        c12 = $c14;
+
+        if c13 != 92 goto label10;
+
+        $z3 = 1;
+
+        goto label11;
+
+     label10:
+        $z3 = 0;
+
+     label11:
+        z0 = $z3;
+
+        if z0 == 0 goto label14;
+
+        c13 = c12;
+
+        i10 = i10 + 1;
+
+        if i10 >= i1 goto label12;
+
+        $c15 = virtualinvoke r0.<java.lang.String: char charAt(int)>(i10);
+
+        goto label13;
+
+     label12:
+        $c15 = 0;
+
+     label13:
+        c12 = $c15;
+
+     label14:
+        if c12 != 42 goto label29;
+
+        if z0 != 0 goto label24;
+
+        if c13 != 46 goto label24;
+
+        $i8 = i1 - 1;
+
+        if i10 < $i8 goto label15;
+
+        return 1;
+
+     label15:
+        i16 = i10 + 1;
+
+        c17 = virtualinvoke r0.<java.lang.String: char charAt(int)>(i16);
+
+        if c17 != 92 goto label18;
+
+        i16 = i16 + 1;
+
+        if i16 >= i1 goto label16;
+
+        $c18 = virtualinvoke r0.<java.lang.String: char charAt(int)>(i16);
+
+        goto label17;
+
+     label16:
+        $c18 = 0;
+
+     label17:
+        c17 = $c18;
+
+     label18:
+        $c19 = virtualinvoke r1.<java.lang.String: char charAt(int)>(i11);
+
+        if $c19 != c17 goto label19;
+
+        goto label20;
+
+     label19:
+        i11 = i11 + 1;
+
+        if i11 < i2 goto label18;
+
+     label20:
+        if i11 != i2 goto label21;
+
+        return 0;
+
+     label21:
+        i10 = i16 + 1;
+
+        if i10 >= i1 goto label22;
+
+        $c20 = virtualinvoke r0.<java.lang.String: char charAt(int)>(i10);
+
+        goto label23;
+
+     label22:
+        $c20 = 0;
+
+     label23:
+        c12 = $c20;
+
+        i11 = i11 + 1;
+
+        goto label31;
+
+     label24:
+        $c21 = virtualinvoke r1.<java.lang.String: char charAt(int)>(i11);
+
+        if $c21 == c13 goto label25;
+
+        goto label26;
+
+     label25:
+        i11 = i11 + 1;
+
+        if i11 < i2 goto label24;
+
+     label26:
+        i10 = i10 + 1;
+
+        if i10 >= i1 goto label27;
+
+        $c22 = virtualinvoke r0.<java.lang.String: char charAt(int)>(i10);
+
+        goto label28;
+
+     label27:
+        $c22 = 0;
+
+     label28:
+        c12 = $c22;
+
+        goto label31;
+
+     label29:
+        if c13 == 46 goto label30;
+
+        $c7 = virtualinvoke r1.<java.lang.String: char charAt(int)>(i11);
+
+        if $c7 == c13 goto label30;
+
+        return 0;
+
+     label30:
+        i11 = i11 + 1;
+
+     label31:
+        if i10 >= i1 goto label32;
+
+        if i11 < i2 goto label07;
+
+     label32:
+        if i10 < i1 goto label33;
+
+        if i11 < i2 goto label33;
+
+        return 1;
+
+     label33:
+        $i3 = i1 - 2;
+
+        if i10 != $i3 goto label34;
+
+        $c4 = virtualinvoke r0.<java.lang.String: char charAt(int)>(i10);
+
+        if $c4 != 46 goto label34;
+
+        $i6 = i10 + 1;
+
+        $c5 = virtualinvoke r0.<java.lang.String: char charAt(int)>($i6);
+
+        if $c5 != 42 goto label34;
+
+        return 1;
+
+     label34:
+        return 0;
+    }
+
+    public static void <clinit>()
+    {
+        <com.app.test.data.PatternMatcher: int PATTERN_SIMPLE_GLOB> = 2;
+
+        <com.app.test.data.PatternMatcher: int PATTERN_PREFIX> = 1;
+
+        <com.app.test.data.PatternMatcher: int PATTERN_LITERAL> = 0;
+
+        return;
+    }
+}

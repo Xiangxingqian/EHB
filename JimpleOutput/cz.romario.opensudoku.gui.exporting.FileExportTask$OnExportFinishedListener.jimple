@@ -1,0 +1,5 @@
+public interface  cz.romario.opensudoku.gui.exporting.FileExportTask$OnExportFinishedListener extends java.lang.Object
+{
+
+    public abstract void onExportFinished(cz.romario.opensudoku.gui.exporting.FileExportTaskResult);
+}

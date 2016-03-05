@@ -1,0 +1,47 @@
+public final class com.example.android.notepad.NotePad$NoteColumns extends java.lang.Object implements android.provider.BaseColumns
+{
+    public static final java.lang.String CONTENT_ITEM_TYPE;
+    public static final java.lang.String CONTENT_TYPE;
+    public static final android.net.Uri CONTENT_URI;
+    public static final java.lang.String CREATED_DATE;
+    public static final java.lang.String DEFAULT_SORT_ORDER;
+    public static final java.lang.String MODIFIED_DATE;
+    public static final java.lang.String NOTE;
+    public static final java.lang.String TITLE;
+
+    static void <clinit>()
+    {
+        android.net.Uri $r0;
+
+        <com.example.android.notepad.NotePad$NoteColumns: java.lang.String TITLE> = "title";
+
+        <com.example.android.notepad.NotePad$NoteColumns: java.lang.String NOTE> = "note";
+
+        <com.example.android.notepad.NotePad$NoteColumns: java.lang.String MODIFIED_DATE> = "modified";
+
+        <com.example.android.notepad.NotePad$NoteColumns: java.lang.String DEFAULT_SORT_ORDER> = "modified DESC";
+
+        <com.example.android.notepad.NotePad$NoteColumns: java.lang.String CREATED_DATE> = "created";
+
+        <com.example.android.notepad.NotePad$NoteColumns: java.lang.String CONTENT_TYPE> = "vnd.android.cursor.dir/vnd.google.note";
+
+        <com.example.android.notepad.NotePad$NoteColumns: java.lang.String CONTENT_ITEM_TYPE> = "vnd.android.cursor.item/vnd.google.note";
+
+        $r0 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>("content://com.example.notepad.provider.NotePad/notes");
+
+        <com.example.android.notepad.NotePad$NoteColumns: android.net.Uri CONTENT_URI> = $r0;
+
+        return;
+    }
+
+    private void <init>()
+    {
+        com.example.android.notepad.NotePad$NoteColumns $r0;
+
+        $r0 := @this: com.example.android.notepad.NotePad$NoteColumns;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+}

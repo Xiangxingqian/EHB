@@ -1,0 +1,7 @@
+Body. SootClass: An.stop.Anstop, SootMethod: <An.stop.Anstop: void stopwatch()>, Stmt: virtualinvoke $r6.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r9)
+Body. SootClass: An.stop.Anstop, SootMethod: <An.stop.Anstop: void stopwatch()>, Stmt: virtualinvoke $r6.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r8)
+Body. SootClass: An.stop.Anstop, SootMethod: <An.stop.Anstop: void countdown()>, Stmt: virtualinvoke $r8.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r9)
+Body. SootClass: An.stop.Anstop, SootMethod: <An.stop.Anstop: void setupCommentLongPress(android.widget.TextView)>, Stmt: virtualinvoke $r1.<android.widget.TextView: void setOnLongClickListener(android.view.View$OnLongClickListener)>($r2)
+Body. SootClass: An.stop.Anstop, SootMethod: <An.stop.Anstop: void stopwatch()>, Stmt: virtualinvoke $r6.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r7)
+Body. SootClass: An.stop.AccelerometerListener, SootMethod: <An.stop.AccelerometerListener: void start()>, Stmt: virtualinvoke $r2.<android.hardware.SensorManager: boolean registerListener(android.hardware.SensorEventListener,android.hardware.Sensor,int)>($r0, $r1, 1)
+Body. SootClass: An.stop.Anstop, SootMethod: <An.stop.Anstop: void countdown()>, Stmt: virtualinvoke $r8.<android.widget.Button: void setOnClickListener(android.view.View$OnClickListener)>($r10)

@@ -1,0 +1,110 @@
+public class cz.romario.opensudoku.db.SudokuInvalidFormatException extends java.lang.Exception
+{
+    private static final long serialVersionUID;
+    private final java.lang.String mData;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>(java.lang.String)
+    {
+        cz.romario.opensudoku.db.SudokuInvalidFormatException $r0;
+        java.lang.String $r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.db.SudokuInvalidFormatException;
+
+        $r1 := @parameter0: java.lang.String;
+
+        specialinvoke $r0.<java.lang.Exception: void <init>(java.lang.String)>("Invalid format of sudoku.");
+
+        $r0.<cz.romario.opensudoku.db.SudokuInvalidFormatException: java.lang.String mData> = $r1;
+
+        methodCount = <cz.romario.opensudoku.db.SudokuInvalidFormatException: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public java.lang.String getData()
+    {
+        cz.romario.opensudoku.db.SudokuInvalidFormatException $r0;
+        java.lang.String r1;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.db.SudokuInvalidFormatException;
+
+        r1 = $r0.<cz.romario.opensudoku.db.SudokuInvalidFormatException: java.lang.String mData>;
+
+        methodCount = <cz.romario.opensudoku.db.SudokuInvalidFormatException: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(1);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(1, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return r1;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        <cz.romario.opensudoku.db.SudokuInvalidFormatException: long serialVersionUID> = -5415032786641425594L;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.db.SudokuInvalidFormatException: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}

@@ -1,0 +1,542 @@
+public class com.app.test.event.InterAppEventHandler extends java.lang.Object
+{
+    public static final java.lang.String itemName;
+    public static java.lang.String file;
+
+    static void <clinit>()
+    {
+        java.lang.String $r0;
+
+        <com.app.test.event.InterAppEventHandler: java.lang.String itemName> = "iTest";
+
+        $r0 = <com.app.test.AppDir: java.lang.String file>;
+
+        <com.app.test.event.InterAppEventHandler: java.lang.String file> = $r0;
+
+        return;
+    }
+
+    public void <init>()
+    {
+        com.app.test.event.InterAppEventHandler r0;
+
+        r0 := @this: com.app.test.event.InterAppEventHandler;
+
+        specialinvoke r0.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    public static void addMenuItem(android.app.Activity, android.view.Menu)
+    {
+        android.app.Activity r0;
+        android.view.Menu r1;
+        android.view.MenuItem r2;
+        com.app.test.event.InterAppEventHandler$1 $r3;
+
+        r0 := @parameter0: android.app.Activity;
+
+        r1 := @parameter1: android.view.Menu;
+
+        r2 = interfaceinvoke r1.<android.view.Menu: android.view.MenuItem add(java.lang.CharSequence)>("iTest");
+
+        interfaceinvoke r2.<android.view.MenuItem: void setShowAsAction(int)>(0);
+
+        $r3 = new com.app.test.event.InterAppEventHandler$1;
+
+        specialinvoke $r3.<com.app.test.event.InterAppEventHandler$1: void <init>(android.app.Activity)>(r0);
+
+        interfaceinvoke r2.<android.view.MenuItem: android.view.MenuItem setOnMenuItemClickListener(android.view.MenuItem$OnMenuItemClickListener)>($r3);
+
+        return;
+    }
+
+    public static void doInterAppEventTest(android.app.Activity)
+    {
+        android.app.Activity r0, r7;
+        java.lang.String r1, $r10, $r17, $r18, $r21, $r22, $r25, $r26;
+        java.util.Iterator r2, r4;
+        com.app.test.data.AndroidIntentFilter r3;
+        java.lang.Class r5;
+        java.lang.Object r6, $r12, $r13, $r15;
+        android.content.Intent r8;
+        java.lang.Throwable r9, $r20;
+        java.util.Set $r11;
+        boolean $z0, $z1;
+        java.util.List $r14;
+        java.lang.StringBuilder $r16, $r19, $r24;
+        int $i0, $i1, $i4;
+        java.lang.Exception $r23, r28;
+        java.util.Map r27;
+
+        r0 := @parameter0: android.app.Activity;
+
+     label01:
+        $r10 = <com.app.test.event.InterAppEventHandler: java.lang.String file>;
+
+        r27 = staticinvoke <com.app.test.event.InterAppEventHandler: java.util.Map readActivityToFilters(java.lang.String)>($r10);
+
+        $r11 = interfaceinvoke r27.<java.util.Map: java.util.Set keySet()>();
+
+        r2 = interfaceinvoke $r11.<java.util.Set: java.util.Iterator iterator()>();
+
+        goto label05;
+
+     label02:
+        $r13 = interfaceinvoke r2.<java.util.Iterator: java.lang.Object next()>();
+
+        r1 = (java.lang.String) $r13;
+
+        $r12 = interfaceinvoke r27.<java.util.Map: java.lang.Object get(java.lang.Object)>(r1);
+
+        $r14 = (java.util.List) $r12;
+
+        r4 = interfaceinvoke $r14.<java.util.List: java.util.Iterator iterator()>();
+
+        goto label04;
+
+     label03:
+        $r15 = interfaceinvoke r4.<java.util.Iterator: java.lang.Object next()>();
+
+        r3 = (com.app.test.data.AndroidIntentFilter) $r15;
+
+        r5 = staticinvoke <java.lang.Class: java.lang.Class forName(java.lang.String)>(r1);
+
+        r6 = virtualinvoke r5.<java.lang.Class: java.lang.Object newInstance()>();
+
+        r7 = (android.app.Activity) r6;
+
+        r8 = staticinvoke <com.app.test.event.InterAppEventHandler: android.content.Intent buildIntent(com.app.test.data.AndroidIntentFilter)>(r3);
+
+        staticinvoke <com.app.test.Util: void LogInterAppEvent(android.app.Activity,android.content.Intent)>(r7, r8);
+
+        virtualinvoke r0.<android.app.Activity: void startActivity(android.content.Intent)>(r8);
+
+     label04:
+        $z1 = interfaceinvoke r4.<java.util.Iterator: boolean hasNext()>();
+
+        if $z1 != 0 goto label03;
+
+     label05:
+        $z0 = interfaceinvoke r2.<java.util.Iterator: boolean hasNext()>();
+
+        if $z0 != 0 goto label02;
+
+     label06:
+        goto label10;
+
+     label07:
+        $r23 := @caughtexception;
+
+        r28 = $r23;
+
+        staticinvoke <com.app.test.Util: void LogException(java.lang.Exception)>(r28);
+
+     label08:
+        $r24 = new java.lang.StringBuilder;
+
+        $i4 = <com.app.test.AppDir: int visitedMethodCount>;
+
+        $r25 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i4);
+
+        specialinvoke $r24.<java.lang.StringBuilder: void <init>(java.lang.String)>($r25);
+
+        $r26 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("EVENT", $r26);
+
+        goto label11;
+
+     label09:
+        $r20 := @caughtexception;
+
+        r9 = $r20;
+
+        $r19 = new java.lang.StringBuilder;
+
+        $i1 = <com.app.test.AppDir: int visitedMethodCount>;
+
+        $r22 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i1);
+
+        specialinvoke $r19.<java.lang.StringBuilder: void <init>(java.lang.String)>($r22);
+
+        $r21 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("EVENT", $r21);
+
+        throw r9;
+
+     label10:
+        $r16 = new java.lang.StringBuilder;
+
+        $i0 = <com.app.test.AppDir: int visitedMethodCount>;
+
+        $r18 = staticinvoke <java.lang.String: java.lang.String valueOf(int)>($i0);
+
+        specialinvoke $r16.<java.lang.StringBuilder: void <init>(java.lang.String)>($r18);
+
+        $r17 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        staticinvoke <android.util.Log: int v(java.lang.String,java.lang.String)>("EVENT", $r17);
+
+     label11:
+        return;
+
+        catch java.lang.Exception from label01 to label06 with label07;
+        catch java.lang.Throwable from label01 to label08 with label09;
+    }
+
+    private static java.util.Map readActivityToFilters(java.lang.String)
+    {
+        java.lang.String r0;
+        java.io.ObjectInputStream r1, $r5;
+        java.lang.Object r2;
+        java.util.HashMap $r3;
+        java.io.FileInputStream $r4, r9;
+        java.lang.Exception $r7, r10;
+        java.util.Map r8;
+
+        r0 := @parameter0: java.lang.String;
+
+        $r3 = new java.util.HashMap;
+
+        specialinvoke $r3.<java.util.HashMap: void <init>()>();
+
+        r8 = $r3;
+
+     label1:
+        $r4 = new java.io.FileInputStream;
+
+        specialinvoke $r4.<java.io.FileInputStream: void <init>(java.lang.String)>(r0);
+
+        r9 = $r4;
+
+        $r5 = new java.io.ObjectInputStream;
+
+        specialinvoke $r5.<java.io.ObjectInputStream: void <init>(java.io.InputStream)>(r9);
+
+        r1 = $r5;
+
+        virtualinvoke r1.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        r2 = virtualinvoke r1.<java.io.ObjectInputStream: java.lang.Object readObject()>();
+
+        r8 = (java.util.Map) r2;
+
+        virtualinvoke r1.<java.io.ObjectInputStream: void close()>();
+
+        virtualinvoke r9.<java.io.FileInputStream: void close()>();
+
+     label2:
+        goto label4;
+
+     label3:
+        $r7 := @caughtexception;
+
+        r10 = $r7;
+
+        virtualinvoke r10.<java.lang.Exception: void printStackTrace()>();
+
+     label4:
+        return r8;
+
+        catch java.lang.Exception from label1 to label2 with label3;
+    }
+
+    private static android.content.Intent buildIntent(com.app.test.data.AndroidIntentFilter)
+    {
+        com.app.test.data.AndroidIntentFilter r0;
+        java.lang.String r1, r2, r3, r5, r6, r8, r9, $r10, $r15, $r22, $r29, $r36, $r38, $r39, $r44, r47, $r48, $r49, $r50, $r52, r54;
+        com.app.test.data.AndroidIntentFilter$AuthorityEntry r4, $r51;
+        int i0, i1, $i2, $i3, $i4, $i5, $i6, $i7;
+        com.app.test.data.PatternMatcher r7, $r53;
+        boolean $z0, $z1;
+        java.lang.StringBuilder $r11, $r12, $r13, $r14, $r16, $r17, $r18, $r19, $r20, $r21, $r23, $r24, $r25, $r26, $r27, $r28, $r30, $r31, $r32, $r33, $r34, $r35, $r37, $r43;
+        android.net.Uri $r40, $r45, $r55;
+        android.content.Intent $r41, $r42, $r46, $r56;
+
+        r0 := @parameter0: com.app.test.data.AndroidIntentFilter;
+
+        r47 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: java.lang.String getAction(int)>(0);
+
+        $r10 = "android.intent.action.MAIN";
+
+        $z0 = virtualinvoke $r10.<java.lang.String: boolean equals(java.lang.Object)>(r47);
+
+        if $z0 == 0 goto label02;
+
+        $i7 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: int countActions()>();
+
+        if $i7 <= 1 goto label01;
+
+        r47 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: java.lang.String getAction(int)>(1);
+
+        goto label02;
+
+     label01:
+        return null;
+
+     label02:
+        $i2 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: int countCategories()>();
+
+        if $i2 <= 0 goto label03;
+
+        $r48 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: java.lang.String getCategory(int)>(0);
+
+        goto label04;
+
+     label03:
+        $r48 = "android.intent.category.DEFAULT";
+
+     label04:
+        r1 = $r48;
+
+        $i4 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: int countDataTypes()>();
+
+        if $i4 <= 0 goto label05;
+
+        $r49 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: java.lang.String getDataType(int)>(0);
+
+        goto label06;
+
+     label05:
+        $r49 = null;
+
+     label06:
+        r2 = $r49;
+
+        $i3 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: int countDataSchemes()>();
+
+        if $i3 <= 0 goto label07;
+
+        $r50 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: java.lang.String getDataScheme(int)>(0);
+
+        goto label08;
+
+     label07:
+        $r50 = null;
+
+     label08:
+        r3 = $r50;
+
+        if r3 != null goto label09;
+
+        $r42 = staticinvoke <com.app.test.event.InterAppEventHandler: android.content.Intent buildIntent(java.lang.String,java.lang.String,java.lang.String,android.net.Uri)>(r47, r1, r2, null);
+
+        return $r42;
+
+     label09:
+        $i5 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: int countDataAuthorities()>();
+
+        if $i5 <= 0 goto label10;
+
+        $r51 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: com.app.test.data.AndroidIntentFilter$AuthorityEntry getDataAuthority(int)>(0);
+
+        goto label11;
+
+     label10:
+        $r51 = null;
+
+     label11:
+        r4 = $r51;
+
+        if r4 != null goto label12;
+
+        $r37 = new java.lang.StringBuilder;
+
+        $r38 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>(r3);
+
+        specialinvoke $r37.<java.lang.StringBuilder: void <init>(java.lang.String)>($r38);
+
+        $r43 = virtualinvoke $r37.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("://");
+
+        $r44 = virtualinvoke $r43.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r45 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r44);
+
+        $r46 = staticinvoke <com.app.test.event.InterAppEventHandler: android.content.Intent buildIntent(java.lang.String,java.lang.String,java.lang.String,android.net.Uri)>(r47, r1, r2, $r45);
+
+        return $r46;
+
+     label12:
+        r5 = virtualinvoke r4.<com.app.test.data.AndroidIntentFilter$AuthorityEntry: java.lang.String getHost()>();
+
+        i0 = virtualinvoke r4.<com.app.test.data.AndroidIntentFilter$AuthorityEntry: int getPort()>();
+
+        if i0 != -1 goto label13;
+
+        $r52 = "";
+
+        goto label14;
+
+     label13:
+        $r11 = new java.lang.StringBuilder;
+
+        specialinvoke $r11.<java.lang.StringBuilder: void <init>(java.lang.String)>(":");
+
+        $r12 = virtualinvoke $r11.<java.lang.StringBuilder: java.lang.StringBuilder append(int)>(i0);
+
+        $r52 = virtualinvoke $r12.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label14:
+        r6 = $r52;
+
+        $i6 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: int countDataPaths()>();
+
+        if $i6 <= 0 goto label15;
+
+        $r53 = virtualinvoke r0.<com.app.test.data.AndroidIntentFilter: com.app.test.data.PatternMatcher getDataPath(int)>(0);
+
+        goto label16;
+
+     label15:
+        $r53 = null;
+
+     label16:
+        r7 = $r53;
+
+        if r7 != null goto label17;
+
+        $r30 = new java.lang.StringBuilder;
+
+        $r36 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>(r3);
+
+        specialinvoke $r30.<java.lang.StringBuilder: void <init>(java.lang.String)>($r36);
+
+        $r35 = virtualinvoke $r30.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("://");
+
+        $r34 = virtualinvoke $r35.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r33 = virtualinvoke $r34.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r6);
+
+        $r39 = virtualinvoke $r33.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        $r40 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>($r39);
+
+        $r41 = staticinvoke <com.app.test.event.InterAppEventHandler: android.content.Intent buildIntent(java.lang.String,java.lang.String,java.lang.String,android.net.Uri)>(r47, r1, r2, $r40);
+
+        return $r41;
+
+     label17:
+        r8 = virtualinvoke r7.<com.app.test.data.PatternMatcher: java.lang.String getPath()>();
+
+        i1 = virtualinvoke r7.<com.app.test.data.PatternMatcher: int getType()>();
+
+        if i1 != 2 goto label19;
+
+        $z1 = virtualinvoke r8.<java.lang.String: boolean startsWith(java.lang.String)>(".*\\.");
+
+        if $z1 == 0 goto label18;
+
+        r9 = virtualinvoke r8.<java.lang.String: java.lang.String replace(java.lang.CharSequence,java.lang.CharSequence)>(".*\\.", "qian.");
+
+        $r25 = new java.lang.StringBuilder;
+
+        $r29 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>(r3);
+
+        specialinvoke $r25.<java.lang.StringBuilder: void <init>(java.lang.String)>($r29);
+
+        $r28 = virtualinvoke $r25.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("://");
+
+        $r27 = virtualinvoke $r28.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r26 = virtualinvoke $r27.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r6);
+
+        $r32 = virtualinvoke $r26.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("/");
+
+        $r31 = virtualinvoke $r32.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r9);
+
+        r54 = virtualinvoke $r31.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label20;
+
+     label18:
+        $r19 = new java.lang.StringBuilder;
+
+        $r22 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>(r3);
+
+        specialinvoke $r19.<java.lang.StringBuilder: void <init>(java.lang.String)>($r22);
+
+        $r23 = virtualinvoke $r19.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("://");
+
+        $r20 = virtualinvoke $r23.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r21 = virtualinvoke $r20.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r6);
+
+        $r24 = virtualinvoke $r21.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r8);
+
+        r54 = virtualinvoke $r24.<java.lang.StringBuilder: java.lang.String toString()>();
+
+        goto label20;
+
+     label19:
+        $r13 = new java.lang.StringBuilder;
+
+        $r15 = staticinvoke <java.lang.String: java.lang.String valueOf(java.lang.Object)>(r3);
+
+        specialinvoke $r13.<java.lang.StringBuilder: void <init>(java.lang.String)>($r15);
+
+        $r14 = virtualinvoke $r13.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>("://");
+
+        $r17 = virtualinvoke $r14.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r5);
+
+        $r18 = virtualinvoke $r17.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r6);
+
+        $r16 = virtualinvoke $r18.<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>(r8);
+
+        r54 = virtualinvoke $r16.<java.lang.StringBuilder: java.lang.String toString()>();
+
+     label20:
+        $r55 = staticinvoke <android.net.Uri: android.net.Uri parse(java.lang.String)>(r54);
+
+        $r56 = staticinvoke <com.app.test.event.InterAppEventHandler: android.content.Intent buildIntent(java.lang.String,java.lang.String,java.lang.String,android.net.Uri)>(r47, r1, r2, $r55);
+
+        return $r56;
+    }
+
+    private static android.content.Intent buildIntent(java.lang.String, java.lang.String, java.lang.String, android.net.Uri)
+    {
+        java.lang.String r0, r1, r2;
+        android.net.Uri r3;
+        android.content.Intent r4, $r5;
+
+        r0 := @parameter0: java.lang.String;
+
+        r1 := @parameter1: java.lang.String;
+
+        r2 := @parameter2: java.lang.String;
+
+        r3 := @parameter3: android.net.Uri;
+
+        $r5 = new android.content.Intent;
+
+        specialinvoke $r5.<android.content.Intent: void <init>(java.lang.String)>(r0);
+
+        r4 = $r5;
+
+        virtualinvoke r4.<android.content.Intent: android.content.Intent addCategory(java.lang.String)>(r1);
+
+        if r2 == null goto label1;
+
+        if r3 == null goto label1;
+
+        virtualinvoke r4.<android.content.Intent: android.content.Intent setDataAndType(android.net.Uri,java.lang.String)>(r3, r2);
+
+        goto label3;
+
+     label1:
+        if r2 == null goto label2;
+
+        virtualinvoke r4.<android.content.Intent: android.content.Intent setType(java.lang.String)>(r2);
+
+        goto label3;
+
+     label2:
+        if r3 == null goto label3;
+
+        virtualinvoke r4.<android.content.Intent: android.content.Intent setData(android.net.Uri)>(r3);
+
+     label3:
+        return r4;
+    }
+}

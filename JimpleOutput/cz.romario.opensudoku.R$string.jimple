@@ -1,0 +1,468 @@
+public final class cz.romario.opensudoku.R$string extends java.lang.Object
+{
+    public static final int about;
+    public static final int add_folder;
+    public static final int add_sudoku;
+    public static final int all_solved;
+    public static final int app_name;
+    public static final int at_time;
+    public static final int clear;
+    public static final int clear_all_notes;
+    public static final int clear_all_notes_confirm;
+    public static final int close;
+    public static final int congrats;
+    public static final int created_at;
+    public static final int credits;
+    public static final int delete_folder;
+    public static final int delete_folder_confirm;
+    public static final int delete_folder_title;
+    public static final int delete_puzzle;
+    public static final int delete_puzzle_confirm;
+    public static final int difficulty_easy;
+    public static final int difficulty_hard;
+    public static final int difficulty_medium;
+    public static final int directory;
+    public static final int edit_note;
+    public static final int edit_puzzle;
+    public static final int edit_sudoku;
+    public static final int email;
+    public static final int export;
+    public static final int export_all_folders;
+    public static final int export_folder;
+    public static final int exporting;
+    public static final int file_exists;
+    public static final int filename;
+    public static final int fill_in_notes;
+    public static final int fill_in_notes_summary;
+    public static final int filter;
+    public static final int filter_active;
+    public static final int filter_by_gamestate;
+    public static final int first_run_hint;
+    public static final int folders;
+    public static final int folders_created;
+    public static final int game;
+    public static final int game_helpers;
+    public static final int game_settings;
+    public static final int generate_sudoku;
+    public static final int generating;
+    public static final int get_more_puzzles_online;
+    public static final int help;
+    public static final int help_text;
+    public static final int highlight_completed_values;
+    public static final int highlight_completed_values_summary;
+    public static final int highlight_touched_cell;
+    public static final int highlight_touched_cell_summary;
+    public static final int highlight_wrong_values;
+    public static final int highlight_wrong_values_summary;
+    public static final int hint;
+    public static final int homepage;
+    public static final int im_disable_modes_hint;
+    public static final int im_numpad_hint;
+    public static final int im_popup_hint;
+    public static final int im_single_number_hint;
+    public static final int import_file;
+    public static final int import_file_title;
+    public static final int importing;
+    public static final int input_methods;
+    public static final int invalid_format;
+    public static final int last_played_at;
+    public static final int loading;
+    public static final int more_settings;
+    public static final int n_playing;
+    public static final int n_puzzles;
+    public static final int n_solved;
+    public static final int n_unsolved;
+    public static final int name;
+    public static final int no_puzzles;
+    public static final int no_puzzles_found;
+    public static final int not_started;
+    public static final int note;
+    public static final int numpad;
+    public static final int numpad_abbr;
+    public static final int numpad_move_right;
+    public static final int numpad_move_right_summary;
+    public static final int numpad_summary;
+    public static final int on_date;
+    public static final int one_puzzle;
+    public static final int play_puzzle;
+    public static final int playing;
+    public static final int popup;
+    public static final int popup_abbr;
+    public static final int popup_summary;
+    public static final int puzzle_folders;
+    public static final int puzzle_inserted;
+    public static final int puzzle_updated;
+    public static final int puzzles_have_been_exported;
+    public static final int puzzles_saved;
+    public static final int rename_folder;
+    public static final int rename_folder_title;
+    public static final int reset_puzzle;
+    public static final int reset_puzzle_confirm;
+    public static final int restart;
+    public static final int restart_confirm;
+    public static final int save;
+    public static final int save_to_sdcard;
+    public static final int screen_border_size;
+    public static final int screen_border_size_summary;
+    public static final int sdcard_not_found;
+    public static final int select_difficulty;
+    public static final int select_number;
+    public static final int select_theme;
+    public static final int send_by_mail;
+    public static final int send_me_bugs;
+    public static final int set_checkpoint;
+    public static final int settings;
+    public static final int show_hints;
+    public static final int show_hints_summary;
+    public static final int show_number_totals;
+    public static final int show_number_totals_summary;
+    public static final int show_time;
+    public static final int show_time_summary;
+    public static final int single_number;
+    public static final int single_number_abbr;
+    public static final int single_number_summary;
+    public static final int solved;
+    public static final int that_is_all;
+    public static final int theme;
+    public static final int theme_summary;
+    public static final int undo;
+    public static final int undo_to_checkpoint;
+    public static final int undo_to_checkpoint_confirm;
+    public static final int unknown_export_error;
+    public static final int unknown_import_error;
+    public static final int version;
+    public static final int welcome;
+    public static final int well_done;
+    public static final int what_is_new;
+    public static final int work_in_progress;
+    public static final int yesterday_at_time;
+    public static java.util.LinkedList methodCountList;
+
+    public void <init>()
+    {
+        cz.romario.opensudoku.R$string $r0;
+        java.lang.Object invalid, flagObj;
+        int visitedCount, flagInt;
+        java.util.LinkedList methodCount;
+        java.lang.Integer flagInteger;
+
+        $r0 := @this: cz.romario.opensudoku.R$string;
+
+        specialinvoke $r0.<java.lang.Object: void <init>()>();
+
+        methodCount = <cz.romario.opensudoku.R$string: java.util.LinkedList methodCountList>;
+
+        flagObj = virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object get(int)>(0);
+
+        flagInteger = (java.lang.Integer) flagObj;
+
+        flagInt = virtualinvoke flagInteger.<java.lang.Integer: int intValue()>();
+
+        if flagInt != 0 goto label1;
+
+        visitedCount = <com.app.test.AppDir: int visitedMethodCount>;
+
+        visitedCount = visitedCount + 1;
+
+        <com.app.test.AppDir: int visitedMethodCount> = visitedCount;
+
+        flagInteger = staticinvoke <java.lang.Integer: java.lang.Integer valueOf(int)>(1);
+
+        virtualinvoke methodCount.<java.util.LinkedList: java.lang.Object set(int,java.lang.Object)>(0, flagInteger);
+
+     label1:
+        invalid = new java.lang.Object;
+
+        specialinvoke invalid.<java.lang.Object: void <init>()>();
+
+        return;
+    }
+
+    static void <clinit>()
+    {
+        java.util.LinkedList methodCountListLocal;
+        java.lang.Object linkedListobject;
+
+        <cz.romario.opensudoku.R$string: int yesterday_at_time> = 2131296294;
+
+        <cz.romario.opensudoku.R$string: int work_in_progress> = 2131296262;
+
+        <cz.romario.opensudoku.R$string: int what_is_new> = 2131296387;
+
+        <cz.romario.opensudoku.R$string: int well_done> = 2131296313;
+
+        <cz.romario.opensudoku.R$string: int welcome> = 2131296332;
+
+        <cz.romario.opensudoku.R$string: int version> = 2131296259;
+
+        <cz.romario.opensudoku.R$string: int unknown_import_error> = 2131296351;
+
+        <cz.romario.opensudoku.R$string: int unknown_export_error> = 2131296366;
+
+        <cz.romario.opensudoku.R$string: int undo_to_checkpoint_confirm> = 2131296391;
+
+        <cz.romario.opensudoku.R$string: int undo_to_checkpoint> = 2131296390;
+
+        <cz.romario.opensudoku.R$string: int undo> = 2131296307;
+
+        <cz.romario.opensudoku.R$string: int theme_summary> = 2131296372;
+
+        <cz.romario.opensudoku.R$string: int theme> = 2131296371;
+
+        <cz.romario.opensudoku.R$string: int that_is_all> = 2131296335;
+
+        <cz.romario.opensudoku.R$string: int solved> = 2131296288;
+
+        <cz.romario.opensudoku.R$string: int single_number_summary> = 2131296324;
+
+        <cz.romario.opensudoku.R$string: int single_number_abbr> = 2131296331;
+
+        <cz.romario.opensudoku.R$string: int single_number> = 2131296323;
+
+        <cz.romario.opensudoku.R$string: int show_time_summary> = 2131296346;
+
+        <cz.romario.opensudoku.R$string: int show_time> = 2131296345;
+
+        <cz.romario.opensudoku.R$string: int show_number_totals_summary> = 2131296386;
+
+        <cz.romario.opensudoku.R$string: int show_number_totals> = 2131296385;
+
+        <cz.romario.opensudoku.R$string: int show_hints_summary> = 2131296344;
+
+        <cz.romario.opensudoku.R$string: int show_hints> = 2131296343;
+
+        <cz.romario.opensudoku.R$string: int settings> = 2131296315;
+
+        <cz.romario.opensudoku.R$string: int set_checkpoint> = 2131296389;
+
+        <cz.romario.opensudoku.R$string: int send_me_bugs> = 2131296263;
+
+        <cz.romario.opensudoku.R$string: int send_by_mail> = 2131296370;
+
+        <cz.romario.opensudoku.R$string: int select_theme> = 2131296373;
+
+        <cz.romario.opensudoku.R$string: int select_number> = 2131296270;
+
+        <cz.romario.opensudoku.R$string: int select_difficulty> = 2131296383;
+
+        <cz.romario.opensudoku.R$string: int sdcard_not_found> = 2131296376;
+
+        <cz.romario.opensudoku.R$string: int screen_border_size_summary> = 2131296357;
+
+        <cz.romario.opensudoku.R$string: int screen_border_size> = 2131296356;
+
+        <cz.romario.opensudoku.R$string: int save_to_sdcard> = 2131296369;
+
+        <cz.romario.opensudoku.R$string: int save> = 2131296266;
+
+        <cz.romario.opensudoku.R$string: int restart_confirm> = 2131296312;
+
+        <cz.romario.opensudoku.R$string: int restart> = 2131296310;
+
+        <cz.romario.opensudoku.R$string: int reset_puzzle_confirm> = 2131296301;
+
+        <cz.romario.opensudoku.R$string: int reset_puzzle> = 2131296303;
+
+        <cz.romario.opensudoku.R$string: int rename_folder_title> = 2131296278;
+
+        <cz.romario.opensudoku.R$string: int rename_folder> = 2131296276;
+
+        <cz.romario.opensudoku.R$string: int puzzles_saved> = 2131296349;
+
+        <cz.romario.opensudoku.R$string: int puzzles_have_been_exported> = 2131296377;
+
+        <cz.romario.opensudoku.R$string: int puzzle_updated> = 2131296348;
+
+        <cz.romario.opensudoku.R$string: int puzzle_inserted> = 2131296347;
+
+        <cz.romario.opensudoku.R$string: int puzzle_folders> = 2131296258;
+
+        <cz.romario.opensudoku.R$string: int popup_summary> = 2131296322;
+
+        <cz.romario.opensudoku.R$string: int popup_abbr> = 2131296330;
+
+        <cz.romario.opensudoku.R$string: int popup> = 2131296321;
+
+        <cz.romario.opensudoku.R$string: int playing> = 2131296289;
+
+        <cz.romario.opensudoku.R$string: int play_puzzle> = 2131296302;
+
+        <cz.romario.opensudoku.R$string: int one_puzzle> = 2131296282;
+
+        <cz.romario.opensudoku.R$string: int on_date> = 2131296295;
+
+        <cz.romario.opensudoku.R$string: int numpad_summary> = 2131296326;
+
+        <cz.romario.opensudoku.R$string: int numpad_move_right_summary> = 2131296328;
+
+        <cz.romario.opensudoku.R$string: int numpad_move_right> = 2131296327;
+
+        <cz.romario.opensudoku.R$string: int numpad_abbr> = 2131296329;
+
+        <cz.romario.opensudoku.R$string: int numpad> = 2131296325;
+
+        <cz.romario.opensudoku.R$string: int note> = 2131296269;
+
+        <cz.romario.opensudoku.R$string: int not_started> = 2131296290;
+
+        <cz.romario.opensudoku.R$string: int no_puzzles_found> = 2131296350;
+
+        <cz.romario.opensudoku.R$string: int no_puzzles> = 2131296281;
+
+        <cz.romario.opensudoku.R$string: int name> = 2131296268;
+
+        <cz.romario.opensudoku.R$string: int n_unsolved> = 2131296286;
+
+        <cz.romario.opensudoku.R$string: int n_solved> = 2131296285;
+
+        <cz.romario.opensudoku.R$string: int n_puzzles> = 2131296283;
+
+        <cz.romario.opensudoku.R$string: int n_playing> = 2131296287;
+
+        <cz.romario.opensudoku.R$string: int more_settings> = 2131296355;
+
+        <cz.romario.opensudoku.R$string: int loading> = 2131296354;
+
+        <cz.romario.opensudoku.R$string: int last_played_at> = 2131296291;
+
+        <cz.romario.opensudoku.R$string: int invalid_format> = 2131296352;
+
+        <cz.romario.opensudoku.R$string: int input_methods> = 2131296320;
+
+        <cz.romario.opensudoku.R$string: int importing> = 2131296364;
+
+        <cz.romario.opensudoku.R$string: int import_file_title> = 2131296274;
+
+        <cz.romario.opensudoku.R$string: int import_file> = 2131296273;
+
+        <cz.romario.opensudoku.R$string: int im_single_number_hint> = 2131296338;
+
+        <cz.romario.opensudoku.R$string: int im_popup_hint> = 2131296337;
+
+        <cz.romario.opensudoku.R$string: int im_numpad_hint> = 2131296339;
+
+        <cz.romario.opensudoku.R$string: int im_disable_modes_hint> = 2131296340;
+
+        <cz.romario.opensudoku.R$string: int homepage> = 2131296260;
+
+        <cz.romario.opensudoku.R$string: int hint> = 2131296333;
+
+        <cz.romario.opensudoku.R$string: int highlight_wrong_values_summary> = 2131296319;
+
+        <cz.romario.opensudoku.R$string: int highlight_wrong_values> = 2131296318;
+
+        <cz.romario.opensudoku.R$string: int highlight_touched_cell_summary> = 2131296359;
+
+        <cz.romario.opensudoku.R$string: int highlight_touched_cell> = 2131296358;
+
+        <cz.romario.opensudoku.R$string: int highlight_completed_values_summary> = 2131296368;
+
+        <cz.romario.opensudoku.R$string: int highlight_completed_values> = 2131296367;
+
+        <cz.romario.opensudoku.R$string: int help_text> = 2131296341;
+
+        <cz.romario.opensudoku.R$string: int help> = 2131296334;
+
+        <cz.romario.opensudoku.R$string: int get_more_puzzles_online> = 2131296267;
+
+        <cz.romario.opensudoku.R$string: int generating> = 2131296384;
+
+        <cz.romario.opensudoku.R$string: int generate_sudoku> = 2131296382;
+
+        <cz.romario.opensudoku.R$string: int game_settings> = 2131296316;
+
+        <cz.romario.opensudoku.R$string: int game_helpers> = 2131296317;
+
+        <cz.romario.opensudoku.R$string: int game> = 2131296342;
+
+        <cz.romario.opensudoku.R$string: int folders_created> = 2131296363;
+
+        <cz.romario.opensudoku.R$string: int folders> = 2131296299;
+
+        <cz.romario.opensudoku.R$string: int first_run_hint> = 2131296336;
+
+        <cz.romario.opensudoku.R$string: int filter_by_gamestate> = 2131296298;
+
+        <cz.romario.opensudoku.R$string: int filter_active> = 2131296306;
+
+        <cz.romario.opensudoku.R$string: int filter> = 2131296297;
+
+        <cz.romario.opensudoku.R$string: int fill_in_notes_summary> = 2131296388;
+
+        <cz.romario.opensudoku.R$string: int fill_in_notes> = 2131296309;
+
+        <cz.romario.opensudoku.R$string: int filename> = 2131296374;
+
+        <cz.romario.opensudoku.R$string: int file_exists> = 2131296378;
+
+        <cz.romario.opensudoku.R$string: int exporting> = 2131296365;
+
+        <cz.romario.opensudoku.R$string: int export_folder> = 2131296361;
+
+        <cz.romario.opensudoku.R$string: int export_all_folders> = 2131296362;
+
+        <cz.romario.opensudoku.R$string: int export> = 2131296360;
+
+        <cz.romario.opensudoku.R$string: int email> = 2131296261;
+
+        <cz.romario.opensudoku.R$string: int edit_sudoku> = 2131296257;
+
+        <cz.romario.opensudoku.R$string: int edit_puzzle> = 2131296304;
+
+        <cz.romario.opensudoku.R$string: int edit_note> = 2131296271;
+
+        <cz.romario.opensudoku.R$string: int directory> = 2131296375;
+
+        <cz.romario.opensudoku.R$string: int difficulty_medium> = 2131296380;
+
+        <cz.romario.opensudoku.R$string: int difficulty_hard> = 2131296379;
+
+        <cz.romario.opensudoku.R$string: int difficulty_easy> = 2131296381;
+
+        <cz.romario.opensudoku.R$string: int delete_puzzle_confirm> = 2131296300;
+
+        <cz.romario.opensudoku.R$string: int delete_puzzle> = 2131296305;
+
+        <cz.romario.opensudoku.R$string: int delete_folder_title> = 2131296279;
+
+        <cz.romario.opensudoku.R$string: int delete_folder_confirm> = 2131296280;
+
+        <cz.romario.opensudoku.R$string: int delete_folder> = 2131296277;
+
+        <cz.romario.opensudoku.R$string: int credits> = 2131296353;
+
+        <cz.romario.opensudoku.R$string: int created_at> = 2131296292;
+
+        <cz.romario.opensudoku.R$string: int congrats> = 2131296311;
+
+        <cz.romario.opensudoku.R$string: int close> = 2131296264;
+
+        <cz.romario.opensudoku.R$string: int clear_all_notes_confirm> = 2131296314;
+
+        <cz.romario.opensudoku.R$string: int clear_all_notes> = 2131296308;
+
+        <cz.romario.opensudoku.R$string: int clear> = 2131296265;
+
+        <cz.romario.opensudoku.R$string: int at_time> = 2131296293;
+
+        <cz.romario.opensudoku.R$string: int app_name> = 2131296256;
+
+        <cz.romario.opensudoku.R$string: int all_solved> = 2131296284;
+
+        <cz.romario.opensudoku.R$string: int add_sudoku> = 2131296296;
+
+        <cz.romario.opensudoku.R$string: int add_folder> = 2131296272;
+
+        <cz.romario.opensudoku.R$string: int about> = 2131296275;
+
+        methodCountListLocal = <com.app.test.AppDir: java.util.LinkedList linkedList>;
+
+        linkedListobject = virtualinvoke methodCountListLocal.<java.util.LinkedList: java.lang.Object clone()>();
+
+        methodCountListLocal = (java.util.LinkedList) linkedListobject;
+
+        <cz.romario.opensudoku.R$string: java.util.LinkedList methodCountList> = methodCountListLocal;
+
+        return;
+    }
+}
