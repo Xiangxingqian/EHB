@@ -9,7 +9,7 @@ import java.util.LinkedList;
 public class AppDir {
 	
 	//additional file recording events defined in xml.
-	public final static String APPNAME = "wordpress";
+	public final static String APPNAME = "WordPress";
 	public final static String XMLEVENT = APPNAME+"_xmlevents";
 	public final static String SDCARD = "/mnt/sdcard/";
 	public static LinkedList<Integer> linkedList = new LinkedList<Integer>();

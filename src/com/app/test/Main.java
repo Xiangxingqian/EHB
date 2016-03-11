@@ -43,7 +43,7 @@ public class Main {
 	public static void main(String[] args){
 		
 		//windows
-		String params[] = {"-android-jars","D:/adt-eclipse/sdk/platforms","-process-dir", "L:/EHBbenchmarks/TestedApkSimple/"+AppDir.APPNAME+".apk"};
+		String params[] = {"-android-jars","D:/adt-eclipse/sdk/platforms","-process-dir", "L:/EHBbenchmarks/TestedApk_Top100/"+AppDir.APPNAME+".apk"};
 		String apk = params[3];
 		EHBOptions.v().setStrategy(EHBOptions.MANYSEQ);
 		output = output+"/"+AppDir.APPNAME;

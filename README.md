@@ -1,2 +1,2 @@
 # EHBDorid
-An implementation on EHB Testing for Android App
+EHBDroid is an Android Testing tool implementing on EHB testing approach
