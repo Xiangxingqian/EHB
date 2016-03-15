@@ -1,3 +1,0 @@
-Body. SootClass: com.addi.AddiBase, SootMethod: <com.addi.AddiBase: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r6.<com.addi.EditTextExtend: void setOnClickListener(android.view.View$OnClickListener)>($r11)
-Body. SootClass: com.addi.AddiBase, SootMethod: <com.addi.AddiBase: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r6.<com.addi.EditTextExtend: void setOnTouchListener(android.view.View$OnTouchListener)>($r12)
-Body. SootClass: com.addi.Addi, SootMethod: <com.addi.Addi: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r19.<com.addi.EditTextExtend: void setOnKeyListener(android.view.View$OnKeyListener)>($r20)

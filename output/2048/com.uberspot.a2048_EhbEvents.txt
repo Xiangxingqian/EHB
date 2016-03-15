@@ -1,1 +1,0 @@
-Body. SootClass: com.uberspot.a2048.MainActivity, SootMethod: <com.uberspot.a2048.MainActivity: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r8.<android.webkit.WebView: void setOnTouchListener(android.view.View$OnTouchListener)>($r16)

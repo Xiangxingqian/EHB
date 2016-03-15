@@ -1,2 +1,0 @@
-Body. SootClass: org.billthefarmer.accordion.MainActivity, SootMethod: <org.billthefarmer.accordion.MainActivity: void setListener()>, Stmt: virtualinvoke $r3.<android.view.View: void setOnTouchListener(android.view.View$OnTouchListener)>($r0)
-Body. SootClass: org.billthefarmer.accordion.MainActivity, SootMethod: <org.billthefarmer.accordion.MainActivity: void setListener()>, Stmt: virtualinvoke $r4.<android.widget.Switch: void setOnCheckedChangeListener(android.widget.CompoundButton$OnCheckedChangeListener)>($r0)

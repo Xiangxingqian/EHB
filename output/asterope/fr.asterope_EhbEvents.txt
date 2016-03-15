@@ -1,3 +1,0 @@
-XML. SootClass: fr.asterope.MainActivity, SootMethod: <fr.asterope.MainActivity: void startResume(android.view.View)>, Stmt: $r1 = virtualinvoke $r0.<fr.asterope.MainActivity: android.view.View findViewById(int)>(2131034120)
-XML. SootClass: fr.asterope.MainActivity, SootMethod: <fr.asterope.MainActivity: void onLocationChanged(android.location.Location)>, Stmt: $r5 = virtualinvoke $r0.<fr.asterope.MainActivity: android.view.View findViewById(int)>(2131034120)
-XML. SootClass: fr.asterope.MainActivity, SootMethod: <fr.asterope.MainActivity: void onCreate(android.os.Bundle)>, Stmt: $r13 = virtualinvoke $r0.<fr.asterope.MainActivity: android.view.View findViewById(int)>(2131034120)

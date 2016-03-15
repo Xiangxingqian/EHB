@@ -1,1 +1,0 @@
-Activitys Count: 26 Methods Count:2168 Classes Count: 339 LOC:77544

@@ -1,2 +1,0 @@
-Body. SootClass: de.audioattack.yacy31c3search.activity.MyAdapter$ViewHolder, SootMethod: <de.audioattack.yacy31c3search.activity.MyAdapter$ViewHolder: void <init>(android.view.View)>, Stmt: virtualinvoke $r1.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r4)
-Body. SootClass: de.audioattack.yacy31c3search.activity.MainActivity, SootMethod: <de.audioattack.yacy31c3search.activity.MainActivity: void onCreate(android.os.Bundle)>, Stmt: virtualinvoke $r2.<android.view.View: void setOnClickListener(android.view.View$OnClickListener)>($r11)
