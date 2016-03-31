@@ -69,7 +69,7 @@ public class SystemEventDispatcher extends EventDispatcher{
 			units.insertBefore(Jimple.v().newAssignStmt(
 					linkedList, Jimple.v().newStaticFieldRef(Global.v().getmActivity().getFieldByName(Constants.EHBField.SYSTEMEVENTLINKEDLIST).makeRef())), stmt);
 			units.insertBefore(Jimple.v().newInvokeStmt(Jimple.v().newVirtualInvokeExpr(linkedList, Constants.offer_method.makeRef(),receiverEvent)), stmt);
-			body.validate();
+//			body.validate();
 		}
 	}
 

@@ -49,7 +49,6 @@ public class OnCreateOptionsMenu extends MethodBuilder{
 		addIdentityStmt(menu, new ParameterRef(menu_Type,0));
 		addInvokeStmt(Jimple.v().newSpecialInvokeExpr(activity, onCreateOptionsMenu_method.makeRef(),menu));
 		
-		
 		List<Value> paramValues = paramValues();
 		paramValues.add(activity);
 		paramValues.add(menu);

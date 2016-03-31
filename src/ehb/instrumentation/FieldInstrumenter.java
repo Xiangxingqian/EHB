@@ -19,8 +19,8 @@ public class FieldInstrumenter implements IInstrumenter {
 	}
 
 	/**
-	 * if sc is activity, add Constants.EHBField.UIEVENTLINKEDLIST, SYSTEMEVENTLINKEDLIST, INTERAPPEVENTLINKEDLIST, 
-	 * visited and activitymenu to activity.
+	 * add Constants.EHBField.UIEVENTLINKEDLIST, SYSTEMEVENTLINKEDLIST, INTERAPPEVENTLINKEDLIST, 
+	 * visited and activitymenu, contextMenu.
 	 * */
 	@Override
 	public void instrument() {
@@ -45,6 +45,13 @@ public class FieldInstrumenter implements IInstrumenter {
 		SootField menuField = new SootField(EHBField.ACTIVITYMENU, Constants.menu_Type, Modifier.PUBLIC|Modifier.STATIC);
 		if(!sc.declaresFieldByName(EHBField.ACTIVITYMENU))
 			sc.addField(menuField);
+		
+		//only if sc contains onCreateContextMenu method, add contextMenu field. 
+		if(sc.declaresMethod(Constants.onCreateContextMenu_method.getSubSignature())){
+			SootField contextMenuField = new SootField(EHBField.CONTEXTMENU, Constants.contextMenu_Type, Modifier.PUBLIC|Modifier.STATIC);
+			if(!sc.declaresFieldByName(EHBField.CONTEXTMENU))
+				sc.addField(contextMenuField);
+		}
 		
 	}
 }

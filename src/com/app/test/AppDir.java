@@ -2,6 +2,8 @@ package com.app.test;
 
 import java.util.LinkedList;
 
+import com.app.test.event.UIEventHandler;
+
 
 /**
  * AppDir will be instrumented into Android App.
@@ -9,9 +11,12 @@ import java.util.LinkedList;
 public class AppDir {
 	
 	//additional file recording events defined in xml.
-	public final static String APPNAME = "amplayer";
+	public final static String APPNAME = "OpenSudoku";
 	public final static String XMLEVENT = APPNAME+"_xmlevents";
 	public final static String SDCARD = "/mnt/sdcard/";
+	// Testing Strategy.
+	public final static String STGY = UIEventHandler.ONESEQ;
+	
 	public static LinkedList<Integer> linkedList = new LinkedList<Integer>();
 	static{
 		for(int i =0;i<500;i++)
@@ -23,10 +28,10 @@ public class AppDir {
 	public static int visitedMethodCount = 0;
 	
 //	public static void  main(String[] args) {
-//		File f = new File("L:/EHBbenchmarks/TestedApkSimple");
+//		File f = new File("L:/EHBbenchmarks/benchmark");
 //		String files = "";
 //		for(String s:f.list()){
-//			files = files+","+s.substring(0,s.indexOf("."));
+//			files = files+"\",\""+s.substring(0,s.indexOf("."));
 //		}
 //		System.out.println(files);
 //	}

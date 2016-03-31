@@ -21,7 +21,6 @@ import com.app.test.MathUtil;
 import com.app.test.Util;
 import com.app.test.data.AndroidIntentFilter;
 import com.app.test.data.PatternMatcher;
-import com.app.test.event.IEventHandler;
 import com.app.test.event.InterAppEvent;
 import com.app.test.event.InterAppEventHandler;
 import com.app.test.event.ReceiverEvent;
@@ -39,6 +38,9 @@ import ehb.global.Global;
 import ehb.global.GlobalHost;
 import ehb.xml.manifest.ProcessManifest;
 
+/**
+ * 几乎用不到
+ * */
 public class CallGraphBuilder implements GlobalHost{
 	
 	public static HashSet<String> entrypoints;
@@ -157,7 +159,6 @@ public class CallGraphBuilder implements GlobalHost{
         classesAsSignature.add("java.lang.Object");
         classesAsSignature.add("java.lang.Thread");
         classesAsSignature.add("java.lang.StringBuilder");
-        classesAsSignature.add("java.lang.StringBuilder");
         classesAsSignature.add("javax.crypto.KeyGenerator");
         
         classesAsSignature.add("android.app.ListActivity");
@@ -174,12 +175,12 @@ public class CallGraphBuilder implements GlobalHost{
         applicationClasses.add("android.view.MenuItem$OnMenuItemClickListener");
         applicationClasses.add(CallBack.class.getName());
         applicationClasses.add(Util.class.getName());
-        applicationClasses.add(IEventHandler.class.getName());
+//      applicationClasses.add(IEventHandler.class.getName());
         applicationClasses.add(UIEventHandler.class.getName());
-        applicationClasses.add(UIEventHandler.UIEventAnalysis.class.getName());
-        applicationClasses.add(UIEventHandler.UIEventTest.class.getName());
+        applicationClasses.add(UIEventHandler.UIEventTesterForSeq.class.getName());
         applicationClasses.add(SystemEventHandler.class.getName());
 		applicationClasses.add(InterAppEventHandler.class.getName());
+		applicationClasses.add(UIEventHandler.UIEventTesterForSingleEvent.class.getName());
 //		applicationClasses.add(AbstractEventHandler.AppMenuItemClickListener.class.getName());
 		applicationClasses.add("com.app.test.event.SystemEventHandler$1");
 		applicationClasses.add("com.app.test.event.UIEventHandler$1");

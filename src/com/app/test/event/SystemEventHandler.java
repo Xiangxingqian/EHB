@@ -10,6 +10,10 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
+import soot.Unit;
+import soot.jimple.InvokeStmt;
+import soot.jimple.SpecialInvokeExpr;
+
 import android.app.Activity;
 import android.content.BroadcastReceiver;
 import android.content.Intent;
@@ -47,6 +51,7 @@ public class SystemEventHandler{
 	 * */
 	public static void doSystemEventTest(Activity activity){
 		try {
+			
 			//read mainActivity from file. 
 			Class mainActivity = Class.forName(readMainActivity(file));
 			Field serviceOrReceivers = mainActivity.getField(EHBField.SYSTEMEVENTLINKEDLIST);

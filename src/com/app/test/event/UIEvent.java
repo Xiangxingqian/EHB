@@ -11,8 +11,7 @@ package com.app.test.event;
  * */
 public class UIEvent {
 	
-	// ui element
-	//there are two type of ui elements: View, Dialog.
+	// ui element, including two type of ui elements: View, Dialog.
 	public Object ui;
 	
 	//listener 
@@ -21,8 +20,11 @@ public class UIEvent {
 	//callback
 	public String callbackName;
 	
-	// is activity jumping event
+	/**
+	 * @deprecated
+	 * */
 	public boolean jump;
+	
 	
 	public UIEvent(Object ui, Object listener, String rm, boolean jump) {
 		this.ui = ui;

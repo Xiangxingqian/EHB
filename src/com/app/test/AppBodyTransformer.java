@@ -21,7 +21,7 @@ import ehb.global.Global;
 import ehb.global.GlobalHost;
 import ehb.instrumentation.ActivityInstrumenter;
 import ehb.instrumentation.BodyInstrumenter;
-import ehb.instrumentation.ClassInstrumenter;
+import ehb.instrumentation.ApplicationClassInstrumenter;
 import ehb.instrumentation.FieldInstrumenter;
 
 /**
@@ -56,33 +56,30 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 			Map<String, String> options) {
 		
 		//1. add new classes
-		if(!classIntrumented)
-			instrumentClass();
-		
-		//2. add SYSTEMEVENTLINKEDLIST to mainActivity, 
-		//system events are stored in mainActivity sepreately.
-		instrumentFieldForMainActivity();
+		if(!classIntrumented){
+			instrumentApplicationClasses();
+			instrumentFieldForMainActivity();
+			classIntrumented = true;
+		}
 		
 		final SootClass sc = b.getMethod().getDeclaringClass();
 		String name = sc.getName();
 		if(name.startsWith("android")||name.startsWith("java"))
 			return;
 		
-		//3. instrument activity
+		//2. instrument activity
 		if(isActivity(sc)){
 			instrumentActivity(sc);
 		}
 		
-		//4. instrument body
+		//3. instrument body
 		instrumentBody(b);
 		
-		//5. instrument method coverage stmts
-		if(!isInValidBody(b)){
+		//4. instrument method coverage stmts
+		if(!isExcludedBody(b)){
 			instrumentMethodCoverage(b, sc);
 			calculateCounts(b, sc);
 		}
-		//6. calculate total numbers.
-		
 	}
 
 	//add SYSTEMEVENTLINKEDLIST fields to mainActivity
@@ -90,8 +87,8 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 		new FieldInstrumenter(Global.v().getmActivity()).instrument();
 	}
 
-	private void instrumentClass() {
-		new ClassInstrumenter().instrument();
+	private void instrumentApplicationClasses() {
+		new ApplicationClassInstrumenter().instrument();
 	}
 
 	private void instrumentActivity(SootClass sc) {
@@ -163,7 +160,7 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 	 *</p>
 	 * @param b body to be analyzed
 	 * */
-	public boolean isInValidBody(Body b){
+	public boolean isExcludedBody(Body b){
 		String methodName = b.getMethod().getName();
 		SootClass sc = b.getMethod().getDeclaringClass();
 		

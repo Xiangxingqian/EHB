@@ -1,5 +1,0 @@
-public interface  cz.romario.opensudoku.gui.SudokuBoardView$OnCellSelectedListener extends java.lang.Object
-{
-
-    public abstract void onCellSelected(cz.romario.opensudoku.game.Cell);
-}

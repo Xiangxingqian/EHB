@@ -1,39 +1,119 @@
 package com.app.test;
 
 import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.ObjectInputStream;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import android.content.BroadcastReceiver;
-import android.content.Intent;
 
 import com.app.test.data.AndroidIntentFilter;
 
 
 public class TestA {
 	
+	public static String str = "qian";
+	
 	public static Object object = "String";
 	
-	public static void test(){
-		System.out.println(new TestA()+" 123.");
-	}
-	
 	public static void main(String[] args) {
-		Map<String, List<AndroidIntentFilter>> receiverToFilters = readReceiverToFilters("C:/Users/lenovo/workspace/EHBDroid/output/AutoAnswer/AutoAnswer_xmlevents.txt");
-		for(String key:receiverToFilters.keySet()){
-			
-			for(AndroidIntentFilter value:receiverToFilters.get(key)){
-				System.out.println(key+" "+value);
-//				Class receiverClass = Class.forName(key);
-//				Object receiver = receiverClass.newInstance();
-//				BroadcastReceiver broadcastReceiver = (BroadcastReceiver)receiver;
-//				Intent intent = initIntent(value);
-//				Util.LogReceiverEvent(broadcastReceiver, intent);
-//				activity.sendBroadcast(intent);
+//		PClass pClass2 = new PClass();
+		Class class1 = PClass.class;
+		
+		try {
+			Field declaredField = class1.getDeclaredField("str1");
+		} catch (NoSuchFieldException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (SecurityException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		
+		Constructor[] declaredConstructors = class1.getDeclaredConstructors();
+//		Constructor constructor = declaredConstructors[0];
+		for(Constructor con:declaredConstructors){
+			con.setAccessible(true);
+			Object newInstance;
+			try {
+				newInstance = con.newInstance(null);
+				try {
+					Method[] methods = class1.getMethods();
+					
+					Method declaredMethod = class1.getDeclaredMethod("setStr",new Class[]{String.class});
+				} catch (NoSuchMethodException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (SecurityException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				PClass pClass = (PClass)newInstance;
+				System.out.println(pClass.getString());
+			} catch (InstantiationException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalAccessException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (IllegalArgumentException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			} catch (InvocationTargetException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
 			}
 		}
+//		System.out.println(getCurrentActivityName());
+	}
+
+	public static String getCurrentActivityName(){
+		try {
+			Process exec = Runtime.getRuntime().exec("adb shell dumpsys activity");
+			InputStream inputStream = exec.getInputStream();
+			byte[] b = new byte[1024];
+			StringBuilder sb = new StringBuilder();
+			while (inputStream.read(b)!=-1) {
+				String string = new String(b);
+//				System.out.print(string);
+				sb.append(string);
+			}
+			inputStream.close();
+			String msg = sb.toString();
+			
+			String[] split = msg.split("Stack #1");
+			String stackMsg = split[split.length-1];
+							
+			String[] split2 = stackMsg.split("\n");
+			for(String s:split2){
+				if(s.contains("Run #")){
+					String[] split3 = s.split(" ");
+					return split3[split3.length-2];
+//					System.out.println(split3[split3.length-2]);
+				}
+			}
+			
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return " ";
+	}
+	
+	
+	public static String getStr() {
+		return str;
+	}
+
+	public static void setStr(String str) {
+		TestA.str = str;
 	}
 
 	public static Object getObject() {

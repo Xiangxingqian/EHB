@@ -7,14 +7,16 @@ import soot.RefType;
 import soot.Scene;
 import soot.SootMethod;
 
+import android.view.ContextMenu;
+import android.view.View;
+import android.view.ContextMenu.ContextMenuInfo;
+
 import com.app.test.event.InterAppEvent;
 import com.app.test.event.ReceiverEvent;
 import com.app.test.event.SystemEvent;
 import com.app.test.event.UIEvent;
 
-/**
- * 该类不被加入到App中
- * */
+
 public class Constants {
 
 	public static final String uiTest = "uTest";
@@ -44,6 +46,7 @@ public class Constants {
 		public static final String SYSTEMEVENTLINKEDLIST = "systemeventlinkedlist";
 		public static final String INTERAPPEVENTLINKEDLIST = "interappeventlinkedlist";
 		public static final String ACTIVITYMENU = "activityMenu";
+		public static final String CONTEXTMENU = "contextMenu";
 		
 		//method coverage
 		public static final String METHODCOUNTLIST = "methodCountList";
@@ -72,6 +75,7 @@ public class Constants {
 	
 	//Android Type
 	public static RefType menu_Type = RefType.v("android.view.Menu");
+	public static RefType contextMenu_Type = RefType.v("android.view.ContextMenu");
 	public static RefType menuItem_Type = RefType.v("android.view.MenuItem");
 	public static RefType listAdapter_Type = RefType.v("android.widget.ListAdapter");
 	public static RefType listView_Type = RefType.v("android.widget.ListView");
@@ -112,6 +116,7 @@ public class Constants {
 	public static SootMethod onCreateOptionsMenu_method = Scene.v().getMethod("<android.app.Activity: boolean onCreateOptionsMenu(android.view.Menu)>");
 	public static SootMethod view_getContext_method = Scene.v().getMethod("<android.view.View: android.content.Context getContext()>");
 	public static SootMethod dialog_getContext_method = Scene.v().getMethod("<android.app.Dialog: android.content.Context getContext()>");
+	public static SootMethod onCreateContextMenu_method = Scene.v().getMethod("<android.app.Activity: void onCreateContextMenu(android.view.ContextMenu,android.view.View,android.view.ContextMenu$ContextMenuInfo)>");
 	
 	//Java methods
 	public static SootMethod isEmpty_method = Scene.v().getMethod("<java.util.AbstractCollection: boolean isEmpty()>");
@@ -165,5 +170,4 @@ public class Constants {
 	public static SootMethod uiEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.UIEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
 	public static SootMethod systemEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.SystemEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
 	public static SootMethod interAppEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.InterAppEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
-	
 	}

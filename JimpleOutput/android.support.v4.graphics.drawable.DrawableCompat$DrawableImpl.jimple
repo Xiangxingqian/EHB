@@ -1,9 +1,0 @@
-interface  android.support.v4.graphics.drawable.DrawableCompat$DrawableImpl extends java.lang.Object
-{
-
-    public abstract boolean isAutoMirrored(android.graphics.drawable.Drawable);
-
-    public abstract void jumpToCurrentState(android.graphics.drawable.Drawable);
-
-    public abstract void setAutoMirrored(android.graphics.drawable.Drawable, boolean);
-}

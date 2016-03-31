@@ -223,7 +223,7 @@ public class BodyInstrumenter implements IInstrumenter{
 	private void logInfo(SootClass sc, SootMethod sm, Stmt stmt, String s){
 		String msg = s+". SootClass: "+sc.getName()+", SootMethod: "+b.getMethod().getSignature()+
 				", Stmt: "+stmt;
-		Global.v().getEHBEventsSet().add(msg);
+		Global.v().getEHBEventSet().add(msg);
 	}
 	
 }

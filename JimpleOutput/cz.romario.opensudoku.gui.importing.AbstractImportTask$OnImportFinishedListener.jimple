@@ -1,5 +1,0 @@
-public interface  cz.romario.opensudoku.gui.importing.AbstractImportTask$OnImportFinishedListener extends java.lang.Object
-{
-
-    public abstract void onImportFinished(boolean, long);
-}

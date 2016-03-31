@@ -22,7 +22,7 @@ import ehb.global.Global;
 import ehb.instrumentation.IInstrumenter;
 
 /**
- * Add public static linkedlist methodList, initilize it in clinit method. 
+ * 统计方法覆盖率
  * */
 public class MethodCoverageFieldInstrumenter extends LocalBuilder implements IInstrumenter{
 	

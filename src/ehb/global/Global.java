@@ -124,7 +124,7 @@ public class Global {
 	
 	Set<String> ehbEvent = new HashSet<>();
 
-	public Set<String> getEHBEventsSet() {
+	public Set<String> getEHBEventSet() {
 		return ehbEvent;
 	}
 }
