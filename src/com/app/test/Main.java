@@ -9,12 +9,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import com.app.test.event.UIEventHandler;
-
-import soot.G;
-import soot.Scene;
-import soot.SootClass;
-import soot.options.Options;
 import ehb.analysis.CallGraphBuilder;
 import ehb.global.EHBOptions;
 import ehb.global.Global;
@@ -22,6 +16,10 @@ import ehb.xml.manifest.CallBackGenerator;
 import ehb.xml.manifest.ProcessManifest;
 import ehb.xml.resource.ProcessResource;
 import ehb.xml.resource.ResourceAttributes;
+import soot.G;
+import soot.Scene;
+import soot.SootClass;
+import soot.options.Options;
 
 /**
  * good programming<--beauty<--perfect
@@ -41,8 +39,8 @@ public class Main {
 	public static void main(String[] args){
 		
 		//windows
-		String params[] = {"-android-jars","D:/adt-eclipse/sdk/platforms",
-				"-process-dir", "L:/EHBbenchmarks/benchmark/"+AppDir.APPNAME+".apk"};
+		String params[] = {"-android-jars","D:/SDK/platforms",
+				"-process-dir", "E:/benchmark/"+AppDir.APPNAME+".apk"};
 		String apk = params[3];
 		EHBOptions.v().setStrategy(AppDir.STGY);
 		//EHBOptions.v().setStaticAnalysis(true);

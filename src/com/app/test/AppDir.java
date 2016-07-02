@@ -6,15 +6,17 @@ import com.app.test.event.UIEventHandler;
 
 
 /**
- * AppDir will be instrumented into Android App.
+ * This class will be instrumented into Android App.
  * */
 public class AppDir {
 	
-	//additional file recording events defined in xml.
-	public final static String APPNAME = "OpenSudoku";
+	public final static String APPNAME = "ximalaya";
+	//Event declared in XML
 	public final static String XMLEVENT = APPNAME+"_xmlevents";
+	
 	public final static String SDCARD = "/mnt/sdcard/";
-	// Testing Strategy.
+
+	// Testing Strategy
 	public final static String STGY = UIEventHandler.ONESEQ;
 	
 	public static LinkedList<Integer> linkedList = new LinkedList<Integer>();

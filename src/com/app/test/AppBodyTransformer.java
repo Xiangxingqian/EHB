@@ -1,6 +1,7 @@
 package com.app.test;
 
 import java.util.HashSet;
+import java.util.Iterator;
 import java.util.Map;
 import java.util.Set;
 import java.util.regex.Matcher;
@@ -12,6 +13,8 @@ import soot.PatchingChain;
 import soot.SootClass;
 import soot.SootMethod;
 import soot.Unit;
+import soot.jimple.AbstractStmtSwitch;
+import soot.jimple.AssignStmt;
 import soot.util.Chain;
 
 import com.app.test.methodCoverage.MethodCoverageFieldInstrumenter;
@@ -64,7 +67,7 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 		
 		final SootClass sc = b.getMethod().getDeclaringClass();
 		String name = sc.getName();
-		if(name.startsWith("android")||name.startsWith("java"))
+		if(name.startsWith("android")||name.startsWith("java")||name.startsWith("com.facebook"))
 			return;
 		
 		//2. instrument activity
@@ -76,10 +79,10 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 		instrumentBody(b);
 		
 		//4. instrument method coverage stmts
-		if(!isExcludedBody(b)){
-			instrumentMethodCoverage(b, sc);
-			calculateCounts(b, sc);
-		}
+		//if(!isExcludedBody(b)){
+//			instrumentMethodCoverage(b, sc);
+//			calculateCounts(b, sc);
+//		}
 	}
 
 	//add SYSTEMEVENTLINKEDLIST fields to mainActivity
@@ -220,6 +223,12 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 	public void print(Chain<Unit> units){
 		for(Unit u:units){
 			System.out.println("Units: "+u);
+		}
+	}
+	
+	public void removeXIMALAYASigChecking(Body body){
+		if(body.getMethod().getSignature().equals("<com.ximalaya.ting.android.framework.activity.BaseFragmentActivity: void onCreate(android.os.Bundle)>")){
+			System.out.println(body);
 		}
 	}
 }

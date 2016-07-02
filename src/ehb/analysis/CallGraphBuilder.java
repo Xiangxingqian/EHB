@@ -167,7 +167,15 @@ public class CallGraphBuilder implements GlobalHost{
         classesAsSignature.add("android.view.Menu");
         classesAsSignature.add("android.content.Intent");
         classesAsSignature.add("android.util.Log");
-        
+        classesAsSignature.add("android.app.Application");
+        classesAsSignature.add("android.app.Application$ActivityLifecycleCallbacks");
+        classesAsSignature.add("android.app.Application$OnProvideAssistDataListener");
+        classesAsSignature.add("android.app.IntentService");
+        classesAsSignature.add("android.content.ContentProvider");
+        classesAsSignature.add("android.database.CharArrayBuffer");
+
+
+
         applicationClasses.add("android.app.Dialog");
         applicationClasses.add("android.view.MenuItem");
         applicationClasses.add("android.view.View");

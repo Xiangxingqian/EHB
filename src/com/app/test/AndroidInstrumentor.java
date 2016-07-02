@@ -10,7 +10,12 @@ public class AndroidInstrumentor{
 	
 	public void transform(String[] args){
 		PackManager.v().getPack("jtp").add(new Transform("jtp.myInstrumenter", new AppBodyTransformer()));
-		soot.Main.main(args);
+		try{
+			soot.Main.main(args);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 	}
 
 }
