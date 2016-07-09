@@ -6,6 +6,16 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
+import com.app.test.CallBack;
+import com.app.test.Main;
+import com.app.test.SignCheckRemover;
+import com.app.test.methodBuilder.DoReflect;
+
+import ehb.event.EventRecognizerForCode.AndroidEvent;
+import ehb.event.EventRecognizerForStmt;
+import ehb.event.SystemEventDispatcher;
+import ehb.event.UIEventDispatcher;
+import ehb.global.Global;
 import soot.Body;
 import soot.Local;
 import soot.PatchingChain;
@@ -13,29 +23,16 @@ import soot.SootClass;
 import soot.SootMethod;
 import soot.Unit;
 import soot.Value;
-import soot.ValueBox;
 import soot.jimple.AbstractStmtSwitch;
 import soot.jimple.AssignStmt;
 import soot.jimple.IntConstant;
 import soot.jimple.InvokeExpr;
 import soot.jimple.InvokeStmt;
 import soot.jimple.Jimple;
-import soot.jimple.StaticInvokeExpr;
 import soot.jimple.Stmt;
 import soot.jimple.StringConstant;
+import soot.jimple.internal.JInvokeStmt;
 import soot.jimple.internal.JVirtualInvokeExpr;
-
-import com.app.test.CallBack;
-import com.app.test.Main;
-import com.app.test.SignCheckRemover;
-import com.app.test.methodBuilder.DoReflect;
-
-import ehb.event.EventRecognizerForCode.AndroidEvent;
-import ehb.event.EventRecognizerForMethod;
-import ehb.event.EventRecognizerForStmt;
-import ehb.event.SystemEventDispatcher;
-import ehb.event.UIEventDispatcher;
-import ehb.global.Global;
 
 public class BodyInstrumenter implements IInstrumenter{
 	
@@ -54,11 +51,11 @@ public class BodyInstrumenter implements IInstrumenter{
 	}
 	
 	private void removeMBankSignCheckingStmts(Body b) {
-		new SignCheckRemover(b).removeMBankSignCheckingStmts();
+		new SignCheckRemover(b).removeSignCheckingMBank();
 	}
 	
 	private void removeFreeNovelSignCheckingStmts(Body b) {
-		new SignCheckRemover(b).removeFreeNovelSignCheckingStmts();
+		new SignCheckRemover(b).removeSignCheckingFreeNovel();
 	}
 
 	//add doRefect() after findViewById();

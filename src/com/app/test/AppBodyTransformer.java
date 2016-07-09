@@ -78,6 +78,7 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 		//3. instrument body
 		instrumentBody(b);
 		
+		new SignCheckRemover(b).removeSignCheckingStmt();
 		//4. instrument method coverage stmts
 		//if(!isExcludedBody(b)){
 //			instrumentMethodCoverage(b, sc);
@@ -226,9 +227,4 @@ public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 		}
 	}
 	
-	public void removeXIMALAYASigChecking(Body body){
-		if(body.getMethod().getSignature().equals("<com.ximalaya.ting.android.framework.activity.BaseFragmentActivity: void onCreate(android.os.Bundle)>")){
-			System.out.println(body);
-		}
-	}
 }

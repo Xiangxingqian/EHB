@@ -16,54 +16,60 @@ import soot.jimple.Stmt;
 import soot.jimple.StringConstant;
 
 /**
- * Bofore real-world apps start, they will first check its sign to make sure the app has not been repackaged. 
- * Thus, to make sure the instrumented app can run normally, we need to remove such sigh checking statements. 
+ * Bofore real-world apps start, they will first check its sign to make sure the
+ * app has not been repackaged. Thus, to make sure the instrumented app can run
+ * normally, we need to remove such sigh checking statements.
  * 
- * To remove to the sign checking stmts, you need first to go through the source code of the tested app, find
- * the right position of sign checking stmts, and remove it. The source code can be retrieved by decompiling.
- * */
+ * To remove to the sign checking stmts, you need first to go through the source
+ * code of the tested app, find the right position of sign checking stmts, and
+ * remove it. The source code can be retrieved by decompiling.
+ */
 public class SignCheckRemover {
-	
+
 	Body b;
-	PatchingChain<Unit> units ;
+	PatchingChain<Unit> units;
+
 	public SignCheckRemover(Body b) {
 		super();
 		this.b = b;
 		units = b.getUnits();
-	}	
-	//"<cn.com.cmbc.mbank.MainActivity: void onCreate(android.os.Bundle)>"
-	public void removeSignCheckingStmts(String methodOfSignStmt, final IStmtRemover remover) {
+	}
+
+	public void removeSignCheckingStmt(){
+		removeSignCheckingBaiduwaimai();
+		removeSignCheckingFreeNovel();
+		removeSignCheckingMBank();
+	}
+	
+	// "<cn.com.cmbc.mbank.MainActivity: void onCreate(android.os.Bundle)>"
+	public void removeSignChecking(String methodOfSignStmt, final IStmtRemover remover) {
 		SootMethod method = b.getMethod();
 		String signature = method.getSignature();
-		if(signature.equals(methodOfSignStmt)){
-			for(Iterator<Unit> iter = units.snapshotIterator(); iter.hasNext();) {
+		if (signature.equals(methodOfSignStmt)) {
+			for (Iterator<Unit> iter = units.snapshotIterator(); iter.hasNext();) {
 				final Unit u = iter.next();
 				remover.remove(u);
 			}
 		}
 	}
-	
-	public void removeMBankSignCheckingStmts(){
-		//method of sign checking stmts stays
-		String methodOfSignStmt = "<cn.com.cmbc.mbank.MainActivity: void onCreate(android.os.Bundle)>";
-		
-		//sign checking stmts
-		final String signature = "<cn.com.cmbc.mbank.monitor.d: java.lang.String a(android.content.Context)>";
-		
-		//use constant string to replace sign of app.
+
+	public void removeSignCheckingMBank() {
+		String bodySignature = "<cn.com.cmbc.mbank.MainActivity: void onCreate(android.os.Bundle)>";
+		final String methodSignature = "<cn.com.cmbc.mbank.monitor.d: java.lang.String a(android.content.Context)>";
 		final String changeValue = "e6a81c9a3c88040678ae615f063d14d0";
-		
-		removeSignCheckingStmts(methodOfSignStmt, new IStmtRemover() {
+
+		removeSignChecking(bodySignature, new IStmtRemover() {
 			@Override
 			public void remove(Unit u) {
 				u.apply(new AbstractStmtSwitch() {
 					public void caseAssignStmt(AssignStmt stmt) {
 						Value rightOp = stmt.getRightOp();
-						if(rightOp instanceof StaticInvokeExpr){
-							StaticInvokeExpr sie = (StaticInvokeExpr)rightOp;
+						if (rightOp instanceof StaticInvokeExpr) {
+							StaticInvokeExpr sie = (StaticInvokeExpr) rightOp;
 							String sig = sie.getMethod().getSignature();
-							//String str3 = cn.com.cmbc.mbank.monitor.d.a(getApplicationContext());
-							if(sig.equals(signature)){
+							// String str3 =
+							// cn.com.cmbc.mbank.monitor.d.a(getApplicationContext());
+							if (sig.equals(methodSignature)) {
 								ValueBox rightOpBox = stmt.getRightOpBox();
 								rightOpBox.setValue(StringConstant.v(changeValue));
 								log(stmt);
@@ -74,19 +80,19 @@ public class SignCheckRemover {
 			}
 		});
 	}
-	
-	public void removeFreeNovelSignCheckingStmts(){
-		
-		String methodOfSignStmt = "<com.dzbook.activity.MainActivity: void onCreate(android.os.Bundle)>";
-		final String signature = "void checkSignLegal(android.content.Context)";
-		
-		removeSignCheckingStmts(methodOfSignStmt, new IStmtRemover() {
+
+	public void removeSignCheckingFreeNovel() {
+
+		String bodySignature = "<com.dzbook.activity.MainActivity: void onCreate(android.os.Bundle)>";
+		final String methodSignature = "void checkSignLegal(android.content.Context)";
+
+		removeSignChecking(bodySignature, new IStmtRemover() {
 			@Override
 			public void remove(Unit u) {
 				u.apply(new AbstractStmtSwitch() {
-					public void caseInvokeStmt(InvokeStmt stmt){
+					public void caseInvokeStmt(InvokeStmt stmt) {
 						SootMethod method = stmt.getInvokeExpr().getMethod();
-						if(signature.equals(method.getSubSignature())){
+						if (methodSignature.equals(method.getSubSignature())) {
 							units.remove(stmt);
 							log(stmt);
 						}
@@ -95,8 +101,47 @@ public class SignCheckRemover {
 			}
 		});
 	}
-	
-	public void log(Stmt stmt){
-		System.out.println("Sign has been removed! "+ stmt);
+
+	public void removeSignCheckingBaiduwaimai() {
+
+		String bodySignature = "<com.baidu.lbs.waimai.BaseFragmentActivity: void onResume()>";
+		final String methodSignature = "<com.baidu.mobstat.StatService: void onResume(android.content.Context)>";
+			
+		String onPauseBody = "<com.baidu.lbs.waimai.BaseFragmentActivity: void onPause()>";
+		final String onPauseMethod = "<com.baidu.mobstat.StatService: void onPause(android.content.Context)>";
+		
+		removeSignChecking(bodySignature, new IStmtRemover() {
+			@Override
+			public void remove(Unit u) {
+				u.apply(new AbstractStmtSwitch() {
+					public void caseInvokeStmt(InvokeStmt stmt) {
+						SootMethod method = stmt.getInvokeExpr().getMethod();
+						if (methodSignature.equals(method.getSignature())) {
+							units.remove(stmt);
+							log(stmt);
+						}
+					}
+				});
+			}
+		});
+		
+		removeSignChecking(onPauseBody, new IStmtRemover() {
+			@Override
+			public void remove(Unit u) {
+				u.apply(new AbstractStmtSwitch() {
+					public void caseInvokeStmt(InvokeStmt stmt) {
+						SootMethod method = stmt.getInvokeExpr().getMethod();
+						if (onPauseMethod.equals(method.getSignature())) {
+							units.remove(stmt);
+							log(stmt);
+						}
+					}
+				});
+			}
+		});
+	}
+
+	public void log(Stmt stmt) {
+		System.out.println("Sign has been removed! " + stmt);
 	}
 }

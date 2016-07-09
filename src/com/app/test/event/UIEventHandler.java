@@ -64,7 +64,6 @@ public class UIEventHandler{
 	
 	public static Activity act;
 	
-	
 	/**
 	 * <p> test activity UI events.
 	 * The UI events can be divided into four categories according to where events from:

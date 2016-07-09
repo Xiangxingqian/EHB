@@ -121,9 +121,6 @@ public class Main {
 		storeGlobals(xmleventStoration);
 	}	
 	
-	/**
-	 * start to instrument app
-	 * */	
 	private static void instrumentApp(String[] params) {
 		AndroidInstrumentor androidInstrument = new AndroidInstrumentor();
 		androidInstrument.instrument(params);
@@ -131,7 +128,7 @@ public class Main {
 	
 	/**
 	 * store six elements: viewToCallBacks,activityToFilters,serviceToFilters,receiverToFilters, mainActivity,ehbstgy
-	 * @param location serializarion object storation
+	 * @param location serializarion object
 	 * */
 	private static void storeGlobals(String location) {
 		File file = new File(location);
@@ -162,7 +159,6 @@ public class Main {
 	}
 	
 	/**
-	 * write msg to file
 	 * @param path File to store msg
 	 * @param msg msg needed to be written
 	 * */
@@ -179,9 +175,6 @@ public class Main {
 		}
 	}
 	
-	/**
-	 * init soot
-	 * */
 	public static void initSoot(String[] args){
 		Options.v().set_soot_classpath(args[3]+";"+
 				"lib/rt.jar;" +
