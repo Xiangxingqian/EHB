@@ -30,7 +30,7 @@ import ehb.global.Global;
 public class Clinit extends MethodBuilder{
 	public static final String CLASSNAME = "<clinit>";
 	public static final String SUBSIGNATURE = "void <clinit>()";
-	SootField viewLinkedList, listenerLinkedList,activities,isVisited,systemEventLinkedList;;
+	SootField viewLinkedList, listenerLinkedList,activities,isVisited,systemEventLinkedList;
 	SootClass mainActivity;
 	Local linkedList;
 	boolean isMainActivity = false;

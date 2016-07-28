@@ -10,7 +10,7 @@ import com.app.test.event.UIEventHandler;
  * */
 public class AppDir {
 	
-	public final static String APPNAME = "baiduwaimai";
+	public final static String APPNAME = "Opensudoku";
 	//Event declared in XML
 	public final static String XMLEVENT = APPNAME+"_xmlevents";
 	

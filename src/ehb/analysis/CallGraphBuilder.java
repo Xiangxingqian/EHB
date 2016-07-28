@@ -29,6 +29,7 @@ import com.app.test.event.SystemEventConstants;
 import com.app.test.event.SystemEventHandler;
 import com.app.test.event.UIEvent;
 import com.app.test.event.UIEventHandler;
+import com.app.test.methodCoverage.CodeCoverageToolkit;
 
 import ehb.analysis.entryPointCreator.AndroidEntryPointCreator;
 import ehb.analysis.entryPointCreator.CallBackFunctionFromFileBuilder;
@@ -174,8 +175,6 @@ public class CallGraphBuilder implements GlobalHost{
         classesAsSignature.add("android.content.ContentProvider");
         classesAsSignature.add("android.database.CharArrayBuffer");
 
-
-
         applicationClasses.add("android.app.Dialog");
         applicationClasses.add("android.view.MenuItem");
         applicationClasses.add("android.view.View");
@@ -183,6 +182,7 @@ public class CallGraphBuilder implements GlobalHost{
         applicationClasses.add("android.view.MenuItem$OnMenuItemClickListener");
         applicationClasses.add(CallBack.class.getName());
         applicationClasses.add(Util.class.getName());
+        applicationClasses.add(CodeCoverageToolkit.class.getName());
 //      applicationClasses.add(IEventHandler.class.getName());
         applicationClasses.add(UIEventHandler.class.getName());
         applicationClasses.add(UIEventHandler.UIEventTesterForSeq.class.getName());

@@ -38,14 +38,11 @@ public class Main {
 	
 	public static void main(String[] args){
 		
-		//windows
 		String params[] = {"-android-jars","D:/SDK/platforms",
 				"-process-dir", "E:/benchmark/"+AppDir.APPNAME+".apk"};
 		String apk = params[3];
+		
 		EHBOptions.v().setStrategy(AppDir.STGY);
-		//EHBOptions.v().setStaticAnalysis(true);
-		//EHBDroid.jar
-		//String params[] = {"-android-jars",args[0],"-process-dir", srcApk+"/"+args[1]+".apk"};		
 		
 		analyzeXML(apk);
 		analyzeCode(apk, params);
@@ -53,39 +50,30 @@ public class Main {
 		printEHBResult();
 	}
 
-	//start to analyze XML, to get two maps: <id, Calllback> and <Component, IntentFilter>, and write these two maps to file.
 	public static void analyzeXML(String apk){
 		
-		//parse AndroidManifest.xml to get activity, service or receiver that contains IntentFilter, then add <component, IntentFilter> to Global.v();
-		//write activityTointentFilter, serviceToIntentFilter and receiverToIntentFilter to global.
 		ProcessManifest processMan = new ProcessManifest();
 		processMan.loadManifestFile(apk);
 		processMan.addToGlobal();
 		
-		//parse resource files to get XML elements that contains onClick=" ", then get @ResourceAttributes.
 		ProcessResource processResource = new ProcessResource();
 		processResource.loadResourceFile(apk);
 		List<ResourceAttributes> resourceAttributes = processResource.getResources();
 		
-		//parse resourceAttributes and get map <id, Callback>, then add to Global. 
 		CallBackGenerator generator = new CallBackGenerator(resourceAttributes);
 		generator.generate();
 		generator.addToGlobal();
 	}
 
-	//start to analyze Code
 	private static void analyzeCode(String apk, String[] params) {
 		
-		//1. build callgraph for static analysis
 		CallGraphBuilder cgb = new CallGraphBuilder(apk);
 		cgb.build();
 		cgb.addToGlobal();
 		G.reset();
 		
-		//2. reset Soot
 		initSoot(params);
 
-		//3. start to instrument app
 		instrumentApp(params);
 	}
 	
@@ -159,8 +147,8 @@ public class Main {
 	}
 	
 	/**
-	 * @param path File to store msg
-	 * @param msg msg needed to be written
+	 * @param path path to store msg
+	 * @param msg stored message
 	 * */
 	private static void writeToFile(String path,String msg){
 		File file = new File(path);

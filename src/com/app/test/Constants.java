@@ -15,6 +15,7 @@ import com.app.test.event.InterAppEvent;
 import com.app.test.event.ReceiverEvent;
 import com.app.test.event.SystemEvent;
 import com.app.test.event.UIEvent;
+import com.app.test.methodCoverage.CodeCoverageToolkit;
 
 
 public class Constants {
@@ -170,4 +171,13 @@ public class Constants {
 	public static SootMethod uiEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.UIEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
 	public static SootMethod systemEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.SystemEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
 	public static SootMethod interAppEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.InterAppEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
-	}
+	
+//	public static final String codeCoverageToolkitName = CodeCoverageToolkit.class.getName();
+	public static SootMethod codeCoverageToolkitCalculateLines = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: int calculateLines()>");
+	public static SootMethod codeCoverageToolkitInitbbblllij = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void initbbblllij(int,int)>");
+	public static SootMethod codeCoverageToolkitInitbbblllijk = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void initbbblllijk(int,int,int)>");
+	public static SootMethod codeCoverageToolkitInstrumentData = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void instrumentData(int,int,int,int)>");
+	public static SootMethod codeCoverageToolkitGetClassCount = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: int getClassCount()>");
+	public static SootMethod codeCoverageToolkitPrintResult = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void printResult()>");
+	
+}
