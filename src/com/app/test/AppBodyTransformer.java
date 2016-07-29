@@ -46,7 +46,6 @@ import ehb.instrumentation.FieldInstrumenter;
 public class AppBodyTransformer extends BodyTransformer implements GlobalHost {
 
 	public static Set<String> activities = (HashSet<String>) (((HashSet<String>) Global.v().getActivities()).clone());
-
 	public static boolean classIntrumented = false;
 
 	String lastClass = ""; // recording the last class name
