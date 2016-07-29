@@ -29,7 +29,6 @@ import com.app.test.event.SystemEventConstants;
 import com.app.test.event.SystemEventHandler;
 import com.app.test.event.UIEvent;
 import com.app.test.event.UIEventHandler;
-import com.app.test.methodCoverage.CodeCoverageToolkit;
 
 import ehb.analysis.entryPointCreator.AndroidEntryPointCreator;
 import ehb.analysis.entryPointCreator.CallBackFunctionFromFileBuilder;
@@ -37,6 +36,7 @@ import ehb.analysis.entryPointCreator.CallBackFunctionFromXMLBuilder;
 import ehb.global.EHBOptions;
 import ehb.global.Global;
 import ehb.global.GlobalHost;
+import ehb.instrumentation.codecoverage.CodeCoverageToolkit;
 import ehb.xml.manifest.ProcessManifest;
 
 /**

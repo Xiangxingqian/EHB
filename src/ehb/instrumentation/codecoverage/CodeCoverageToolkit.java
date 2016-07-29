@@ -1,6 +1,7 @@
-package com.app.test.methodCoverage;
+package ehb.instrumentation.codecoverage;
 
 public class CodeCoverageToolkit {
+	
 	/**
 	 * 初始化二个三维数组 bbb：存储第i个类中第j个方法第k个分支是否已经isReached 0表示false， 1表示true
 	 * lll：存储第i个类中第j个方法第k个分支的lines

@@ -31,6 +31,11 @@ public class MethodCoverageFieldInstrumenter extends LocalBuilder implements IIn
 	public MethodCoverageFieldInstrumenter(SootClass sc) {
 		this.sc = sc;
 	}
+
+	@Override
+	public void instrument() {
+		addMethodListForClass();
+	}
 	
 	/**
 	 * add methodlist to every class, and initilize it in clinit method. 
@@ -72,8 +77,4 @@ public class MethodCoverageFieldInstrumenter extends LocalBuilder implements IIn
 		new SimpleClinit(sc, SimpleClinit.SUBSIGNATURE).build();
 	}
 
-	@Override
-	public void instrument() {
-		addMethodListForClass();
-	}
 }

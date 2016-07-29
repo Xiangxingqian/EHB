@@ -10,12 +10,12 @@ import soot.SootMethod;
 import android.view.ContextMenu;
 import android.view.View;
 import android.view.ContextMenu.ContextMenuInfo;
+import ehb.instrumentation.codecoverage.CodeCoverageToolkit;
 
 import com.app.test.event.InterAppEvent;
 import com.app.test.event.ReceiverEvent;
 import com.app.test.event.SystemEvent;
 import com.app.test.event.UIEvent;
-import com.app.test.methodCoverage.CodeCoverageToolkit;
 
 
 public class Constants {
@@ -172,12 +172,12 @@ public class Constants {
 	public static SootMethod systemEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.SystemEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
 	public static SootMethod interAppEventHandlerAddMenuItem_method = Scene.v().getMethod("<com.app.test.event.InterAppEventHandler: void addMenuItem(android.app.Activity,android.view.Menu)>");
 	
-//	public static final String codeCoverageToolkitName = CodeCoverageToolkit.class.getName();
-	public static SootMethod codeCoverageToolkitCalculateLines = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: int calculateLines()>");
-	public static SootMethod codeCoverageToolkitInitbbblllij = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void initbbblllij(int,int)>");
-	public static SootMethod codeCoverageToolkitInitbbblllijk = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void initbbblllijk(int,int,int)>");
-	public static SootMethod codeCoverageToolkitInstrumentData = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void instrumentData(int,int,int,int)>");
-	public static SootMethod codeCoverageToolkitGetClassCount = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: int getClassCount()>");
-	public static SootMethod codeCoverageToolkitPrintResult = Scene.v().getMethod("<com.app.test.methodCoverage.CodeCoverageToolkit: void printResult()>");
+	public static final String codeCoverageToolkitName = CodeCoverageToolkit.class.getName();
+	public static SootMethod codeCoverageToolkitCalculateLines = Scene.v().getMethod("<"+codeCoverageToolkitName+": int calculateLines()>");
+	public static SootMethod codeCoverageToolkitInitbbblllij = Scene.v().getMethod("<"+codeCoverageToolkitName+": void initbbblllij(int,int)>");
+	public static SootMethod codeCoverageToolkitInitbbblllijk = Scene.v().getMethod("<"+codeCoverageToolkitName+": void initbbblllijk(int,int,int)>");
+	public static SootMethod codeCoverageToolkitInstrumentData = Scene.v().getMethod("<"+codeCoverageToolkitName+": void instrumentData(int,int,int,int)>");
+	public static SootMethod codeCoverageToolkitGetClassCount = Scene.v().getMethod("<"+codeCoverageToolkitName+": int getClassCount()>");
+	public static SootMethod codeCoverageToolkitPrintResult = Scene.v().getMethod("<"+codeCoverageToolkitName+": void printResult()>");
 	
 }
