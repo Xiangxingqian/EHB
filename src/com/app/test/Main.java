@@ -19,109 +19,116 @@ import ehb.xml.resource.ResourceAttributes;
 import soot.G;
 import soot.Scene;
 import soot.SootClass;
+import soot.Unit;
+import soot.jimple.InvokeExpr;
 import soot.options.Options;
 
 /**
  * good programming<--beauty<--perfect
- * */
+ */
 public class Main {
-	
-	//total number of CLASS, Method, LOC and act in app
-	public static int totalMethod; 
+
+	// total number of CLASS, Method, LOC and act in app
+	public static int totalMethod;
 	public static int totalClass;
 	public static int totalLine;
 	public static int totalAct;
-	
-	public static String output = "output"+"/"+AppDir.APPNAME;
-	public static String xmleventStoration = output+"/" + AppDir.XMLEVENT + ".txt";
+
+	public static String output = "output" + "/" + AppDir.APPNAME;
+	public static String xmleventStoration = output + "/" + AppDir.XMLEVENT + ".txt";
 	public static List<String> methods = new ArrayList<String>();
-	
-	public static void main(String[] args){
-		
-		String params[] = {"-android-jars","D:/SDK/platforms",
-				"-process-dir", "E:/benchmark/"+AppDir.APPNAME+".apk"};
+
+	public static void main(String[] args) {
+
+		String params[] = { "-android-jars", "D:/SDK/platforms", "-process-dir",
+				"L:/EHBbenchmarks/benchmark/" + AppDir.APPNAME + ".apk" };
 		String apk = params[3];
-		
+
 		EHBOptions.v().setStrategy(AppDir.STGY);
-		
+
 		analyzeXML(apk);
 		analyzeCode(apk, params);
-		
+
 		printEHBResult();
 	}
 
-	public static void analyzeXML(String apk){
-		
+	public static void analyzeXML(String apk) {
+
 		ProcessManifest processMan = new ProcessManifest();
 		processMan.loadManifestFile(apk);
 		processMan.addToGlobal();
-		
+
 		ProcessResource processResource = new ProcessResource();
 		processResource.loadResourceFile(apk);
 		List<ResourceAttributes> resourceAttributes = processResource.getResources();
-		
+
 		CallBackGenerator generator = new CallBackGenerator(resourceAttributes);
 		generator.generate();
 		generator.addToGlobal();
 	}
 
 	private static void analyzeCode(String apk, String[] params) {
-		
+
 		CallGraphBuilder cgb = new CallGraphBuilder(apk);
 		cgb.build();
 		cgb.addToGlobal();
 		G.reset();
-		
+
 		initSoot(params);
 
 		instrumentApp(params);
 	}
-	
-	//print app info
+
+	// print app info
 	private static void printEHBResult() {
-		
-		//write counts and print appInfos
+
+		// write counts and print appInfos
 		{
-			String mocPath = output+"/"+Global.v().getPkg()+"_moc.txt";
+			String mocPath = output + "/" + Global.v().getPkg() + "_moc.txt";
 			StringBuilder appInfos = new StringBuilder();
-			String mainActName = "MainActivity: "+Global.v().getMainActivity();
-			String acts = "All activities: "+Global.v().getActivities();
+			String mainActName = "MainActivity: " + Global.v().getMainActivity();
+			String acts = "All activities: " + Global.v().getActivities();
 			StringBuilder idToCallback = new StringBuilder();
-			for(int i: Global.v().getIdToCallBack().keySet())
-				idToCallback.append("id: "+i+" methods: "+Global.v().getIdToCallBack().get(i)+"\n");
+			for (int i : Global.v().getIdToCallBack().keySet())
+				idToCallback.append("id: " + i + " methods: " + Global.v().getIdToCallBack().get(i) + "\n");
 			int actCount = Global.v().getActivities().size();
-			String counts = "Activity Count: "+actCount+" Method Count:"+totalMethod+" Class Count: "+totalClass+" Line of Code:"+totalLine;
+			String counts = "Activity Count: " + actCount + " Method Count:" + totalMethod + " Class Count: "
+					+ totalClass + " Line of Code:" + totalLine;
 			writeToFile(mocPath, counts);
-			
-			appInfos.append(mainActName+"\n").append(acts+"\n").append(idToCallback).append(counts);
+
+			appInfos.append(mainActName + "\n").append(acts + "\n").append(idToCallback).append(counts);
 			System.out.println(appInfos.toString());
 		}
-		
-		//write ehbevents. 
+
+		// write ehbevents.
 		{
 			StringBuilder sb = new StringBuilder();
-			for(String s: Global.v().getEHBEventSet()){
-				sb.append(s+"\n");
+			for (String s : Global.v().getEHBEventSet()) {
+				sb.append(s + "\n");
 			}
-			String eventsPath = output+"/"+Global.v().getPkg()+"_EhbEvents.txt";
+			String eventsPath = output + "/" + Global.v().getPkg() + "_EhbEvents.txt";
 			writeToFile(eventsPath, sb.toString());
 		}
 		storeGlobals(xmleventStoration);
-	}	
-	
+	}
+
 	private static void instrumentApp(String[] params) {
 		AndroidInstrumentor androidInstrument = new AndroidInstrumentor();
 		androidInstrument.instrument(params);
 	}
-	
+
 	/**
-	 * store six elements: viewToCallBacks,activityToFilters,serviceToFilters,receiverToFilters, mainActivity,ehbstgy
-	 * @param location serializarion object
-	 * */
+	 * store six elements:
+	 * viewToCallBacks,activityToFilters,serviceToFilters,receiverToFilters,
+	 * mainActivity,ehbstgy
+	 * 
+	 * @param location
+	 *            serializarion object
+	 */
 	private static void storeGlobals(String location) {
 		File file = new File(location);
 		try {
-			if(file.exists()){
+			if (file.exists()) {
 				file.delete();
 				file = new File(location);
 			}
@@ -145,12 +152,14 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	
+
 	/**
-	 * @param path path to store msg
-	 * @param msg stored message
-	 * */
-	private static void writeToFile(String path,String msg){
+	 * @param path
+	 *            path to store msg
+	 * @param msg
+	 *            stored message
+	 */
+	private static void writeToFile(String path, String msg) {
 		File file = new File(path);
 		FileOutputStream fos;
 		try {
@@ -162,44 +171,35 @@ public class Main {
 			e.printStackTrace();
 		}
 	}
-	
-	public static void initSoot(String[] args){
-		Options.v().set_soot_classpath(args[3]+";"+
-				"lib/rt.jar;" +
-				"lib/jce.jar;" +
-				"lib/tools.jar;" +
-				"lib/android.jar;"+
-				"lib/android-support-v4.jar;"+
-				"bin"
-//				"EHBDroid.jar" // for EHBDroid.jar
-//				"category/;"
-				);	
-//		Options.v().set_validate(true);
-//		Options.v().set_android_jars(args[1]);
+
+	public static void initSoot(String[] args) {
+		Options.v().set_soot_classpath(args[3] + ";" + "lib/rt.jar;" + "lib/jce.jar;" + "lib/tools.jar;"
+				+ "lib/android.jar;" + "lib/android-support-v4.jar;" + "bin");
+		Options.v().set_validate(true);
+		// Options.v().set_android_jars(args[1]);
 		Options.v().set_src_prec(Options.src_prec_apk);
-//		Options.v().set_output_format(Options.output_format_jimple);
-//		Options.v().set_output_dir("JimpleOutput");
-		Options.v().set_output_format(Options.output_format_dex);
+		 Options.v().set_output_format(Options.output_format_jimple);
+//		Options.v().set_output_format(Options.output_format_dex);
 		Options.v().set_output_dir(output);
 		Options.v().set_allow_phantom_refs(true);
-	
-		for(String classAsSignature:CallGraphBuilder.getClassesAsSignature()){
-			Scene.v().addBasicClass(classAsSignature,SootClass.SIGNATURES);
+
+		for (String classAsSignature : CallGraphBuilder.getClassesAsSignature()) {
+			Scene.v().addBasicClass(classAsSignature, SootClass.SIGNATURES);
 		}
-		for(String classAsBody:CallGraphBuilder.getApplicationClasses()){
-			Scene.v().addBasicClass(classAsBody,SootClass.BODIES);
+		for (String classAsBody : CallGraphBuilder.getApplicationClasses()) {
+			Scene.v().addBasicClass(classAsBody, SootClass.BODIES);
 		}
-		for (String className : CallGraphBuilder.getEntrypoints()){		
-			Scene.v().addBasicClass(className, SootClass.BODIES);	
-		}		
+		for (String className : CallGraphBuilder.getEntrypoints()) {
+			Scene.v().addBasicClass(className, SootClass.BODIES);
+		}
 		Scene.v().loadNecessaryClasses();
+		
 	}
-	
+
 	public static final Set<String> signCheckStmts = new HashSet<String>();
-	
-	static{
+
+	static {
 		signCheckStmts.add("void checkSignLegal(android.content.Context)");
 	}
-	
-	
+
 }

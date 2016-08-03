@@ -3,6 +3,7 @@ package com.app.test.methodModifier;
 import java.util.ArrayList;
 import java.util.List;
 
+import ehb.builderfactory.StmtInsertor;
 import soot.Body;
 import soot.Local;
 import soot.SootClass;
@@ -19,7 +20,6 @@ import soot.jimple.InvokeStmt;
 import soot.jimple.ReturnStmt;
 import soot.jimple.ReturnVoidStmt;
 import soot.util.Chain;
-import ehb.builderFactory.StmtInsertor;
 
 public abstract class MethodModifier extends StmtInsertor implements IModifier{
 	

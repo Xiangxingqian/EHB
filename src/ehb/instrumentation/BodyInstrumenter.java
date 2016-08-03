@@ -8,7 +8,6 @@ import java.util.Map;
 
 import com.app.test.CallBack;
 import com.app.test.Main;
-import com.app.test.SignCheckRemover;
 import com.app.test.methodBuilder.DoReflect;
 
 import ehb.event.EventRecognizerForCode.AndroidEvent;
@@ -16,6 +15,7 @@ import ehb.event.EventRecognizerForStmt;
 import ehb.event.SystemEventDispatcher;
 import ehb.event.UIEventDispatcher;
 import ehb.global.Global;
+import ehb.sign.SignCheckRemover;
 import soot.Body;
 import soot.Local;
 import soot.PatchingChain;

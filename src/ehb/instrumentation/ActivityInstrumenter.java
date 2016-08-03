@@ -6,9 +6,11 @@ import soot.SootClass;
 import com.app.test.exception.ClassIsNotActivityException;
 
 /**
- * add 5 fields and 2 methods to activities to activity.
- * 5 fields: uiLinkedList, systemLinkedList, interAppLinkedList, isvisited, methodList. 
- * 2 methods: clinit and onCreateOptionMenu.
+ * Instrument menu related statements to Activity. 
+ * 
+ * Add fields and methods to activity.
+ * 5 fields are uiLinkedList, systemLinkedList, interAppLinkedList, isvisited, methodList. 
+ * 2 methods are clinit and onCreateOptionMenu.
  * */
 public class ActivityInstrumenter implements IInstrumenter {
 
@@ -18,20 +20,14 @@ public class ActivityInstrumenter implements IInstrumenter {
 		this.sc = sc;
 	}
 
-	/**
-	 * add 5 fields: uiLinkedList, systemLinkedList, interAppLinkedList, isvisited, activityMenu, contextMenu
-	 * and 2 methods: clinit and onCreateOptionMenu   
-	 * */
 	@Override
 	public void instrument() {
 		instrumentActivity(sc);
 	}
 
 	private void instrumentActivity(SootClass sc) {
-
-		//check whether sc is a real activity(extends to android.app.activity)
 		try {
-			isTrueActivity(sc);
+			isTrueActivity(sc); //check whether sc is a real activity(extends to android.app.activity)
 		} catch (Exception e) {
 			e.printStackTrace();
 			return;

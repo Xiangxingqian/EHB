@@ -1,21 +1,25 @@
 package ehb.instrumentation.codecoverage;
 
-public class CodeCoverageToolkit {
+import com.app.test.AppDir;
+import com.app.test.Constants;
+
+import android.util.Log;
+
+public class CoverageToolkit {
 	
 	/**
 	 * 初始化二个三维数组 bbb：存储第i个类中第j个方法第k个分支是否已经isReached 0表示false， 1表示true
 	 * lll：存储第i个类中第j个方法第k个分支的lines
 	 */
-	public static int[][][] bbb = new int[10000][][];
-	public static int[][][] lll = new int[10000][][];
-	public static int classCount = 0;
+	public static int[][][] bbb = new int[AppDir.CLASSCOUNT][][];
+	public static int[][][] lll = new int[AppDir.CLASSCOUNT][][];
 
 	/**
 	 * @return 获得reach的行数
 	 */
 	public static int calculateLines() {
 		int reachLines = 0;
-		for (int i = 0; i < classCount; i++) {
+		for (int i = 0; i < bbb.length; i++) {
 			for (int j = 0; j < bbb[i].length; j++) {
 				for (int k = 0; k < bbb[i][j].length; k++) {
 					int total = bbb[i][j][k] == 0 ? 0 : lll[i][j][k];
@@ -27,7 +31,7 @@ public class CodeCoverageToolkit {
 	}
 
 	/**
-	 * 初始化一个二维数组
+	 * 初始化二维数组
 	 * 
 	 * @param i
 	 *            第i个class
@@ -37,7 +41,6 @@ public class CodeCoverageToolkit {
 	public static void initbbblllij(int i, int j) {
 		bbb[i - 1] = new int[j][];
 		lll[i - 1] = new int[j][];
-		classCount = i;
 	}
 
 	/**
@@ -72,20 +75,12 @@ public class CodeCoverageToolkit {
 		lll[i - 1][j - 1][k - 1] = length;
 	}
 
-	public static int getClassCount() {
-		return classCount;
-	}
-
-	public static void setClassCount(int classCount) {
-		CodeCoverageToolkit.classCount = classCount;
-	}
-
 	/**
 	 * 打印输出reach的结果
 	 */
 	public static void printResult() {
 		int calculateLines = calculateLines();
-		System.out.println("Reached Lines: " + calculateLines);
+		Log.v(Constants.LogTag.countTag, "Reaching Lines: "+calculateLines);
 	}
 
 }

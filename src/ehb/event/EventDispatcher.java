@@ -2,7 +2,7 @@ package ehb.event;
 
 import soot.Body;
 import soot.jimple.InvokeStmt;
-import ehb.builderFactory.StmtBuilder;
+import ehb.builderfactory.StmtBuilder;
 import ehb.event.EventRecognizerForCode.AndroidEvent;
 
 public abstract class EventDispatcher extends StmtBuilder{

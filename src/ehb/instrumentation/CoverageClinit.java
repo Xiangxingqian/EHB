@@ -43,7 +43,6 @@ public class CoverageClinit extends MethodBuilder {
 	@Override
 	protected void newMethodName() {
 		currentMethod = new SootMethod(CLASSNAME, paramTypes(), VoidType.v(),Modifier.STATIC);
-
 	}
 
 }

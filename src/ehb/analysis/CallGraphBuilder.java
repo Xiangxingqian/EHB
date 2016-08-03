@@ -36,7 +36,7 @@ import ehb.analysis.entryPointCreator.CallBackFunctionFromXMLBuilder;
 import ehb.global.EHBOptions;
 import ehb.global.Global;
 import ehb.global.GlobalHost;
-import ehb.instrumentation.codecoverage.CodeCoverageToolkit;
+import ehb.instrumentation.codecoverage.CoverageToolkit;
 import ehb.xml.manifest.ProcessManifest;
 
 /**
@@ -45,8 +45,75 @@ import ehb.xml.manifest.ProcessManifest;
 public class CallGraphBuilder implements GlobalHost{
 	
 	public static HashSet<String> entrypoints;
+	public static Set<String> classesAsSignature = new HashSet<>();
+	public static Set<String> applicationClasses= new HashSet<>();
+	
+	//class as SootClass.SIGNATURES and SootClass.BODIES
+	static{
+		classesAsSignature.add("java.io.PrintStream");
+        classesAsSignature.add("java.lang.System");
+        classesAsSignature.add("java.util.LinkedList");
+        classesAsSignature.add("java.lang.reflect.Field");
+        classesAsSignature.add("java.lang.reflect.Method");
+        classesAsSignature.add("java.lang.Class");
+        classesAsSignature.add("java.lang.Boolean");
+        classesAsSignature.add("java.lang.Exception");
+        classesAsSignature.add("java.lang.Throwable");
+        classesAsSignature.add("java.util.AbstractCollection");
+        classesAsSignature.add("java.lang.Object");
+        classesAsSignature.add("java.lang.Thread");
+        classesAsSignature.add("java.lang.StringBuilder");
+        classesAsSignature.add("javax.crypto.KeyGenerator");
+        
+        classesAsSignature.add("android.widget.Toast");
+        classesAsSignature.add("android.app.ListActivity");
+        classesAsSignature.add("android.widget.Toast");
+        classesAsSignature.add("android.app.Activity");
+        classesAsSignature.add("android.view.Menu");
+        classesAsSignature.add("android.content.Intent");
+        classesAsSignature.add("android.util.Log");
+        classesAsSignature.add("android.app.Application");
+        classesAsSignature.add("android.app.Application$ActivityLifecycleCallbacks");
+        classesAsSignature.add("android.app.Application$OnProvideAssistDataListener");
+        classesAsSignature.add("android.app.IntentService");
+        classesAsSignature.add("android.content.ContentProvider");
+        classesAsSignature.add("android.database.CharArrayBuffer");
 
-	String apkFileLocation; 
+        applicationClasses.add("android.app.Dialog");
+        applicationClasses.add("android.view.MenuItem");
+        applicationClasses.add("android.view.View");
+        applicationClasses.add("android.content.Context");
+        applicationClasses.add("android.view.MenuItem$OnMenuItemClickListener");
+        applicationClasses.add(CallBack.class.getName());
+        applicationClasses.add(Util.class.getName());
+        applicationClasses.add(CoverageToolkit.class.getName());
+//      applicationClasses.add(IEventHandler.class.getName());
+        applicationClasses.add(UIEventHandler.class.getName());
+        applicationClasses.add(UIEventHandler.UIEventTesterForSeq.class.getName());
+        applicationClasses.add(SystemEventHandler.class.getName());
+		applicationClasses.add(InterAppEventHandler.class.getName());
+		applicationClasses.add(UIEventHandler.UIEventTesterForSingleEvent.class.getName());
+//		applicationClasses.add(AbstractEventHandler.AppMenuItemClickListener.class.getName());
+		applicationClasses.add("com.app.test.event.SystemEventHandler$1");
+		applicationClasses.add("com.app.test.event.UIEventHandler$1");
+		applicationClasses.add("com.app.test.event.InterAppEventHandler$1");
+		applicationClasses.add(SystemEventConstants.class.getName());
+		applicationClasses.add(UIEvent.class.getName());
+		applicationClasses.add(InterAppEvent.class.getName());
+		applicationClasses.add(SystemEvent.class.getName());
+		applicationClasses.add(ReceiverEvent.class.getName());
+		applicationClasses.add(AppDir.class.getName());
+		applicationClasses.add(AndroidIntentFilter.class.getName());
+		applicationClasses.add(AndroidIntentFilter.AuthorityEntry.class.getName());
+		applicationClasses.add(Constants.LogTag.class.getName());
+		applicationClasses.add(Constants.EHBField.class.getName());
+		applicationClasses.add(Constants.EHBClass.class.getName());
+		applicationClasses.add(Constants.EHBMethod.class.getName());
+		applicationClasses.add(PatternMatcher.class.getName());
+		applicationClasses.add(MathUtil.class.getName());
+	}
+
+	private String apkFileLocation; 
 	public CallGraphBuilder(String apkFileLocation) {	
 		this.apkFileLocation = apkFileLocation;
 	}
@@ -141,74 +208,6 @@ public class CallGraphBuilder implements GlobalHost{
 		}
 	}
 	
-	public static Set<String> classesAsSignature = new HashSet<>();
-	public static Set<String> applicationClasses= new HashSet<>();
-	
-	//set classes as SootClass.SIGNATURES and SootClass.BODIES
-	static{
-		classesAsSignature.add("java.io.PrintStream");
-        classesAsSignature.add("java.lang.System");
-        classesAsSignature.add("java.util.LinkedList");
-        classesAsSignature.add("java.lang.reflect.Field");
-        classesAsSignature.add("java.lang.reflect.Method");
-        classesAsSignature.add("java.lang.Class");
-        classesAsSignature.add("java.lang.Boolean");
-        classesAsSignature.add("java.lang.Exception");
-        classesAsSignature.add("android.widget.Toast");
-        classesAsSignature.add("java.lang.Throwable");
-        classesAsSignature.add("java.util.AbstractCollection");
-        classesAsSignature.add("java.lang.Object");
-        classesAsSignature.add("java.lang.Thread");
-        classesAsSignature.add("java.lang.StringBuilder");
-        classesAsSignature.add("javax.crypto.KeyGenerator");
-        
-        classesAsSignature.add("android.app.ListActivity");
-        classesAsSignature.add("android.widget.Toast");
-        classesAsSignature.add("android.app.Activity");
-        classesAsSignature.add("android.view.Menu");
-        classesAsSignature.add("android.content.Intent");
-        classesAsSignature.add("android.util.Log");
-        classesAsSignature.add("android.app.Application");
-        classesAsSignature.add("android.app.Application$ActivityLifecycleCallbacks");
-        classesAsSignature.add("android.app.Application$OnProvideAssistDataListener");
-        classesAsSignature.add("android.app.IntentService");
-        classesAsSignature.add("android.content.ContentProvider");
-        classesAsSignature.add("android.database.CharArrayBuffer");
-
-        applicationClasses.add("android.app.Dialog");
-        applicationClasses.add("android.view.MenuItem");
-        applicationClasses.add("android.view.View");
-        applicationClasses.add("android.content.Context");
-        applicationClasses.add("android.view.MenuItem$OnMenuItemClickListener");
-        applicationClasses.add(CallBack.class.getName());
-        applicationClasses.add(Util.class.getName());
-        applicationClasses.add(CodeCoverageToolkit.class.getName());
-//      applicationClasses.add(IEventHandler.class.getName());
-        applicationClasses.add(UIEventHandler.class.getName());
-        applicationClasses.add(UIEventHandler.UIEventTesterForSeq.class.getName());
-        applicationClasses.add(SystemEventHandler.class.getName());
-		applicationClasses.add(InterAppEventHandler.class.getName());
-		applicationClasses.add(UIEventHandler.UIEventTesterForSingleEvent.class.getName());
-//		applicationClasses.add(AbstractEventHandler.AppMenuItemClickListener.class.getName());
-		applicationClasses.add("com.app.test.event.SystemEventHandler$1");
-		applicationClasses.add("com.app.test.event.UIEventHandler$1");
-		applicationClasses.add("com.app.test.event.InterAppEventHandler$1");
-		applicationClasses.add(SystemEventConstants.class.getName());
-		applicationClasses.add(UIEvent.class.getName());
-		applicationClasses.add(InterAppEvent.class.getName());
-		applicationClasses.add(SystemEvent.class.getName());
-		applicationClasses.add(ReceiverEvent.class.getName());
-		applicationClasses.add(AppDir.class.getName());
-		applicationClasses.add(AndroidIntentFilter.class.getName());
-		applicationClasses.add(AndroidIntentFilter.AuthorityEntry.class.getName());
-		applicationClasses.add(Constants.LogTag.class.getName());
-		applicationClasses.add(Constants.EHBField.class.getName());
-		applicationClasses.add(Constants.EHBClass.class.getName());
-		applicationClasses.add(Constants.EHBMethod.class.getName());
-		applicationClasses.add(PatternMatcher.class.getName());
-		applicationClasses.add(MathUtil.class.getName());
-	}
-
 	public static HashSet<String> getEntrypoints() {
 		return entrypoints;
 	}

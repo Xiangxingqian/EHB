@@ -1,4 +1,4 @@
-package ehb.builderFactory;
+package ehb.builderfactory;
 
 import soot.ArrayType;
 import soot.Body;

@@ -10,7 +10,9 @@ import com.app.test.event.UIEventHandler;
  * */
 public class AppDir {
 	
-	public final static String APPNAME = "Opensudoku";
+	public static final int CLASSCOUNT = 400;//如果是小app，则class总数为400
+	public final static String APPNAME = "yefu";
+	
 	//Event declared in XML
 	public final static String XMLEVENT = APPNAME+"_xmlevents";
 	

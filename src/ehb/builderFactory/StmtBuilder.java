@@ -1,4 +1,4 @@
-package ehb.builderFactory;
+package ehb.builderfactory;
 
 import soot.Unit;
 import soot.Value;

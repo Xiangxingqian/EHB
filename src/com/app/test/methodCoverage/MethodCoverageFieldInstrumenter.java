@@ -17,7 +17,7 @@ import com.app.test.AppDir;
 import com.app.test.Constants;
 import com.app.test.methodBuilder.SimpleClinit;
 
-import ehb.builderFactory.LocalBuilder;
+import ehb.builderfactory.LocalBuilder;
 import ehb.global.Global;
 import ehb.instrumentation.IInstrumenter;
 
